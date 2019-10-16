@@ -2,5 +2,8 @@
 
 require_once 'autoloader.php';
 
-$connection = new Connection();
-$connection->connect();
+$example = new UserInfoDao();
+
+$all = $example->getAll();
+
+echo json_encode($all);
