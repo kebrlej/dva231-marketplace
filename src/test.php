@@ -2,6 +2,10 @@
 
 require_once 'autoloader.php';
 
+
+$connection = new Connection();
+
+
 $example = new UserInfoDao();
 
 $all = $example->getAll();
