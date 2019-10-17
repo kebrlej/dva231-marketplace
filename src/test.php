@@ -3,11 +3,7 @@
 require_once 'autoloader.php';
 
 
-$connection = new Connection();
-
-
-$example = new UserInfoDao();
-
-$all = $example->getAll();
+$example = new AdministratorDao();
+$all = $example->getById(1);
 
 echo json_encode($all);

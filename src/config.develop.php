@@ -7,7 +7,7 @@ function getConfig()
         'host' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'assignment3',
+        'schema' => 'marketplace',
         'environment' => 'dev'
 //        'API_URL' => "'http://localhost/api.php'",
     );
