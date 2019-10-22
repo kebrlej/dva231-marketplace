@@ -1,0 +1,18 @@
+REST API
+//basic example
+- request routing
+- error handling and exceptions
+
+
+CONTROLLERS
+- write obvious use cases
+- implement basic functionality without database
+
+
+DATABASE
+- query builder, default query methods for each table
+
+
+NICE TO HAVE:
+- security, nice urls
+- resolve proper http methods and error codes (dont bother about it now)

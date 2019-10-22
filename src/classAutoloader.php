@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config.develop.php';
+
 
 
 /**
@@ -31,3 +31,8 @@ spl_autoload_register(function ($className) {
 spl_autoload_register(function ($className) {
     requireClassFileIfExists($className, '/database/rest/');
 });
+
+spl_autoload_register(function ($className) {
+    requireClassFileIfExists($className, '/controller/');
+});
+

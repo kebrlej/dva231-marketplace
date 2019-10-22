@@ -1,6 +1,6 @@
 <?php
 
-require_once 'autoloader.php';
+require_once 'classAutoloader.php';
 
 
 $example = new AdministratorDao();
