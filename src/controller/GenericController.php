@@ -5,7 +5,7 @@ abstract class GenericController
 {
     protected $requestObject = null;
 
-    protected $requestMethodsOfResources = null;
+    protected $allowedRequestMethods = null;
 
     public function __construct($requestObject)
     {
@@ -16,9 +16,9 @@ abstract class GenericController
 
     public function isRequestMethodCorrect()
     {
-        if (array_key_exists($this->requestObject->resourceName, $this->requestMethodsOfResources)) {
-            $resourceRequestMethod = $this->requestMethodsOfResources[$this->requestObject->resourceName];
-            if ($resourceRequestMethod === $this->requestObject->requestMethod) {
+        if (array_key_exists($this->requestObject->resourceName, $this->allowedRequestMethods)) {
+            $allowedResourceHttpMethods = $this->allowedRequestMethods[$this->requestObject->resourceName];
+            if (in_array($this->requestObject->requestMethod, $allowedResourceHttpMethods)) {
                 return true;
             } else {
                 return false;
