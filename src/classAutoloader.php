@@ -33,7 +33,16 @@ spl_autoload_register(function ($className) {
 spl_autoload_register(function ($className) {
     requireClassFileIfExists($className, './controller/');
 });
+
 spl_autoload_register(function ($className) {
     requireClassFileIfExists($className, './');
+});
+
+spl_autoload_register(function ($className) {
+    requireClassFileIfExists($className, './utils/');
+});
+
+spl_autoload_register(function ($className) {
+    requireClassFileIfExists($className, './dto/');
 });
 
