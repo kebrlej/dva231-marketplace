@@ -1,5 +1,4 @@
 <?php
-define('DOCUMENT_ROOT', "../src");
 
 function getConfig()
 {

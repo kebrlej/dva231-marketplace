@@ -1,15 +1,13 @@
 <?php
 
 
-
-
 /**
  * By registering autoloading functions, we dont have to manually include or require files.
  * PHP will search the autoloader to find classes.
  */
 function buildFilePath($className, $classfolder)
 {
-    return DOCUMENT_ROOT . $classfolder . $className . '.php';
+    return SRC_ROOT_FOLDER . $classfolder . $className . '.php';
 }
 
 function requireClassFileIfExists($className, $classFolder)
@@ -29,10 +27,13 @@ spl_autoload_register(function ($className) {
 });
 
 spl_autoload_register(function ($className) {
-    requireClassFileIfExists($className, '/database/rest/');
+    requireClassFileIfExists($className, './rest/');
 });
 
 spl_autoload_register(function ($className) {
-    requireClassFileIfExists($className, '/controller/');
+    requireClassFileIfExists($className, './controller/');
+});
+spl_autoload_register(function ($className) {
+    requireClassFileIfExists($className, './');
 });
 

@@ -1,40 +1,50 @@
 <?php
 
-include "../src/includes.php";
+require "../src/includes.php";
 
-
-$resourcePath = "/";
-if (isset($_SERVER['PATH_INFO'])) {
-    $resourcePath = $_SERVER['PATH_INFO'];
-}
-
-$requestContent = file_get_contents('php://input');
-
-
-// now we have the path, we want to route to controllers
-$userController = new UserController();
-
-
-$controllers = array(
-    "authenticate-user" => function () {
-        (new UserController())->authenticateUser();
-    }
-);
-
-$resolvedFunction = null;
-foreach ($controllers as $restUrl => $controllerFunction) {
-    if (strpos($resourcePath, $restUrl)) {
-        $controllerFunction();
+function resolveRequestMethod($requestMethod)
+{
+    switch ($requestMethod) {
+        case HTTP_GET:
+            return HTTP_GET;
+        case HTTP_POST:
+            return HTTP_POST;
+        default:
+            die("unable to resolve HTTP request type");
     }
 }
 
-if ($resolvedFunction === null) {
-    //TODO process the error
-    echo " function not found";
+function constructRequestObject()
+{
+    //TODO check request params and throw exceptions, especially of PATH_INFO is set
+    $urlParts = explode("/", $_SERVER['PATH_INFO']);
+
+    return new Request(
+        "/" . $urlParts[1] . "/" . $urlParts[2],
+        resolveRequestMethod($_SERVER['REQUEST_METHOD']),
+        $_SERVER['PATH_INFO'],
+        file_get_contents('php://input')
+    );
+
 }
 
 
-//echo $requestContent;
+$request = constructRequestObject();
+
+
+//TODO try catch for exceptions
+
+switch ($request->resourceName) {
+    case '/users':
+        (new UserController($request))->resourceCRUD();
+        break;
+    case '/users/authentication':
+        (new UserController($request))->authenticateUser();
+        break;
+    default: throw new Exception("Resource does not exist");//TODO Return 404 - resource doesnt exist
+}
+
+
 
 
 

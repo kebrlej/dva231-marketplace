@@ -2,6 +2,8 @@ REST API
 //basic example
 - request routing
 - error handling and exceptions
+- access rights for resources
+- response format
 
 
 CONTROLLERS
