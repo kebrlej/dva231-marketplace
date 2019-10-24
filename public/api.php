@@ -18,9 +18,10 @@ function constructRequestObject()
 {
     //TODO check request params and throw exceptions, especially of PATH_INFO is set
     $urlParts = explode("/", $_SERVER['PATH_INFO']);
+    array_shift($urlParts);
 
     return new Request(
-        "/" . $urlParts[1] . "/" . $urlParts[2],
+        "/" . implode("/",$urlParts),
         resolveRequestMethod($_SERVER['REQUEST_METHOD']),
         $_SERVER['PATH_INFO'],
         file_get_contents('php://input')
@@ -31,10 +32,9 @@ function constructRequestObject()
 
 $request = constructRequestObject();
 
-
 //TODO try catch for exceptions
-
 switch ($request->resourceName) {
+
     case '/users':
         (new UserController($request))->resourceCRUD();
         break;
