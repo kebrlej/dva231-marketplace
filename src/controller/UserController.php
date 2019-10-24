@@ -16,12 +16,12 @@ class UserController extends GenericController
 
         //TODO access rights checks to resources - do later
 
-        if ($this->isRequestMethodCorrect() == false) {
+        if ($this->isRequestMethodAllowed() == false) {
             //TODO throw 405 method not allowed
             throw new Exception("405 - method not allowed");
         }
 
-        $this->userDao = new UserInfoDao();
+        $this->userDao = new UserDao();
     }
 
 
@@ -29,14 +29,7 @@ class UserController extends GenericController
     {
         switch ($this->requestObject->getRequestMethod()) {
             case HTTP_GET:
-                if (isset($_GET['id'])) {
-                    //get single entity
-                    $userId = $_GET['id'];
-//                    echo json_decode($this->userDao->getById($userId));
-                } else {
-                    //get all entities
-                    $this->userDao->getAll();
-                }
+                $this->processGETRequest();
                 break;
 //            case HTTP_POST:
 //                //create new user -> data in payload
@@ -61,6 +54,18 @@ class UserController extends GenericController
         echo $login;
         echo $password;
         //method post
+    }
+
+    public function processGETRequest(): void
+    {
+        if (isset($_GET['id'])) {
+            //get single entity
+            $userId = $_GET['id'];
+//                    echo json_decode($this->userDao->getById($userId));
+        } else {
+            //get all entities
+            $this->userDao->getAll();
+        }
     }
 
 

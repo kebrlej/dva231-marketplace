@@ -14,7 +14,7 @@ abstract class GenericController
 
     public abstract function resourceCRUD();
 
-    public function isRequestMethodCorrect()
+    public function isRequestMethodAllowed()
     {
         if (array_key_exists($this->requestObject->resourceName, $this->allowedRequestMethods)) {
             $allowedResourceHttpMethods = $this->allowedRequestMethods[$this->requestObject->resourceName];
@@ -24,7 +24,7 @@ abstract class GenericController
                 return false;
             }
         } else {
-            throw new Exception("Wrong request method definition in class constructor!!!");
+            throw new Exception("Invalid request method definition in class constructor!!!");
             //TODO throw exception that request method for resource is not defined in constructor
         }
     }

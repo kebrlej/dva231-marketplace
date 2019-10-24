@@ -34,7 +34,6 @@ $request = constructRequestObject();
 
 //TODO try catch for exceptions
 switch ($request->resourceName) {
-
     case '/users':
         (new UserController($request))->resourceCRUD();
         break;

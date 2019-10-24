@@ -1,9 +1,8 @@
 <?php
 
-require_once 'classAutoloader.php';
+require 'includes.php';
 
-
-$example = new AdministratorDao();
+$example = new UserDao();
 $all = $example->getById(1);
 
 echo json_encode($all);
