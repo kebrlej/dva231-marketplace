@@ -61,10 +61,12 @@ class UserController extends GenericController
         if (isset($_GET['id'])) {
             //get single entity
             $userId = $_GET['id'];
-//                    echo json_decode($this->userDao->getById($userId));
+            echo json_encode(Response::createSuccessResponse($this->userDao->getById($userId)));
+
         } else {
             //get all entities
-            $this->userDao->getAll();
+            $userArray = $this->userDao->getAll();
+            echo json_encode(Response::createSuccessResponse($userArray));
         }
     }
 
