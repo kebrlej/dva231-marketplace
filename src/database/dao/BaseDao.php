@@ -18,9 +18,11 @@ class BaseDao extends Connection
      */
     public function getAll()
     {
+        //TODO catch exception
+
         $query = 'SELECT * FROM ' . $this->tableName;
 
-        $result = $this->sqlQuery($query);
+        $result = $this->selectSqlQuery($query);
         $rows = [];
         while ($record = $result->fetch_assoc()) {
             array_push($rows, $record);
@@ -34,11 +36,14 @@ class BaseDao extends Connection
      *
      * @param $id
      * @return object or NULL
+     * @throws Exception
      */
     public function getById($id)
     {
+        //todo catch exceptions
+
         $query = "SELECT * FROM ".$this->tableName." WHERE id='{$id}'";
-        $result = $this->sqlQuery($query);
+        $result = $this->selectSqlQuery($query);
         return $result->fetch_assoc();
     }
 

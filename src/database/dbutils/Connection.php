@@ -29,11 +29,29 @@ class Connection
      *
      * @param $sqlQuery string
      * @return bool|mysqli_result according to the type of the query (see query function docs)
+     * @throws Exception
      */
-    public function sqlQuery($sqlQuery)
+    public function selectSqlQuery($sqlQuery)
     {
         $result = $this->connection->query($sqlQuery);
-//        echo mysqli_error($this->connection);
-        return $result;
+        if ($result == null || $result->num_rows == 0) {
+            if (mysqli_error($this->connection) == null) {
+                return $result;
+            } else {
+                throw new Exception(mysqli_error($this->connection));
+            }
+        } else {
+            return $result;
+        }
+    }
+
+    public function createUpdateDeleteSqlQuery($sqlQuery)
+    {
+        $result = $this->connection->query($sqlQuery);
+        if ($result) {
+            return true;
+        } else {
+            throw new Exception(mysqli_error($this->connection));
+        }
     }
 }
