@@ -1,7 +1,7 @@
 <?php
 
 
-class BaseDao extends Connection
+class BaseDao extends Connection implements IBaseSqlOperations
 {
     private $tableName;
 
@@ -15,6 +15,7 @@ class BaseDao extends Connection
      * Returns all rows from a table specified by a child DAO class.
      *
      * @return array
+     * @throws Exception
      */
     public function getAll()
     {
@@ -35,24 +36,25 @@ class BaseDao extends Connection
      * Returned value has to be null checked.
      *
      * @param $id
-     * @return object or NULL
+     * @return array|null
      * @throws Exception
      */
     public function getById($id)
     {
         //todo catch exceptions
 
-        $query = "SELECT * FROM ".$this->tableName." WHERE id='{$id}'";
+        $query = "SELECT * FROM " . $this->tableName . " WHERE id='{$id}'";
         $result = $this->selectSqlQuery($query);
         return $result->fetch_assoc();
     }
 
-    public function deleteById()
+    public function deleteById($id)
     {
+        $query = "DELETE FROM " . $this->tableName . " WHERE id='{$id}'";
+        $result = $this->selectSqlQuery($query);
 
+        return $result;
     }
-
-
 
 
 }

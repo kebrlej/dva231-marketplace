@@ -1,0 +1,36 @@
+Authentication propagation???
+
+Now - DTOS, select where = authentication, create, update
+Generic controller
+
+
+RESPONSE
+- error handling and exceptions (204 - no content)
+
+EXCEPTIONS
+SQL/conversion
+
+CONTROLLERS
+- proper exception handling
+- generic access functions in BaseController
+    - create query
+    - delete query
+    - support for where queries
+- DTOs and parameter checking
+
+DATABASE
+- select WHERE query builder
+- create
+- update
+- default query methods for each table
+
+
+REST API
+- security - protecting resources according to user role
+- access rights for resources
+- .htaccess
+
+
+
+
+NICE TO HAVE:

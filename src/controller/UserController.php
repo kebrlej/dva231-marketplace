@@ -4,8 +4,6 @@
 class UserController extends GenericController
 {
 
-    private $userDao;
-
     public function __construct($requestObject)
     {
         parent::__construct($requestObject);
@@ -21,7 +19,7 @@ class UserController extends GenericController
             throw new Exception("405 - method not allowed");
         }
 
-        $this->userDao = new UserDao();
+        $this->dao = new UserDao();
     }
 
 
@@ -29,7 +27,7 @@ class UserController extends GenericController
     {
         switch ($this->requestObject->getRequestMethod()) {
             case HTTP_GET:
-                $this->processGETRequest();
+                $this->processDefaultGETRequest();
                 break;
 //            case HTTP_POST:
 //                //create new user -> data in payload
@@ -37,40 +35,25 @@ class UserController extends GenericController
 //            case HTTP_PUT:
 //                //update user -> data in payload
 //                break;
-//            case HTTP_DELETE:
-//                //delete user
-//                $_GET['id'];
-//                break;
-
+            case HTTP_DELETE:
+                //delete user
+                $this->processDELETERequest();
+                break;
+            default:
+//                TODO throw unsuported operation exception
         }
     }
 
 
-    function authenticateUser()
-    {
-        $data = $this->requestObject->data;
-        $login = $data['login'];
-        $password = $data['password'];
-        echo $login;
-        echo $password;
-        //method post
-    }
-
-    public function processGETRequest(): void
-    {
-        if (isset($_GET['id'])) {
-            //get single entity
-            $userId = $_GET['id'];
-
-            $user = $this->userDao->getById($userId);
-            echo json_encode(Response::createSuccessResponse($user));
-
-        } else {
-            //get all entities
-            $userArray = $this->userDao->getAll();
-            echo json_encode(Response::createSuccessResponse($userArray));
-        }
-    }
+//    function authenticateUser()
+//    {
+//        $data = $this->requestObject->data;
+//        $login = $data['login'];
+//        $password = $data['password'];
+//        echo $login;
+//        echo $password;
+//        //method post
+//    }
 
 
 }

@@ -9,6 +9,10 @@ function resolveRequestMethod($requestMethod)
             return HTTP_GET;
         case HTTP_POST:
             return HTTP_POST;
+        case HTTP_DELETE:
+            return HTTP_DELETE;
+        case HTTP_PUT:
+            return HTTP_PUT;
         default:
             die("unable to resolve HTTP request type");
     }

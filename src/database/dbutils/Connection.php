@@ -34,7 +34,7 @@ class Connection
     public function selectSqlQuery($sqlQuery)
     {
         $result = $this->connection->query($sqlQuery);
-        if ($result == null || $result->num_rows == 0) {
+        if ($this->isQueryExecutionError($result)) {
             if (mysqli_error($this->connection) == null) {
                 return $result;
             } else {
@@ -45,13 +45,17 @@ class Connection
         }
     }
 
-    public function createUpdateDeleteSqlQuery($sqlQuery)
+    public function getAffectedRows(){
+        return $this->connection->affected_rows;
+    }
+    /**
+     * @param $result
+     * @return bool
+     */
+    public function isQueryExecutionError($result): bool
     {
-        $result = $this->connection->query($sqlQuery);
-        if ($result) {
-            return true;
-        } else {
-            throw new Exception(mysqli_error($this->connection));
-        }
+        return $result == null
+            || (is_int($result) && $result == 0)
+            || (is_object($result) && $result->num_rows == 0);
     }
 }
