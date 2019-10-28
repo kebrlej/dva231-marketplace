@@ -19,7 +19,7 @@ function requireClassFileIfExists($className, $classFolder)
 }
 
 spl_autoload_register(function ($className) {
-    requireClassFileIfExists($className, './dto/');
+    requireClassFileIfExists($className, './rest/dto/');
 });
 
 spl_autoload_register(function ($className) {
