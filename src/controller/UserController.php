@@ -8,7 +8,8 @@ class UserController extends GenericController
     {
         parent::__construct($requestObject);
         $this->allowedRequestMethods = array(
-            '/users/authentication' => array(HTTP_POST),
+            '/users/login' => array(HTTP_POST),
+            '/users/logout' => array(HTTP_POST),
             '/users' => array(HTTP_GET, HTTP_POST, HTTP_PUT, HTTP_DELETE)
         );
 
@@ -43,14 +44,33 @@ class UserController extends GenericController
     }
 
 
-    function authenticateUser()
+    function loginUser()
     {
         $userLoginDto = new UserLoginDto();
-        echo $this->requestObject->data['email'];
+
+        //validates that both username and password are set
         $userLoginDto->loadObjectData($this->requestObject->data);
 
+        $result = $this->dao->selectWhereConditions((array)$userLoginDto);
+        if ($result == null) {
+            $this->sendResponse(Response::errorResponse("wrong user email or password"));
+        } else {
+            $dto = $this->dao->constructDTOFromSingleResult($result);
+            try{
+                SessionManagement::setUserRole( new UserRole($result['role']));
+                $this->sendResponse(Response::successResponse($dto));
+            }catch(Exception $e){
+                $this->sendResponse(Response::errorResponse($e->getMessage()));
+            }
 
-        //method post
+        }
+
+    }
+
+    function logoutUser()
+    {
+        SessionManagement::logoutUser();
+        $this->sendResponse(Response::successResponse(null));
     }
 
 

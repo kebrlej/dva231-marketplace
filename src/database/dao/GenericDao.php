@@ -56,6 +56,22 @@ abstract class GenericDao extends Connection
         return $result;
     }
 
+    public function selectWhereConditions($paramArray)
+    {
+        $query = "SELECT * FROM " . $this->tableName . " WHERE ";
+
+        $whereParts = array();
+        foreach ($paramArray as $key => $value) {
+            array_push($whereParts, " {$key}='{$value}' ");
+        }
+
+        $whereCondition = implode(" AND ", $whereParts);
+
+        $query = $query . $whereCondition;
+        $result = $this->selectSqlQuery($query);
+        return $result->fetch_assoc();
+    }
+
     public abstract function constructDTOFromSingleResult($result);
 
     public abstract function constructDTOArrayFromMultipleResults($resultArray);

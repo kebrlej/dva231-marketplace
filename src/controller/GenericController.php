@@ -24,12 +24,12 @@ abstract class GenericController
 
             $dbRow = $this->dao->getById($id);
             $userDto = $this->dao->constructDTOFromSingleResult($dbRow);
-            $this->sendResponse(Response::createSuccessResponse($userDto));
+            $this->sendResponse(Response::successResponse($userDto));
         } else {
             //get all entities
             $objectArray = $this->dao->getAll();
 
-            $this->sendResponse(Response::createSuccessResponse($objectArray));
+            $this->sendResponse(Response::successResponse($objectArray));
         }
     }
 
@@ -39,12 +39,12 @@ abstract class GenericController
             $id = $_GET['id'];
             $result = $this->dao->deleteById($id);
             if ($this->dao->getAffectedRows() == 1 && $result == 1) {
-                $this->sendResponse(Response::createSuccessResponse(null));
+                $this->sendResponse(Response::successResponse(null));
             } else {
-                $this->sendResponse(Response::createErrorResponse("Affected rows: " . $this->dao->getAffectedRows()));
+                $this->sendResponse(Response::errorResponse("Affected rows: " . $this->dao->getAffectedRows()));
             }
         } else {
-            $this->sendResponse(Response::createErrorResponse("id of object to delete not set"));
+            $this->sendResponse(Response::errorResponse("id of object to delete not set"));
         }
     }
 

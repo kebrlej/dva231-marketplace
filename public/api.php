@@ -25,7 +25,7 @@ function constructRequestObject()
     array_shift($urlParts);
 
     return new Request(
-        "/" . implode("/",$urlParts),
+        "/" . implode("/", $urlParts),
         resolveRequestMethod($_SERVER['REQUEST_METHOD']),
         $_SERVER['PATH_INFO'],
         file_get_contents('php://input')
@@ -41,10 +41,14 @@ switch ($request->resourceName) {
     case '/users':
         (new UserController($request))->resourceCRUD();
         break;
-    case '/users/authentication':
-        (new UserController($request))->authenticateUser();
+    case '/users/login':
+        (new UserController($request))->loginUser();
         break;
-    default: throw new Exception("Resource does not exist");//TODO Return 404 - resource doesnt exist
+    case '/users/logout':
+        (new UserController($request))->logoutUser();
+        break;
+    default:
+        throw new Exception("Resource does not exist");//TODO Return 404 - resource doesnt exist
 }
 
 

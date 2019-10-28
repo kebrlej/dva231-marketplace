@@ -17,7 +17,7 @@ class Response
 //        $this->data = $data;
 //    }
 
-    public static function createErrorResponse($errorMessage)
+    public static function errorResponse($errorMessage)
     {
         $response = new Response();
         $response->success = false;
@@ -27,7 +27,7 @@ class Response
         return $response;
     }
 
-    public static function createSuccessResponse($data)
+    public static function successResponse($data)
     {
         $response = new Response();
         $response->success = true;

@@ -18,13 +18,13 @@ class Request
         $this->fullPath = $fullPath;
         $this->data = $payload;
 
+        //only POST and PUT can have content body
         if ($this->requestMethod === HTTP_POST || $this->requestMethod === HTTP_PUT) {
             $decodedJson = json_decode($payload, false);
             if ($decodedJson === NULL) {
                 throw new Exception("Missing request body");
             } else {
                 $this->data = $decodedJson;
-                echo $this->data['email']."!!!!!!!!!!!!!!!!";
             }
         }
     }
