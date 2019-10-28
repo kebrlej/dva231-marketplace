@@ -39,21 +39,19 @@ class UserController extends GenericController
                 //delete user
                 $this->processDELETERequest();
                 break;
-            default:
-//                TODO throw unsuported operation exception
         }
     }
 
 
-//    function authenticateUser()
-//    {
-//        $data = $this->requestObject->data;
-//        $login = $data['login'];
-//        $password = $data['password'];
-//        echo $login;
-//        echo $password;
-//        //method post
-//    }
+    function authenticateUser()
+    {
+        $userLoginDto = new UserLoginDto();
+        echo $this->requestObject->data['email'];
+        $userLoginDto->loadObjectData($this->requestObject->data);
+
+
+        //method post
+    }
 
 
 }

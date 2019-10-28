@@ -1,7 +1,7 @@
 <?php
 
 
-class BaseDao extends Connection implements IBaseSqlOperations
+abstract class GenericDao extends Connection
 {
     private $tableName;
 
@@ -56,5 +56,7 @@ class BaseDao extends Connection implements IBaseSqlOperations
         return $result;
     }
 
+    public abstract function constructDTOFromSingleResult($result);
 
+    public abstract function constructDTOArrayFromMultipleResults($resultArray);
 }

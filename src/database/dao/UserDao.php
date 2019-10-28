@@ -1,7 +1,7 @@
 <?php
 
 
-class UserDao extends BaseDao
+class UserDao extends GenericDao
 {
 
     public function __construct()
@@ -9,4 +9,18 @@ class UserDao extends BaseDao
         parent::__construct("user");
     }
 
+
+    public function constructDTOFromSingleResult($result)
+    {
+        return new UserDataDto($result['id'], $result['username'], $result['email'], $result['create_time']);
+    }
+
+    public function constructDTOArrayFromMultipleResults($resultArray)
+    {
+        $dtoArray = [];
+        foreach ($resultArray as $result) {
+            array_push($dtoArray, $this->constructDTOFromSingleResult($result));
+        }
+        return $dtoArray;
+    }
 }

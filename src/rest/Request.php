@@ -18,17 +18,19 @@ class Request
         $this->fullPath = $fullPath;
         $this->data = $payload;
 
-        if ($this->requestMethod === HTTP_POST) {
-            $decodedJson = json_decode($payload, true);
+        if ($this->requestMethod === HTTP_POST || $this->requestMethod === HTTP_PUT) {
+            $decodedJson = json_decode($payload, false);
             if ($decodedJson === NULL) {
                 throw new Exception("Missing request body");
             } else {
                 $this->data = $decodedJson;
+                echo $this->data['email']."!!!!!!!!!!!!!!!!";
             }
         }
     }
 
-    public function getRequestMethod(){
+    public function getRequestMethod()
+    {
         return $this->requestMethod;
     }
 

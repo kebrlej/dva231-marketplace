@@ -17,17 +17,19 @@ abstract class GenericController
 
     public function processDefaultGETRequest(): void
     {
+        //todo check returned rows and handle error
         if (isset($_GET['id'])) {
             //get single entity
             $id = $_GET['id'];
 
-            $object = $this->dao->getById($id);
-            echo json_encode(Response::createSuccessResponse($object));
-
+            $dbRow = $this->dao->getById($id);
+            $userDto = $this->dao->constructDTOFromSingleResult($dbRow);
+            $this->sendResponse(Response::createSuccessResponse($userDto));
         } else {
             //get all entities
             $objectArray = $this->dao->getAll();
-            echo json_encode(Response::createSuccessResponse($objectArray));
+
+            $this->sendResponse(Response::createSuccessResponse($objectArray));
         }
     }
 
@@ -39,14 +41,12 @@ abstract class GenericController
             if ($this->dao->getAffectedRows() == 1 && $result == 1) {
                 $this->sendResponse(Response::createSuccessResponse(null));
             } else {
-                $this->sendResponse(Response::createErrorResponse("Affected rows: ".$this->dao->getAffectedRows()));
+                $this->sendResponse(Response::createErrorResponse("Affected rows: " . $this->dao->getAffectedRows()));
             }
         } else {
             $this->sendResponse(Response::createErrorResponse("id of object to delete not set"));
         }
     }
-
-    
 
 
     public function sendResponse(Response $response)
@@ -56,8 +56,7 @@ abstract class GenericController
     }
 
 
-    public
-    function isRequestMethodAllowed()
+    public function isRequestMethodAllowed()
     {
         if (array_key_exists($this->requestObject->resourceName, $this->allowedRequestMethods)) {
             $allowedResourceHttpMethods = $this->allowedRequestMethods[$this->requestObject->resourceName];

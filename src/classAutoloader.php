@@ -19,6 +19,10 @@ function requireClassFileIfExists($className, $classFolder)
 }
 
 spl_autoload_register(function ($className) {
+    requireClassFileIfExists($className, './dto/');
+});
+
+spl_autoload_register(function ($className) {
     requireClassFileIfExists($className, './database/dao/');
 });
 
@@ -42,7 +46,5 @@ spl_autoload_register(function ($className) {
     requireClassFileIfExists($className, './utils/');
 });
 
-spl_autoload_register(function ($className) {
-    requireClassFileIfExists($className, './dto/');
-});
+
 
