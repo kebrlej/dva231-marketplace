@@ -19,31 +19,27 @@ function requireClassFileIfExists($className, $classFolder)
 }
 
 spl_autoload_register(function ($className) {
-    requireClassFileIfExists($className, './rest/dto/');
+    requireClassFileIfExists($className, '/rest/dto/');
 });
 
 spl_autoload_register(function ($className) {
-    requireClassFileIfExists($className, './database/dao/');
+    requireClassFileIfExists($className, '/database/dao/');
 });
 
 spl_autoload_register(function ($className) {
-    requireClassFileIfExists($className, './database/dbutils/');
+    requireClassFileIfExists($className, '/database/dbutils/');
 });
 
 spl_autoload_register(function ($className) {
-    requireClassFileIfExists($className, './rest/');
+    requireClassFileIfExists($className, '/rest/');
 });
 
 spl_autoload_register(function ($className) {
-    requireClassFileIfExists($className, './controller/');
+    requireClassFileIfExists($className, '/controller/');
 });
 
 spl_autoload_register(function ($className) {
-    requireClassFileIfExists($className, './');
-});
-
-spl_autoload_register(function ($className) {
-    requireClassFileIfExists($className, './utils/');
+    requireClassFileIfExists($className, '/utils/');
 });
 
 
