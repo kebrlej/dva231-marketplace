@@ -1,7 +1,7 @@
 <?php
 
 
-class UserDao extends GenericDao
+class UserDao extends AbstractDao
 {
 
     public function __construct()

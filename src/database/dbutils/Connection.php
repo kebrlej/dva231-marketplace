@@ -31,7 +31,7 @@ class Connection
      * @return bool|mysqli_result according to the type of the query (see query function docs)
      * @throws Exception
      */
-    public function selectSqlQuery($sqlQuery)
+    public function executeSqlQuery($sqlQuery)
     {
         $result = $this->connection->query($sqlQuery);
         if ($this->isQueryExecutionError($result)) {

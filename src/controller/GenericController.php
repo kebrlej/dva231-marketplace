@@ -6,42 +6,55 @@ abstract class GenericController
     protected $requestObject = null;
     protected $allowedRequestMethods = null;
 
-    protected $dao = null;
+    protected $dataAccessObject = null;
 
     public function __construct($requestObject)
     {
         $this->requestObject = $requestObject;
     }
 
-    public abstract function resourceCRUD();
+    public abstract function defaultRequestRouter();
 
-    public function processDefaultGETRequest(): void
+    public function handleDefaultGET(): void
     {
         //todo check returned rows and handle error
         if (isset($_GET['id'])) {
             //get single entity
             $id = $_GET['id'];
 
-            $dbRow = $this->dao->getById($id);
-            $userDto = $this->dao->constructDTOFromSingleResult($dbRow);
+            $dbRow = $this->dataAccessObject->getById($id);
+            $userDto = $this->dataAccessObject->constructDTOFromSingleResult($dbRow);
             $this->sendResponse(Response::successResponse($userDto));
         } else {
             //get all entities
-            $objectArray = $this->dao->getAll();
+            $objectArray = $this->dataAccessObject->getAll();
 
             $this->sendResponse(Response::successResponse($objectArray));
         }
     }
 
-    public function processDELETERequest()
+    public function handleDefaultPOST()
+    {
+        $data = $this->requestObject->data;
+
+        $result = $this->dataAccessObject->insertIntoTable((array)$data);
+
+        if($this->dataAccessObject->getAffectedRows() == 1 && $result == 1){
+            $this->sendResponse(Response::successResponse(null));
+        }else{
+            $this->sendResponse(Response::errorResponse("Insert failed"));
+        }
+    }
+
+    public function handleDefaultDELETE()
     {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
-            $result = $this->dao->deleteById($id);
-            if ($this->dao->getAffectedRows() == 1 && $result == 1) {
+            $result = $this->dataAccessObject->deleteById($id);
+            if ($this->dataAccessObject->getAffectedRows() == 1 && $result == 1) {
                 $this->sendResponse(Response::successResponse(null));
             } else {
-                $this->sendResponse(Response::errorResponse("Affected rows: " . $this->dao->getAffectedRows()));
+                $this->sendResponse(Response::errorResponse("Affected rows: " . $this->dataAccessObject->getAffectedRows()));
             }
         } else {
             $this->sendResponse(Response::errorResponse("id of object to delete not set"));

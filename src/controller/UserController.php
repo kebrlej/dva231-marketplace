@@ -20,25 +20,26 @@ class UserController extends GenericController
             throw new Exception("405 - method not allowed");
         }
 
-        $this->dao = new UserDao();
+        $this->dataAccessObject = new UserDao();
     }
 
 
-    public function resourceCRUD()
+    public function defaultRequestRouter()
     {
         switch ($this->requestObject->getRequestMethod()) {
             case HTTP_GET:
-                $this->processDefaultGETRequest();
+                $this->handleDefaultGET();
                 break;
-//            case HTTP_POST:
-//                //create new user -> data in payload
-//                break;
+            case HTTP_POST:
+                //create new user -> data in payload
+                $this->handleDefaultPOST();
+                break;
 //            case HTTP_PUT:
 //                //update user -> data in payload
 //                break;
             case HTTP_DELETE:
                 //delete user
-                $this->processDELETERequest();
+                $this->handleDefaultDELETE();
                 break;
         }
     }
@@ -51,11 +52,11 @@ class UserController extends GenericController
         //validates that both username and password are set
         $userLoginDto->loadObjectData($this->requestObject->data);
 
-        $result = $this->dao->selectWhereConditions((array)$userLoginDto);
+        $result = $this->dataAccessObject->selectWhereConditions((array)$userLoginDto);
         if ($result == null) {
             $this->sendResponse(Response::errorResponse("wrong user email or password"));
         } else {
-            $userDto = $this->dao->constructDTOFromSingleResult($result);
+            $userDto = $this->dataAccessObject->constructDTOFromSingleResult($result);
             try{
                 SessionManagement::setUserRole( new UserRole($result['role']));
                 SessionManagement::storeUserDataToSession($userDto);

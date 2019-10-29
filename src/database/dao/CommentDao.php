@@ -1,7 +1,7 @@
 <?php
 
 
-class CommentDao extends GenericDao
+class CommentDao extends AbstractDao
 {
 
     public function __construct()

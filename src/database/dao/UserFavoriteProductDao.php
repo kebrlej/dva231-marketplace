@@ -1,7 +1,7 @@
 <?php
 
 
-class UserFavoriteProductDao extends GenericDao
+class UserFavoriteProductDao extends AbstractDao
 {
     public function __construct()
     {

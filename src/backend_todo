@@ -1,7 +1,11 @@
-Authentication propagation???
+before create user, check if user with this username or password already
+exists. Do the check in controller and return special exception and handle it
+properly
 
-Now - DTOS, select where = authentication, create, update
-Generic controller
+
+
+
+Authentication propagation???
 
 
 RESPONSE
@@ -16,13 +20,9 @@ CONTROLLERS
     - create query
     - delete query
     - support for where queries
-- DTOs and parameter checking
 
 DATABASE
-- select WHERE query builder
-- create
 - update
-- default query methods for each table
 
 
 REST API

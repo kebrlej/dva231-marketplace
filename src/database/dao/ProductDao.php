@@ -1,7 +1,7 @@
 <?php
 
 
-class ProductDao extends GenericDao
+class ProductDao extends AbstractDao
 {
     public function __construct()
     {

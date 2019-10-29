@@ -36,7 +36,7 @@ class ProductController extends GenericController
     }
 
 
-    public function resourceCRUD()
+    public function defaultRequestRouter()
     {
         switch ($this->requestObject->getRequestMethod()) {
             case HTTP_GET:
@@ -50,7 +50,7 @@ class ProductController extends GenericController
 //                break;
             case HTTP_DELETE:
                 //delete user
-                $this->processDELETERequest();
+                $this->handleDefaultDELETE();
                 break;
         }
 
