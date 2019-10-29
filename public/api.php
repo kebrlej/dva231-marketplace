@@ -47,6 +47,9 @@ switch ($request->resourceName) {
     case '/users/logout':
         (new UserController($request))->logoutUser();
         break;
+    case "/products":
+        (new ProductController($request))->resourceCRUD();
+        break;
     default:
         throw new Exception("Resource does not exist");//TODO Return 404 - resource doesnt exist
 }

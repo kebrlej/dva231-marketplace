@@ -210,3 +210,9 @@
         </table>
     </div>
 </a>
+
+<script>
+    window.onload = function () {
+        getProducts();
+    }
+</script>

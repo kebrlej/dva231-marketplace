@@ -59,7 +59,10 @@ if (isset($_GET['page'])) {
 
     <script src="<?= JS_PATH ?>jquery-3.3.1.js"></script>
     <script src="<?= JS_PATH ?>requestService.js"></script>
+    <script src="<?= JS_PATH ?>productTemplateBuilder.js"></script>
+    <script src="<?= JS_PATH ?>productService.js"></script>
     <script src="<?= JS_PATH ?>login.js"></script>
+    <script src="<?= JS_PATH ?>product.js"></script>
 
 
 </head>
