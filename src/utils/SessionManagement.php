@@ -4,6 +4,14 @@
 class SessionManagement
 {
 
+    public static function storeUserDataToSession($userDto)
+    {
+        $_SESSION['id'] = $userDto->id;
+        $_SESSION['username'] = $userDto->username;
+        $_SESSION['email'] = $userDto->username;
+        $_SESSION['created'] = $userDto->created;
+    }
+
     public static function setUserRole($role)
     {
         $_SESSION['role'] = $role;

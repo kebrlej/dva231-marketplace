@@ -55,12 +55,12 @@ class UserController extends GenericController
         if ($result == null) {
             $this->sendResponse(Response::errorResponse("wrong user email or password"));
         } else {
-            $dto = $this->dao->constructDTOFromSingleResult($result);
+            $userDto = $this->dao->constructDTOFromSingleResult($result);
             try{
                 SessionManagement::setUserRole( new UserRole($result['role']));
+                SessionManagement::storeUserDataToSession($userDto);
 
-
-                $this->sendResponse(Response::successResponse($dto));
+                $this->sendResponse(Response::successResponse($userDto));
             }catch(Exception $e){
                 $this->sendResponse(Response::errorResponse($e->getMessage()));
             }
