@@ -2,6 +2,14 @@ before create user, check if user with this username or password already
 exists. Do the check in controller and return special exception and handle it
 properly
 
+When request body attributes not set correctly, catch exception and
+return fail response. Now it throws exception.
+
+Fix get user by id when it doesnt exist to fail. Same for products. Systematic mistake
+
+Default product state when created. Default user role when created.
+
+Fix when no id specified for GET/DELETE
 
 
 

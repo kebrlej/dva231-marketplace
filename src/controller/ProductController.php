@@ -8,7 +8,7 @@ class ProductController extends GenericController
     {
         parent::__construct($requestObject);
         $this->allowedRequestMethods = array(
-            '/products' => array(HTTP_GET)
+            '/products' => array(HTTP_GET, HTTP_POST, HTTP_PUT, HTTP_DELETE)
         );
 
         if ($this->isRequestMethodAllowed() == false) {
@@ -16,6 +16,7 @@ class ProductController extends GenericController
             throw new Exception("405 - method not allowed");
         }
 
+        $this->dataAccessObject = new ProductDao();
     }
 
     public function getFakeProducts()
@@ -40,20 +41,17 @@ class ProductController extends GenericController
     {
         switch ($this->requestObject->getRequestMethod()) {
             case HTTP_GET:
-                $this->getFakeProducts();
+                $this->handleDefaultGET();
                 break;
-//            case HTTP_POST:
-//                //create new user -> data in payload
-//                break;
+            case HTTP_POST:
+                $this->handleDefaultPOST();
+                break;
 //            case HTTP_PUT:
 //                //update user -> data in payload
 //                break;
             case HTTP_DELETE:
-                //delete user
                 $this->handleDefaultDELETE();
                 break;
         }
-
-        // TODO: Implement resourceCRUD() method.
     }
 }

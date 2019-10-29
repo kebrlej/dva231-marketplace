@@ -10,11 +10,24 @@ class ProductDao extends AbstractDao
 
     public function constructDTOFromSingleResult($result)
     {
-        // TODO: Implement constructDTOFromSingleResult() method.
+        return new GetProductDto(
+            $result['id'],
+            $result['title'],
+            $result['price'],
+            $result['location'],
+            $result['post_date'],
+            $result['state'],
+            $result['description'],
+            $result['category']
+        );
     }
 
     public function constructDTOArrayFromMultipleResults($resultArray)
     {
-        // TODO: Implement constructDTOArrayFromMultipleResults() method.
+        $dtoArray = [];
+        foreach ($resultArray as $result) {
+            array_push($dtoArray, $this->constructDTOFromSingleResult($result));
+        }
+        return $dtoArray;
     }
 }

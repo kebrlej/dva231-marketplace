@@ -1,7 +1,7 @@
 <?php
 
 
-class GetProductDto extends AbstractDto
+class GetProductDto
 {
 
     public $id;
@@ -14,13 +14,29 @@ class GetProductDto extends AbstractDto
     public $category;
     public $images; // array of images
 
-    public function getDataTypes()
+    /**
+     * GetProductDto constructor.
+     * @param $id
+     * @param $title
+     * @param $price
+     * @param $location
+     * @param $postDate
+     * @param $state
+     * @param $description
+     * @param $category
+     * @param $images
+     */
+    public function __construct($id, $title, $price, $location, $postDate, $state, $description, $category, $images = null)
     {
-        // TODO: Implement getDataTypes() method.
+        $this->id = $id;
+        $this->title = $title;
+        $this->price = $price;
+        $this->location = $location;
+        $this->postDate = $postDate;
+        $this->state = $state;
+        $this->description = $description;
+        $this->category = $category;
+        $this->images = $images;
     }
 
-    public function getClassTypes()
-    {
-        // TODO: Implement getClassTypes() method.
-    }
 }
