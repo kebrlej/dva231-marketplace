@@ -14,5 +14,4 @@ function sendPostRequest(url, data, callback) {
         data = JSON.stringify({});
     }
     jQuery.post(url, JSON.stringify(data), callback);
-
 }

@@ -58,6 +58,8 @@ class UserController extends GenericController
             $dto = $this->dao->constructDTOFromSingleResult($result);
             try{
                 SessionManagement::setUserRole( new UserRole($result['role']));
+
+
                 $this->sendResponse(Response::successResponse($dto));
             }catch(Exception $e){
                 $this->sendResponse(Response::errorResponse($e->getMessage()));

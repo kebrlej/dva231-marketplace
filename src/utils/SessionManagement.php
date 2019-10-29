@@ -19,6 +19,16 @@ class SessionManagement
         return isset($_SESSION['role']);
     }
 
+    public static function isAdmin()
+    {
+        return $_SESSION['role'] === 'ADMIN';
+    }
+
+    public static function isUser()
+    {
+        return $_SESSION['role'] === 'USER';
+    }
+
     public static function logoutUser()
     {
         unset($_SESSION['role']);
