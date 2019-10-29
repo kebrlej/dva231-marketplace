@@ -3,13 +3,13 @@
 
 class UserLoginDto extends AbstractDto
 {
-    public $email;
+    public $username;
     public $password;
 
     public function getDataTypes()
     {
         return $this->validateDataTypes(array(
-            "email" => DataType::PRIMITIVE,
+            "username" => DataType::PRIMITIVE,
             "password" => DataType::PRIMITIVE
         ));
     }

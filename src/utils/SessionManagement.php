@@ -14,6 +14,11 @@ class SessionManagement
         return $_SESSION['role'];
     }
 
+    public static function isLoggedIn()
+    {
+        return isset($_SESSION['role']);
+    }
+
     public static function logoutUser()
     {
         unset($_SESSION['role']);

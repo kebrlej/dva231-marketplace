@@ -8,6 +8,7 @@ define('CLASS_PATH', '../class/');
 define('INDEX_PATH', '../public/');
 
 require_once CLASS_PATH . 'Session.php';
+require "../src/includes.php";
 
 //$page = '';
 $phpfile = false;
@@ -57,6 +58,9 @@ if (isset($_GET['page'])) {
 
 
     <script src="<?= JS_PATH ?>jquery-3.3.1.js"></script>
+    <script src="<?= JS_PATH ?>requestService.js"></script>
+    <script src="<?= JS_PATH ?>login.js"></script>
+
 
 </head>
 <body>
@@ -75,7 +79,13 @@ if (isset($_GET['page'])) {
             <ul class="nav navbar-nav navbar-right" id="logout">
                 <li><a href="index.php">Search</a></li>
                 <li><a href="index.php?page=newpost">New Post</a></li>
-                <li><a href="index.php?page=login">Login</a></li>
+                <?php
+                if (SessionManagement::isLoggedIn()) {
+                    echo '<li><a onclick="logoutUser()">Logout</a></li>';
+                } else {
+                    echo '<li><a href="index.php?page=login">Login</a></li>';
+                }
+                ?>
             </ul>
         </div>
     </div>
