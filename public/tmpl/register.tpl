@@ -1,18 +1,18 @@
 <div class="background"></div>
 <div id="register-box">
-    <form method="POST" action="#">
+    <form name='registration' onSubmit="return formValidation();">
         <div id="register-group">
-            <label for="register" class="glyphicon glyphicon-user"></label>
+            <label for="firstname" class="glyphicon glyphicon-user"></label>
             <input type="text" name="firstname" placeholder="First name" id="register">
         </div>
         <br>
         <div id="register-group">
-            <label for="register" class="glyphicon glyphicon-user"></label>
+            <label for="lastname" class="glyphicon glyphicon-user"></label>
             <input type="text" name="lastname" placeholder="Last name" id="register">
         </div>
         <br>
         <div id="register-group">
-            <label for="register" class="glyphicon glyphicon-envelope"></label>
+            <label for="email" class="glyphicon glyphicon-envelope"></label>
             <input type="text" name="email" placeholder="Email" id="register">
         </div>
         <br>
