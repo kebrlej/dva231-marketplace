@@ -7,7 +7,7 @@ class UserRegisterDto extends AbstractDto
     public $email;
     public $password;
 
-    public function getDataTypes()
+    public function getRequiredFields()
     {
         return $this->validateDataTypes(array(
             "username" => DataType::PRIMITIVE,

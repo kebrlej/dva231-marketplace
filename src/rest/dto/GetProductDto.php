@@ -13,6 +13,7 @@ class GetProductDto
     public $description;
     public $category;
     public $images; // array of images
+    public $comments; // array of comments
 
     /**
      * GetProductDto constructor.
@@ -26,7 +27,7 @@ class GetProductDto
      * @param $category
      * @param $images
      */
-    public function __construct($id, $title, $price, $location, $postDate, $state, $description, $category, $images = null)
+    public function __construct($id, $title, $price, $location, $postDate, $state, $description, $category, $images = null, $comments = null)
     {
         $this->id = $id;
         $this->title = $title;
@@ -37,6 +38,7 @@ class GetProductDto
         $this->description = $description;
         $this->category = $category;
         $this->images = $images;
+        $this->comments = $comments;
     }
 
 }

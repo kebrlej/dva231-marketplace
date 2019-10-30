@@ -9,9 +9,15 @@ class CreateProductDto extends AbstractDto
     public $description;
     public $category;
 
-    public function getDataTypes()
+    public function getRequiredFields()
     {
-        // TODO: Implement getDataTypes() method.
+        return $this->validateDataTypes(array(
+            "title" => DataType::PRIMITIVE,
+            "price" => DataType::PRIMITIVE,
+            "location" => DataType::PRIMITIVE,
+            "description" => DataType::PRIMITIVE,
+            "category" => DataType::PRIMITIVE
+        ));
     }
 
     public function getClassTypes()

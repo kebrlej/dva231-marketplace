@@ -11,6 +11,8 @@ class CommentDao extends AbstractDao
 
     public function constructDTOFromSingleResult($result)
     {
+
+
         // TODO: Implement constructDTOFromSingleResult() method.
     }
 

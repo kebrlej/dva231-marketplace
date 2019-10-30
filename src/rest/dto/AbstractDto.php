@@ -45,7 +45,7 @@ abstract class AbstractDto implements IPropertyDescription
      */
     public function loadPropertyFromDataHolder($data, $propertyName)
     {
-        $dataTypes = $this->getDataTypes();
+        $dataTypes = $this->getRequiredFields();
         $dataType = $dataTypes[$propertyName];
         if ($dataType == DataType::PRIMITIVE
             || $dataType == DataType::PRIMITIVE_ARRAY
