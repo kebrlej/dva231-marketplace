@@ -9,7 +9,10 @@ Fix get user by id when it doesnt exist to fail. Same for products. Systematic m
 
 Default product state when created. Default user role when created.
 
-Fix when no id specified for GET/DELETE
+Fix when no id specified for GET/DELETE.
+
+After successful comment adding, return the newly created comment to
+the website.
 
 
 
