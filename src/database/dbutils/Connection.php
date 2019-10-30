@@ -1,6 +1,6 @@
 <?php
 
-require_once '../src/config.develop.php';
+require_once '../src/develop.config.php';
 
 /**
  * Class Connection provides database connection and query
@@ -17,7 +17,7 @@ class Connection
      */
     public function __construct()
     {
-        $config = getConfig();
+        $config = provideConfig();
         $this->connection = new mysqli($config['host'], $config['username'], $config['password'], $config["schema"]);
         if ($this->connection->connect_errno) {
             die("Could not connect: " . mysqli_connect_error());

@@ -2,3 +2,5 @@
 todo.txt
 public/api_aswi.php
 resources/database/marketplace_model1.mwb.bak
+src/local.config.php
+src/configLoader.php
