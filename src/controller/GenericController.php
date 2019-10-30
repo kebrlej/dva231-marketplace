@@ -22,16 +22,14 @@ abstract class GenericController
         //todo check returned rows and handle error
         if (isset($_GET['id'])) {
             //get single entity
-            $id = $_GET['id'];
-
-            $dbRow = $this->dataAccessObject->getById($id);
-            $userDto = $this->dataAccessObject->constructDTOFromSingleResult($dbRow);
-            $this->sendResponse(Response::successResponse($userDto));
+            $dbRow = $this->dataAccessObject->getById($_GET['id']);
+            $objectDto = $this->dataAccessObject->constructDTOFromSingleResult($dbRow);
+            $this->sendResponse(Response::successResponse($objectDto));
         } else {
             //get all entities
-            $objectArray = $this->dataAccessObject->getAll();
-
-            $this->sendResponse(Response::successResponse($objectArray));
+            $dbRows = $this->dataAccessObject->getAll();
+            $dtos = $this->dataAccessObject->constructDTOArrayFromResults($dbRows);
+            $this->sendResponse(Response::successResponse($dtos));
         }
     }
 

@@ -20,15 +20,9 @@ abstract class AbstractDao extends Connection
     public function getAll()
     {
         //TODO catch exception
-
         $query = 'SELECT * FROM ' . $this->tableName;
-
         $result = $this->executeSqlQuery($query);
-        $rows = [];
-        while ($record = $result->fetch_assoc()) {
-            array_push($rows, $record);
-        }
-        return $rows;
+        return $this->extractAllResultsIntoArray($result);
     }
 
     /**
@@ -42,7 +36,6 @@ abstract class AbstractDao extends Connection
     public function getById($id)
     {
         //todo catch exceptions
-
         $query = "SELECT * FROM " . $this->tableName . " WHERE id='{$id}'";
         $result = $this->executeSqlQuery($query);
         return $result->fetch_assoc();
@@ -52,43 +45,63 @@ abstract class AbstractDao extends Connection
     {
         $query = "DELETE FROM " . $this->tableName . " WHERE id='{$id}'";
         $result = $this->executeSqlQuery($query);
-
         return $result;
     }
 
-    public function selectWhereConditions($paramArray)
+    public function selectOneWhereConditions($paramArray)
     {
-        $query = "SELECT * FROM " . $this->tableName . " WHERE ";
-
-        $whereParts = array();
-        foreach ($paramArray as $key => $value) {
-            array_push($whereParts, " {$key}='{$value}' ");
-        }
-
-        $whereCondition = implode(" AND ", $whereParts);
-
-        $query = $query . $whereCondition;
+        $query = $this->prepareWhereQueryString($paramArray);
         $result = $this->executeSqlQuery($query);
         return $result->fetch_assoc();
     }
 
-    public function insertIntoTable($paramArray){
+
+    public function selectMultipleWhereConditions($paramArray)
+    {
+        $query = $this->prepareWhereQueryString($paramArray);
+        $result = $this->executeSqlQuery($query);
+        return $this->extractAllResultsIntoArray($result);
+    }
+
+    private function prepareWhereQueryString($paramArray)
+    {
+        $query = "SELECT * FROM " . $this->tableName . " WHERE ";
+        $whereParts = array();
+        foreach ($paramArray as $key => $value) {
+            array_push($whereParts, " {$key}='{$value}' ");
+        }
+        $whereCondition = implode(" AND ", $whereParts);
+        $query = $query . $whereCondition;
+        return $query;
+    }
+
+    private function extractAllResultsIntoArray($result){
+        $rows = [];
+        while ($record = $result->fetch_assoc()) {
+            array_push($rows, $record);
+        }
+        return $rows;
+    }
+
+    public function insertIntoTable($paramArray)
+    {
 
         $columns = array();
         $values = array();
-        foreach($paramArray as $column=>$value){
-            array_push($columns,"`$column`");
+        foreach ($paramArray as $column => $value) {
+            array_push($columns, "`$column`");
             array_push($values, "'{$value}'");
         }
-        $columnsString = "(".implode(",",$columns).")";
-        $valuesString =  "(".implode(",",$values).")";
-        $query = "INSERT INTO ".$this->tableName." ".$columnsString." VALUES ".$valuesString;
+        $columnsString = "(" . implode(",", $columns) . ")";
+        $valuesString = "(" . implode(",", $values) . ")";
+        $query = "INSERT INTO " . $this->tableName . " " . $columnsString . " VALUES " . $valuesString;
         return $this->executeSqlQuery($query);
     }
 
     public abstract function constructDTOFromSingleResult($result);
 
-    public function constructDTOArrayFromResults($resultArray){
+    public function constructDTOArrayFromResults($resultArray)
+    {
         $dtoArray = [];
         foreach ($resultArray as $result) {
             array_push($dtoArray, $this->constructDTOFromSingleResult($result));

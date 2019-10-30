@@ -11,6 +11,7 @@ class CommentDao extends AbstractDao
 
     public function constructDTOFromSingleResult($result)
     {
+//        echo json_encode($result);
         return new CommentDto(
             $result['id'],
             $result['text'],

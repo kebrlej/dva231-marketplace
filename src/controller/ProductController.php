@@ -17,11 +17,31 @@ class ProductController extends GenericController
         }
     }
 
+
+    private function loadProductComments($productId)
+    {
+        $commentDao = new CommentDao();
+        $commentRows = $commentDao->selectMultipleWhereConditions(array('product_id' => $productId));
+//        echo json_encode($commentRows);
+        $commentDtos = $commentDao->constructDTOArrayFromResults($commentRows);
+        return $commentDtos;
+    }
+
     public function defaultRequestRouter()
     {
         switch ($this->requestObject->getRequestMethod()) {
             case HTTP_GET:
-                $this->handleDefaultGET();
+                if (isset($_GET['id'])) {
+                    //get single entity
+                    $dbRow = $this->dataAccessObject->getById($_GET['id']);
+                    $productDto = $this->dataAccessObject->constructDTOFromSingleResult($dbRow);
+
+                    $productDto->comments = $this->loadProductComments($dbRow['id']);
+
+                    $this->sendResponse(Response::successResponse($productDto));
+                } else {
+                    $this->handleDefaultGET();
+                }
                 break;
             case HTTP_POST:
                 $this->handleDefaultPOST();
