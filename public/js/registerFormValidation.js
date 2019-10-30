@@ -1,5 +1,5 @@
 function formValidation(){
-    
+
     var uname = document.registration.firstname;
     var usurname = document.registration.lastname;
     var uemail = document.registration.email;
