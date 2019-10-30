@@ -6,38 +6,41 @@ class CommentDto extends AbstractDto
     public $id;
     public $text;
     public $createTime;
-    public $authorId;         // id of comment author
+    public $userId; // id of comment author
+    public $productId;
     public $author;         // username of comment author
-    public $replyToComment; // id of comment we reply to
+    public $replyTo; // id of comment we reply to
 
     /**
      * CommentDto constructor.
      * @param $id
      * @param $text
      * @param $createTime
-     * @param $authorId
+     * @param $userId
+     * @param $productId
      * @param $author
-     * @param $replyToComment
+     * @param $replyTo
      */
-    public function __construct($id, $text, $createTime, $authorId, $author, $replyToComment)
+    public function __construct($id, $text, $createTime, $userId, $productId, $author, $replyTo)
     {
         $this->id = $id;
         $this->text = $text;
         $this->createTime = $createTime;
-        $this->authorId = $authorId;
+        $this->userId = $userId;
+        $this->productId = $productId;
         $this->author = $author;
-        $this->replyToComment = $replyToComment;
+        $this->replyTo = $replyTo;
     }
-
 
     public function getRequiredFields()
     {
         return $this->validateDataTypes(array(
             "text" => DataType::PRIMITIVE,
             "createTime" => DataType::PRIMITIVE,
-            "authorId" => DataType::PRIMITIVE,
+            "userId" => DataType::PRIMITIVE,
+            "productId" => DataType::PRIMITIVE,
             "author" => DataType::PRIMITIVE,
-            "replyToComment"=>DataType::PRIMITIVE
+            "replyTo" => DataType::PRIMITIVE
         ));
     }
 

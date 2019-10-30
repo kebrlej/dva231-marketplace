@@ -18,16 +18,9 @@ class ProductDao extends AbstractDao
             $result['post_date'],
             $result['state'],
             $result['description'],
-            $result['category']
+            $result['category'],
+            $result['user_id']
         );
     }
 
-    public function constructDTOArrayFromMultipleResults($resultArray)
-    {
-        $dtoArray = [];
-        foreach ($resultArray as $result) {
-            array_push($dtoArray, $this->constructDTOFromSingleResult($result));
-        }
-        return $dtoArray;
-    }
 }

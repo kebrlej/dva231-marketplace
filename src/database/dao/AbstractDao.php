@@ -88,5 +88,11 @@ abstract class AbstractDao extends Connection
 
     public abstract function constructDTOFromSingleResult($result);
 
-    public abstract function constructDTOArrayFromMultipleResults($resultArray);
+    public function constructDTOArrayFromResults($resultArray){
+        $dtoArray = [];
+        foreach ($resultArray as $result) {
+            array_push($dtoArray, $this->constructDTOFromSingleResult($result));
+        }
+        return $dtoArray;
+    }
 }

@@ -6,7 +6,8 @@ class UserController extends GenericController
 
     public function __construct($requestObject)
     {
-        parent::__construct($requestObject);
+        parent::__construct($requestObject, new UserDao());
+
         $this->allowedRequestMethods = array(
             '/users/login' => array(HTTP_POST),
             '/users/logout' => array(HTTP_POST),
@@ -14,13 +15,11 @@ class UserController extends GenericController
         );
 
         //TODO access rights checks to resources - do later
-
         if ($this->isRequestMethodAllowed() == false) {
             //TODO throw 405 method not allowed
             throw new Exception("405 - method not allowed");
         }
 
-        $this->dataAccessObject = new UserDao();
     }
 
 
@@ -77,4 +76,9 @@ class UserController extends GenericController
     }
 
 
+    public function prepareDataForInsert($data)
+    {
+        //no preparations needed :-)
+        return (array)$data;
+    }
 }

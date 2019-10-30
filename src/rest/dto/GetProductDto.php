@@ -12,6 +12,9 @@ class GetProductDto
     public $state;
     public $description;
     public $category;
+
+    //foreign key properties
+    public $userId;
     public $images; // array of images
     public $comments; // array of comments
 
@@ -25,9 +28,11 @@ class GetProductDto
      * @param $state
      * @param $description
      * @param $category
+     * @param $userId
      * @param $images
+     * @param null $comments
      */
-    public function __construct($id, $title, $price, $location, $postDate, $state, $description, $category, $images = null, $comments = null)
+    public function __construct($id, $title, $price, $location, $postDate, $state, $description, $category, $userId, $images = null, $comments = null)
     {
         $this->id = $id;
         $this->title = $title;
@@ -37,6 +42,8 @@ class GetProductDto
         $this->state = $state;
         $this->description = $description;
         $this->category = $category;
+
+        $this->userId = $userId;
         $this->images = $images;
         $this->comments = $comments;
     }

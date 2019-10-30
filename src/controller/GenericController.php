@@ -8,12 +8,14 @@ abstract class GenericController
 
     protected $dataAccessObject = null;
 
-    public function __construct($requestObject)
+    public function __construct($requestObject, $dataAccessObject)
     {
         $this->requestObject = $requestObject;
+        $this->dataAccessObject = $dataAccessObject;
     }
 
     public abstract function defaultRequestRouter();
+    public abstract function prepareDataForInsert($data);
 
     public function handleDefaultGET(): void
     {
@@ -37,7 +39,9 @@ abstract class GenericController
     {
         $data = $this->requestObject->data;
 
-        $result = $this->dataAccessObject->insertIntoTable((array)$data);
+        $preparedData = $this->prepareDataForInsert($data);
+
+        $result = $this->dataAccessObject->insertIntoTable($preparedData);
 
         if($this->dataAccessObject->getAffectedRows() == 1 && $result == 1){
             $this->sendResponse(Response::successResponse(null));
