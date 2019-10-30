@@ -95,124 +95,55 @@
     <a>Another example of an ad that is much longer than the first one</a>
     <br>
 </div>
-<!-- First example -->
-<a href="index.php?page=post" style="text-decoration: none;">
 
-    <div id="adBox" class="adBox">
-
-        <table style="text-align:center; margin-top:0px;">
-
-            <tr>
-                <td rowspan="7" height="150px" width="250px" style="background-color:black;">
-                    <img src="img/img2.jpg" width="100%" height="156px">
-                </td>
-                <td colspan="2">
-                    <h2>Title of the ad</h2>
-                </td>
-            </tr>
-            <tr>
-                <td width="200px">
-                    <h3 style="color:#444">Accessories & watches</h3>
-                </td>
-                <td rowspan="6">
-                    <p>This is the description of an ad that is placed to the right in the preview. If the entire
-                        description doesn't fit it will get cut off. To see the full description, the user will have to
-                        click the ad which will redirect them to the full version of the ad on it's own page. There,
-                        additional info will also be shown, like more pictures uploaded by the poster as well as the
-                        comments visitors have left on the ad. The poster can comment as well.</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h3 style="color:#444">5000 kr</h3>
-                </td>
-
-            </tr>
-            <tr>
-                <td>
-                    <h3 style="color:#444">Västerås</h3>
-                </td>
-            </tr>
-
-            <tr>
-                <td width="200px">
-                    <h3 style="opacity: 0;">.</h3>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h3>October 20, 2019</h3>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h3>4 Comments</h3>
-                </td>
-            </tr>
-        </table>
-    </div>
-</a>
-
-<!-- Second example -->
-<a href="index.php?page=post" style="text-decoration: none;">
-    <div id="adBox" class="adBox">
-        <table style="text-align:center; margin-top:0px;">
-            <tr>
-                <td rowspan="7" height="150px" width="250px" style="background-color:black;">
-                    <img src="img/img1.jpg" width="100%" height="156px">
-                </td>
-                <td colspan="2">
-                    <h2>Another example of an ad that is much longer than the first one</h2>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h3 style="color:#444">Computers & peripherals</h3>
-                </td>
-                <td rowspan="6">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Sed odio morbi quis commodo odio. Dictumst vestibulum rhoncus est
-                        pellentesque elit ullamcorper. Nunc sed blandit libero volutpat sed. Et malesuada fames ac
-                        turpis egestas sed tempus. Mauris nunc congue nisi vitae suscipit tellus mauris a. Morbi enim
-                        nunc faucibus a pellentesque sit amet porttitor eget. Non nisi est sit amet facilisis magna.
-                        Rhoncus urna neque viverra justo nec ultrices. Ultricies leo integer malesuada nunc vel risus
-                        commodo viverra maecenas. Et netus et malesuada fames ac turpis egestas. At in tellus integer
-                        feugiat scelerisque varius morbi enim nunc. Morbi tincidunt ornare massa eget egestas purus.
-                        Pulvinar mattis nunc sed blandit libero volutpat. Nisi lacus sed viverra tellus in hac
-                        habitasse.</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h3 style="color:#444">6000 kr</h3>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h3 style="color:#444">Stockholm</h3>
-                </td>
-            </tr>
-            <tr>
-                <td width="200px">
-                    <h3 style="opacity: 0;">.</h3>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h3>October 18, 2019</h3>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h3>2 Comments</h3>
-                </td>
-            </tr>
-        </table>
-    </div>
-</a>
+<p id="dummyTextToLoadTheProducts"></p>
 
 <script>
-    window.onload = function () {
-        getProducts();
+    
+  var tempobj = {
+        id: 1, 
+        title: "Test product with a much longer title to test", 
+        price: 300, 
+        location: "Västeras", 
+        category: "Sport", 
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed odio morbi quis commodo odio. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Nunc sed blandit libero volutpat sed. Et malesuada fames ac turpis egestas sed tempus. Mauris nunc congue nisi vitae suscipit tellus mauris a. Morbi enim nunc faucibus a pellentesque sit amet porttitor eget. Non nisi est sit amet facilisis magna. Rhoncus urna neque viverra justo nec ultrices. Ultricies leo integer malesuada nunc vel risus commodo viverra maecenas. ",
+        date: "Jan 1, 2019",
+        comments: "4"
+    };
+    var tempobj2 = {
+        id: 2, 
+        title: "Another test product", 
+        price: 500, 
+        location: "Stockholm", 
+        category: "Garden & outdoors", 
+        description: "adfghsdfgujdghdfg",
+        date: "Jan 2, 2020",
+        comments: "2"
+    };
+    var tempobj3 = {
+        id: 3, 
+        title: "Yet another test product", 
+        price: 1000, 
+        location: "Uppsala", 
+        category: "Phones", 
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed odio morbi quis commodo odio. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Nunc sed blandit libero volutpat sed. Et malesuada fames ac turpis egestas sed tempus. Mauris nunc congue nisi vitae suscipit tellus mauris a. Morbi enim nunc faucibus a pellentesque sit amet porttitor eget. Non nisi est sit amet facilisis magna. Rhoncus urna neque viverra justo nec ultrices. Ultricies leo integer malesuada nunc vel risus commodo viverra maecenas. ",
+        date: "Jan 3, 2021",
+        comments: "3"
+    };
+    var objarr = [tempobj, tempobj2, tempobj3];
+
+    function buildCard(obj) {
+        return '<div class="productBox"><img><h2>'+obj.title+'</h2><h3>'+obj.price+' kr</h3><h3>'+obj.category+'</h3><h3>'+obj.location+'</h3><br><h4>'+obj.date+'</h4><h4>'+obj.comments+' comments</h4><p>'+obj.description+'</p></div>';
     }
+
+    for (var i = 0; i < objarr.length; ++i)
+    {
+        document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildCard(objarr[i]);
+    }
+    if (objarr.length == 0) document.getElementById("dummyTextToLoadTheProducts").innerHTML = "No results found.";
+
+
+    
+    
+
 </script>

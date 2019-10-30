@@ -62,7 +62,8 @@ if (isset($_GET['page'])) {
     <script src="<?= JS_PATH ?>productTemplateBuilder.js"></script>
     <script src="<?= JS_PATH ?>productService.js"></script>
     <script src="<?= JS_PATH ?>login.js"></script>
-    <script src="<?= JS_PATH ?>product.js"></script>
+	<script src="<?= JS_PATH ?>product.js"></script>
+    
 
 
 </head>
@@ -84,7 +85,15 @@ if (isset($_GET['page'])) {
                 <li><a href="index.php?page=newpost">New Post</a></li>
                 <?php
                 if (SessionManagement::isLoggedIn()) {
-                    echo '<li><a onclick="logoutUser()">Logout</a></li>';
+                    echo '<li><div class="dropdown">
+                <button id="userbutton" class="header-dropdown" data-toggle="dropdown" value="text"> Logged in as:
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">My favorites</a></li>
+                    <li><a href="#">My products</a></li>
+                    <li><a onclick="logoutUser()">Logout</a></li>
+                </ul>
+                </div></li>';
                 } else {
                     echo '<li><a href="index.php?page=login">Login</a></li>';
                 }
@@ -105,7 +114,6 @@ if (isset($_GET['page'])) {
     ?>
 </section>
 
-
 <footer class="footer">
     <div>[Footer]
         <a href="index.php"> [Link]</a>
@@ -113,5 +121,6 @@ if (isset($_GET['page'])) {
 </footer>
 
 <script src="<?= JS_PATH ?>bootstrap.js"></script>
+
 </body>
 </html>

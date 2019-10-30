@@ -21,6 +21,13 @@ body {
   background-size: 100% 100%;
 }
 
+.header-dropdown{
+  background-color: rgb(150, 50, 75, 0);
+  border:none;
+  color:#AAA;
+  margin-top: 14px;
+}
+
 #form-box {
   text-align: center;
   margin-top: 20rem;
@@ -98,20 +105,35 @@ label[for="search"] {
   border-radius: 10px;
 }
 
-#login, label[for="login"] {
+#username, label[for="username"] {
   display:inline;
   vertical-align: middle;
-  
-  /* position: absolute; */
 }
 
-#login {
+#username {
   width: calc(100% - 40px);
   padding: 10px;
   border: none;
 }
 
-label[for="login"] {
+label[for="username"] {
+  width: 40px;
+  line-height: 40px;
+  margin-left:5px;
+}
+
+#password, label[for="password"] {
+  display:inline;
+  vertical-align: middle;
+}
+
+#password {
+  width: calc(100% - 40px);
+  padding: 10px;
+  border: none;
+}
+
+label[for="password"] {
   width: 40px;
   line-height: 40px;
   margin-left:5px;
@@ -185,10 +207,6 @@ label[for="register"] {
   margin-top:5px;
 }
 
-.rstyle {
-	
-}
-
 .box {
   margin-bottom: 10px;
 }
@@ -210,10 +228,10 @@ label[for="register"] {
   align-items: center;
 }
 
-.adBox {
+.productBox {
   display: block;
-	width:300px;
-	height:700px;
+	height: 180px;
+  width:80%;
 	overflow: hidden;
 	border-style:solid;
 	border-color:#666666;
@@ -227,10 +245,57 @@ label[for="register"] {
 	float:left;
 }
 
-#adBox{
-  height: 180px;
-  width:80%;
-  
+.productBox:hover {
+  background-color:rgba(255,255,255,0.95);
+transition: .1s ease;
+}
+
+.productBox h2{ /*Title*/
+	color:#333;
+	text-align: left;
+	font-size:18px;
+	margin: auto;
+	margin-bottom:5px;
+	margin-left:12px;
+}
+ 
+.productBox h3{ /*Category, price and location*/
+	color:#333;
+	text-align: left;
+	font-size:16px;
+	margin: auto;
+  margin-left:14px;
+  margin-top: 5px;
+}
+
+.productBox h4{ /*Date and comments*/
+	color:#777;
+	text-align: left;
+	font-size:16px;
+	margin: auto;
+  margin-left:14px;
+  margin-top:5px;
+}
+
+.productBox p{ /*Desc*/
+	color:#777;
+	text-align: left;
+	font-size:14px;
+	margin-left:20px;
+	overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+  float:right;
+  width: 50%;
+  margin-top: -14.5%;
+}
+
+.productBox img{
+  float:left;
+  width:250px;
+  height:156px;
+  margin-right: 10px;
 }
 
 .historyBox {
@@ -262,51 +327,6 @@ label[for="register"] {
   width: 100px;
 }
 
-.adBox:hover {
-    background-color:rgba(255,255,255,0.95);
-	transition: .1s ease;
-}
-
-.adBox td{
-	color:#aaaaaa;
-}
-
-.adBox h1{
-	color:#333;
-	text-align: center;
-	font-size:70px;
-	margin: auto;
-	margin-right:50px;
-	padding-left: 50px;
-}
-
-.adBox h2{
-	color:#333;
-	text-align: left;
-	font-size:18px;
-	margin: auto;
-	margin-bottom:5px;
-	margin-left:12px;
-}
-
-.adBox h3{
-	color:#777;
-	text-align: left;
-	font-size:16px;
-	margin: auto;
-	margin-left:14px;
-}
-
-.adBox p{
-	color:#777;
-	text-align: left;
-	font-size:14px;
-	margin-left:20px;
-	overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
-}
 
 @media only screen and (max-width: 540px) {
   #adBox {
@@ -337,8 +357,6 @@ label[for="register"] {
 	margin-left:auto;
 	margin-right:auto;
 }
-
-
 
 
 
