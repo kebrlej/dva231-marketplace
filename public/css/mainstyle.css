@@ -139,6 +139,23 @@ label[for="password"] {
   margin-left:5px;
 }
 
+#email, label[for="email"] {
+  display:inline;
+  vertical-align: middle;
+}
+
+#email {
+  width: calc(100% - 40px);
+  padding: 10px;
+  border: none;
+}
+
+label[for="email"] {
+  width: 40px;
+  line-height: 40px;
+  margin-left:5px;
+}
+
 #btn-login {
   padding: 6px 20px;
   border: none;

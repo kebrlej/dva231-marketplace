@@ -88,27 +88,11 @@ class UserController extends GenericController
         $userRegisterDto = new UserRegisterDto();
         $userRegisterDto->loadObjectData($this->requestObject->data);
 
-        // See if the entered email and usernames are free to use:
-        $result = $this->dataAccessObject->checkEmail($userRegisterDto->email);       
-        if ($result == null) {
-            // Email DOESN'T already exist in database.
-            $this->sendResponse(Response::errorResponse("Email doesn't exists."));
-            $result = $this->dataAccessObject->checkUsername($userRegisterDto->username);
-            if ($result == null) {
-                // Username (and email) DOESN'T already exist in database.
-                $this->sendResponse(Response::errorResponse("Email and username doesn't exists."));
-
-                // SUCCESS, proceed to create user:
-                $this->dataAccessObject->insertIntoTable((array)$userRegisterDto);
-            }
-            else {
-                // Username ALREADY EXISTS in database.
-                $this->sendResponse(Response::errorResponse("Username already exists."));
-            }
-        } else {
-            // Email ALREADY EXISTS in database.
-            $this->sendResponse(Response::errorResponse("Email already exists."));
+        try{
+            $userDto = $this->dataAccessObject->insertIntoTable((array)$userRegisterDto);
+            $this->sendResponse(Response::successResponse($userDto));
+        }catch(Exception $e){
+            $this->sendResponse(Response::errorResponse($e->getMessage()));
         }
-
     }
 }
