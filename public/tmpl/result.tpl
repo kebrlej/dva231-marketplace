@@ -99,51 +99,6 @@
 <p id="dummyTextToLoadTheProducts"></p>
 
 <script>
-    
-  var tempobj = {
-        id: 1, 
-        title: "Test product with a much longer title to test", 
-        price: 300, 
-        location: "Västeras", 
-        category: "Sport", 
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed odio morbi quis commodo odio. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Nunc sed blandit libero volutpat sed. Et malesuada fames ac turpis egestas sed tempus. Mauris nunc congue nisi vitae suscipit tellus mauris a. Morbi enim nunc faucibus a pellentesque sit amet porttitor eget. Non nisi est sit amet facilisis magna. Rhoncus urna neque viverra justo nec ultrices. Ultricies leo integer malesuada nunc vel risus commodo viverra maecenas. ",
-        date: "Jan 1, 2019",
-        comments: "4"
-    };
-    var tempobj2 = {
-        id: 2, 
-        title: "Another test product", 
-        price: 500, 
-        location: "Stockholm", 
-        category: "Garden & outdoors", 
-        description: "adfghsdfgujdghdfg",
-        date: "Jan 2, 2020",
-        comments: "2"
-    };
-    var tempobj3 = {
-        id: 3, 
-        title: "Yet another test product", 
-        price: 1000, 
-        location: "Uppsala", 
-        category: "Phones", 
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed odio morbi quis commodo odio. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Nunc sed blandit libero volutpat sed. Et malesuada fames ac turpis egestas sed tempus. Mauris nunc congue nisi vitae suscipit tellus mauris a. Morbi enim nunc faucibus a pellentesque sit amet porttitor eget. Non nisi est sit amet facilisis magna. Rhoncus urna neque viverra justo nec ultrices. Ultricies leo integer malesuada nunc vel risus commodo viverra maecenas. ",
-        date: "Jan 3, 2021",
-        comments: "3"
-    };
-    var objarr = [tempobj, tempobj2, tempobj3];
-
-    function buildCard(obj) {
-        return '<div class="productBox"><img><h2>'+obj.title+'</h2><h3>'+obj.price+' kr</h3><h3>'+obj.category+'</h3><h3>'+obj.location+'</h3><br><h4>'+obj.date+'</h4><h4>'+obj.comments+' comments</h4><p>'+obj.description+'</p></div>';
-    }
-
-    for (var i = 0; i < objarr.length; ++i)
-    {
-        document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildCard(objarr[i]);
-    }
-    if (objarr.length == 0) document.getElementById("dummyTextToLoadTheProducts").innerHTML = "No results found.";
-
-
-    
-    
+    window.onload = getProducts;
 
 </script>
