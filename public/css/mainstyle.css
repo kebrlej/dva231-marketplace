@@ -358,7 +358,110 @@ transition: .1s ease;
 	margin-right:auto;
 }
 
+#publishForm {
+  display: block;
+	width:50%;
+	overflow: hidden;
+	border-style:solid;
+	border-color:#666666;
+	border-width:2px;
+	border-radius:5px;
+	padding:10px;
+	padding-top:20px;
+	background-color:rgba(255,255,255,0.9);
+	transition: .4s ease;
+	margin-left:auto;
+	margin-right:auto;
+}
 
+#publishForm h1{
+  font-size:24px;
+  margin-top: -5px;
+}
+
+/*Title input in New Post*/
+#publishtitle, label[for="publishtitle"] {
+  display:inline;
+  vertical-align: middle;
+}
+
+#publishtitle {
+  width: 90%;
+  padding: 10px;
+  border: none;
+  margin-left:10px;
+}
+
+label[for="publishtitle"] {
+  width: 40px;
+  line-height: 40px;
+  margin-left:5px;
+}
+
+/*Price input in New Post*/
+#publishprice, label[for="publishprice"] {
+  display:inline;
+  vertical-align: middle;
+}
+
+#publishprice {
+  width: 15%;
+  padding: 10px;
+  border: none;
+  margin-left:10px;
+}
+
+label[for="publishprice"] {
+  width: 40px;
+  line-height: 40px;
+  margin-left:5px;
+}
+
+/*Location input in New Post*/
+#publishlocation, label[for="publishlocation"] {
+  display:inline;
+  vertical-align: middle;
+}
+
+#publishlocation {
+  width: 30%;
+  padding: 10px;
+  border: none;
+  margin-left:10px;
+}
+
+label[for="publishlocation"] {
+  width: 40px;
+  line-height: 40px;
+  margin-left:5px;
+}
+
+/*Description input in New Post*/
+#publishdescription, label[for="publishdescription"] {
+  display:inline;
+  vertical-align: middle;
+}
+
+#publishdescription {
+  width: 90%;
+  max-width: 90%;
+  padding: 10px;
+  border: none;
+  margin-left:10px;
+}
+
+label[for="publishdescription"] {
+
+  line-height: 40px;
+  margin-left:5px;
+}
+
+#categorydropdrown{
+  margin-left:35px;
+  margin-top: -40px;
+  background-color: #fff;
+  color:#777;
+}
 
 
 

@@ -87,7 +87,7 @@ if (isset($_GET['page'])) {
                 <?php
                 if (SessionManagement::isLoggedIn()) {
                     echo '<li><div class="dropdown">
-                <button id="userbutton" class="header-dropdown" data-toggle="dropdown" value="text"> Logged in as:
+                <button id="userbutton" class="header-dropdown" data-toggle="dropdown" value="text">'.$_SESSION['username'].'
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                     <li><a href="#">My favorites</a></li>
