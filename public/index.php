@@ -63,7 +63,6 @@ if (isset($_GET['page'])) {
     <script src="<?= JS_PATH ?>productTemplateBuilder.js"></script>
     <script src="<?= JS_PATH ?>productService.js"></script>
     <script src="<?= JS_PATH ?>login.js"></script>
-	<script src="<?= JS_PATH ?>product.js"></script>
     <script src="<?= JS_PATH ?>registerFormValidation.js"></script>
     
 

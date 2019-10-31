@@ -51,7 +51,7 @@ class UserController extends GenericController
         //validates that both username and password are set
         $userLoginDto->loadObjectData($this->requestObject->data);
 
-        $result = $this->dataAccessObject->selectWhereConditions((array)$userLoginDto);
+        $result = $this->dataAccessObject->selectOneWhereConditions((array)$userLoginDto);
         if ($result == null) {
             $this->sendResponse(Response::errorResponse("wrong user email or password"));
         } else {
