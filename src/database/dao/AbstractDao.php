@@ -48,6 +48,20 @@ abstract class AbstractDao extends Connection
         return $result;
     }
 
+    public function checkEmail($email) //used in registration to see if email already exists.
+    {
+        $query = "SELECT * FROM " . $this->tableName . " WHERE email='{$email}'";
+        $result = $this->executeSqlQuery($query);
+        return $result->fetch_assoc();
+    }
+
+    public function checkUsername($username) //used in registration to see if username already exists.
+    {
+        $query = "SELECT * FROM " . $this->tableName . " WHERE username='{$username}'";
+        $result = $this->executeSqlQuery($query);
+        return $result->fetch_assoc();
+    }
+
     public function selectOneWhereConditions($paramArray)
     {
         $query = $this->prepareWhereQueryString($paramArray);

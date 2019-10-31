@@ -11,7 +11,8 @@ class UserController extends GenericController
         $this->allowedRequestMethods = array(
             '/users/login' => array(HTTP_POST),
             '/users/logout' => array(HTTP_POST),
-            '/users' => array(HTTP_GET, HTTP_POST, HTTP_PUT, HTTP_DELETE)
+            '/users' => array(HTTP_GET, HTTP_POST, HTTP_PUT, HTTP_DELETE),
+            '/users/register' => array(HTTP_POST)
         );
 
         //TODO access rights checks to resources - do later
@@ -80,5 +81,34 @@ class UserController extends GenericController
     {
         //no preparations needed :-)
         return (array)$data;
+    }
+
+    function registerUser()
+    {
+        $userRegisterDto = new UserRegisterDto();
+        $userRegisterDto->loadObjectData($this->requestObject->data);
+
+        // See if the entered email and usernames are free to use:
+        $result = $this->dataAccessObject->checkEmail($userRegisterDto->email);       
+        if ($result == null) {
+            // Email DOESN'T already exist in database.
+            $this->sendResponse(Response::errorResponse("Email doesn't exists."));
+            $result = $this->dataAccessObject->checkUsername($userRegisterDto->username);
+            if ($result == null) {
+                // Username (and email) DOESN'T already exist in database.
+                $this->sendResponse(Response::errorResponse("Email and username doesn't exists."));
+
+                // SUCCESS, proceed to create user:
+                $this->dataAccessObject->insertIntoTable((array)$userRegisterDto);
+            }
+            else {
+                // Username ALREADY EXISTS in database.
+                $this->sendResponse(Response::errorResponse("Username already exists."));
+            }
+        } else {
+            // Email ALREADY EXISTS in database.
+            $this->sendResponse(Response::errorResponse("Email already exists."));
+        }
+
     }
 }

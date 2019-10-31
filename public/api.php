@@ -47,6 +47,9 @@ switch ($request->resourceName) {
     case '/users/logout':
         (new UserController($request))->logoutUser();
         break;
+    case '/users/register':
+        (new UserController($request))->registerUser();
+        break;
     case "/products":
         (new ProductController($request))->defaultRequestRouter();
         break;
