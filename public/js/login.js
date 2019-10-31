@@ -32,9 +32,9 @@ function loginUser() {
 
     //TODO error checking
     if (loginValidation(data.username,data.password) == true){
-        sendPostRequest("api.php/users/login",
-            data, loginUserCallback)
     }
+    sendPostRequest("api.php/users/login",
+        data, loginUserCallback)
 
 }
 
