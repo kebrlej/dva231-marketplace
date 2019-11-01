@@ -2,7 +2,7 @@ function newProductCallback(data, textStatus) {
 
     response = JSON.parse(data);
     if (response.success === true) {
-        //displayAllProducts(response.data);
+        window.location.href = "index.php";
     } else {
         var x = 10;
     }

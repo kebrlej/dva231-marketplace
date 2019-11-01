@@ -23,6 +23,7 @@
     </div>
 
     <script>
+    
         var slideIndex = 1;
         showDivs(slideIndex);
 
@@ -53,20 +54,20 @@
     <table width=800px; style="margin-right:auto; margin-left:auto">
         <tr>
             <td colspan=2>
-                <h1>Title of the ad</h1>
+                <h1 id="postTitle">Title of the ad</h1>
             </td>
         </tr>
         <tr>
             <td>
-                <h4>Price</h4>
+                <h4 id="postPrice">Price</h4>
             </td>
             <td style="text-align:right">
-                <h4>Post date</h4>
+                <h4 id="postDate">Post date</h4>
             </td>
         </tr>
         <tr>
             <td>
-                <h4>Location</h4>
+                <h4 id="postLocation">Location</h4>
             </td>
             <td style="text-align:right">
                 <h4>Poster's name</h4>
@@ -74,7 +75,7 @@
         </tr>
         <tr>
             <td colspan=2 style="text-align: justify;">
-                <p><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                <p id="postDescription"><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                     labore et dolore magna aliqua. Sed odio morbi quis commodo odio. Dictumst vestibulum rhoncus est
                     pellentesque elit ullamcorper. Nunc sed blandit libero volutpat sed. Et malesuada fames ac turpis
                     egestas sed tempus. Mauris nunc congue nisi vitae suscipit tellus mauris a. Morbi enim nunc faucibus
@@ -111,3 +112,7 @@
     <b style="margin-left:10px;">Jan: </b>This is also a comment. <a style="float:right;">Reply</a>
 </div>
 <button id="btn-comment" style="margin-bottom:100px;">Comment</button>
+
+<script>
+    window.onload = getSingleProduct();   
+</script>
