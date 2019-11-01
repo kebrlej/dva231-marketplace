@@ -36,7 +36,7 @@ if (SessionManagement::isLoggedIn()) {
         [TODO: insert picture upload here]
 
         <br><br>
-        <button id="btn-login" name="publish";">Publish</button>
+        <button id="btn-login" name="publish" onClick="newProduct()";">Publish</button>
         </div>
     ';
 } else {

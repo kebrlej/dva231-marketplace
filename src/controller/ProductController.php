@@ -62,4 +62,17 @@ class ProductController extends GenericController
         unset($objectAttributes['userId']);
         return $objectAttributes;
     }
+
+    function productCreate()
+    {
+        $CreateProductDto = new CreateProductDto();
+        $CreateProductDto->loadObjectData($this->requestObject->data);
+
+        try{
+            $productDto = $this->dataAccessObject->insertIntoTable((array)(prepareDataForInsert($CreateProductDto)));
+            $this->sendResponse(Response::successResponse($productDto));
+        }catch(Exception $e){
+            $this->sendResponse(Response::errorResponse($e->getMessage()));
+        }
+    }
 }
