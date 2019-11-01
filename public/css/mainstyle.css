@@ -259,7 +259,8 @@ label[for="register"] {
 	transition: .2s ease;
 	margin-left:auto;
 	margin-right:auto;
-	float:left;
+  float:left;
+  cursor: pointer;
 }
 
 .productBox:hover {

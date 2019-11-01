@@ -92,9 +92,10 @@ if (isset($_GET['page'])) {
                 <button id="userbutton" class="header-dropdown" data-toggle="dropdown" value="text">'.$_SESSION['username'].'
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu">
+                    <li><a href="#">User settings</a></li>
                     <li><a href="#">My favorites</a></li>
                     <li><a href="#">My products</a></li>
-                    <li><a onclick="logoutUser()">Logout</a></li>
+                    <li><a onclick="logoutUser()" style="cursor: pointer;">Logout</a></li>
                 </ul>
                 </div></li>';
                 } else {
