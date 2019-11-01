@@ -60,6 +60,9 @@ class ProductController extends GenericController
         $objectAttributes = (array)$data;
         $objectAttributes['user_id'] = $objectAttributes['userId'];
         unset($objectAttributes['userId']);
+
+        $objectAttributes['state'] = "VALID";
+
         return $objectAttributes;
     }
 

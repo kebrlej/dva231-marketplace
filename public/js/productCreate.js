@@ -20,7 +20,8 @@ function newProduct(){
         category: category.val(),
         price: price.val(),
         location: location.val(),
-        description: description.val()
+        description: description.val(),
+        userId:  getFromStorage("userId")
     };
 
     sendPostRequest('api.php/products',
