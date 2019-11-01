@@ -1,20 +1,17 @@
-
-
-function saveToStorage(key, value){
-
+function saveToStorage(key, value) {
+    window.localStorage.setItem(key, value);
 }
 
-function getFromStorage(key, value){
-
+function getFromStorage(key, value) {
+    window.localStorage.getItem(key, value);
 }
 
 
-var recentlyVisitedName = "";
+function addRecentlyVisitedProduct(id, title) {
+    var recentlyVisitedStorageName = "recentlyVisited";
 
-function addRecentlyVisitedProduct(id, title){
+    var recentlyVisited = getFromStorage(recentlyVisitedStorageName)
 
-
-    getFromStorage("recentlyVisitied")
 
 }
 
