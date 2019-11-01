@@ -15,22 +15,22 @@ function registerUserCallback(data, textStatus) {
 
 function registerUser() {
     //extract user data
+    // formValidation();
+    if (true) {
 
-    if (formValidation()){
+        var x = 10;
+        var email = jQuery("#email");
+        var username = jQuery("#username");
+        var password = jQuery("#password");
 
-    var x = 10;
-    var email = jQuery("#email");
-    var username = jQuery("#username");
-    var password = jQuery("#password");
+        var data = {
+            email: email.val(),
+            username: username.val(),
+            password: password.val()
+        };
 
-    var data = {
-        email: email.val(),
-        username: username.val(),
-        password: password.val()
-    };
-
-    sendPostRequest("api.php/users/register",
-        data, registerUserCallback)
+        sendPostRequest("api.php/users/register",
+            data, registerUserCallback)
     }
 
 }
