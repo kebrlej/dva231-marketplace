@@ -48,9 +48,11 @@ function displaySingleProduct(products) {
         if (objarr[i].id == pid)
         {
             document.getElementById("postTitle").innerHTML = objarr[i].title;
-            document.getElementById("postPrice").innerHTML = objarr[i].price;
+            document.getElementById("postPrice").innerHTML = objarr[i].price + " kr";
             document.getElementById("postLocation").innerHTML = objarr[i].location;
             document.getElementById("postDescription").innerHTML = objarr[i].description;
+            document.getElementById("postDate").innerHTML = objarr[i].postDate;
+
         }
     }
 }

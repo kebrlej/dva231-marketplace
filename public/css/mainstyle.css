@@ -31,31 +31,6 @@ body {
 #form-box {
   text-align: center;
   margin-top: 20rem;
-
-  /* position:absolute; */
-  /* width:1200px; */
-  
-  /*
-  
-  <script>
-  function moveSearch() {
-  var elem = document.getElementById("form-box");
-  var pos = 135;
-  var id = setInterval(frame, 1);
-  function frame() {
-    if (pos == -120) {
-      clearInterval(id);
-    } else {
-      pos=pos-5;
-      elem.style.top = pos + 'px';
-    }
-  }
-}
-</script>
-  
-  */
-  
-
 }
 
 #input-group {
@@ -189,6 +164,12 @@ label[for="email"] {
   width: calc(100% - 40px);
   padding: 10px;
   border: none;
+}
+
+#usersettings{
+    width: calc(100% - 40px);
+    padding: 10px;
+    border: none;
 }
 
 label[for="register"] {
@@ -481,9 +462,60 @@ label[for="publishdescription"] {
   color:#777;
 }
 
+/*    v   Labels without a background form    v   */
+.freeLabel, label[for="freeLabel"] {
+  display:inline;
+  vertical-align: middle;
+}
 
+.freeLabel {
+  width: calc(100% - 40px);
+  padding: 10px;
+  border: none;
+}
 
+label[for="freeLabel"] {
+  width: 40px;
+  line-height: 40px;
+}
+/*    ^   Labels without a background form    ^   */
 
+/*    v   Labels with a background form    v   */
+.formLabel, label[for="formLabel"] {
+  display:inline;
+  vertical-align: middle;
+}
 
+.formLabel {
+  width: 90%;
+  padding: 10px;
+  border: none;
+  margin-left:10px;
+}
 
+label[for="formLabel"] {
+  width: 40px;
+  line-height: 40px;
+  margin-left:5px;
+}
+/*    ^   Labels with a background form    ^   */
 
+/*    v   Red button    v   */
+.btn-red {
+  padding: 6px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(150, 50, 75);
+  color: #fff;
+}
+/*    ^   Red button    ^   */
+
+/*    v   Gray button    v   */
+#btn-gray {
+  padding: 6px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+}
+/*    ^   Gray button    ^   */

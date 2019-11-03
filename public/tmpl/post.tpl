@@ -4,7 +4,9 @@
 <!-- First example -->
 <div id="fullAd" class="fullAd">
     <!-- <img src="css/img1.jpg" width="60%" style=" display: block; margin-left: auto; margin-right: auto;"> -->
-    <p style="text-align:right;margin-right:50px;"><a href="#comments">Comments</a> | <a href="#">Follow</a></p>
+    <p style="text-align:right;margin-right:50px;">
+        <a href="#comments">Comments</a> | <a href="#" id="followOrDelete">Follow</a>    
+    </p>
 
 
     <div class="w3-container">

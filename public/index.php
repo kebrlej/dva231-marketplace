@@ -35,6 +35,10 @@ if (isset($_GET['page'])) {
             $page = 'newpost';
             $phpfile = true;
             break;
+        case 'usersettings' :
+            $page = 'usersettings';
+            $phpfile = true;
+            break;
         default :
             $page = 'home';
     }
@@ -92,7 +96,7 @@ if (isset($_GET['page'])) {
                 <button id="userbutton" class="header-dropdown" data-toggle="dropdown" value="text">'.$_SESSION['username'].'
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li><a href="#">User settings</a></li>
+                    <li><a href="index.php?page=usersettings">User settings</a></li>
                     <li><a href="#">My favorites</a></li>
                     <li><a href="#">My products</a></li>
                     <li><a onclick="logoutUser()" style="cursor: pointer;">Logout</a></li>
@@ -109,10 +113,10 @@ if (isset($_GET['page'])) {
 <br><br><br>
 <section id="main_container" class="container">
     <?php
-    if ($phpfile) {
-        require_once SCRIPT_PATH . $page . '.php';
+    //if ($phpfile) {
+    //    require_once SCRIPT_PATH . $page . '.php';
         //require_once '../script/index.php';
-    }
+    //}
     require_once TMPL_PATH . $page . '.tpl';
     //require_once 'tmpl/'.$page.'.tpl';
     ?>
