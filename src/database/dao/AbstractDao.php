@@ -86,7 +86,6 @@ abstract class AbstractDao extends Connection
         }
         $whereCondition = implode(" AND ", $whereParts);
         $query = $query . $whereCondition;
-        echo $query;
         return $query;
     }
 
