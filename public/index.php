@@ -43,6 +43,10 @@ if (isset($_GET['page'])) {
             $page = 'contact';
             $phpfile = true;
             break;
+        case 'dropzone';
+            $page='dropzone';
+            $phpfile = true;
+            break;
         default :
             $page = 'home';
     }
@@ -62,8 +66,9 @@ if (isset($_GET['page'])) {
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/w3.css" type="text/css">
 <!--    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>-->
+<!--    <link href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.css' type='text/css' rel='stylesheet'>-->
+    <link href="css/dropzone.css" rel="stylesheet" type="text/css"/>
     <link href="css/mainstyle.css" rel="stylesheet" type="text/css"/>
-
 
     <script src="<?= JS_PATH ?>lib/jquery-3.3.1.js"></script>
     <script src="<?= JS_PATH ?>lib/dropzone.js"></script>
@@ -79,6 +84,7 @@ if (isset($_GET['page'])) {
     <script src="<?= JS_PATH ?>register.js"></script>
     <script src="<?= JS_PATH ?>createProduct.js"></script>
     <script src="<?= JS_PATH ?>productCreate.js"></script>
+    <script src="<?= JS_PATH ?>dropzoneSettings.js"></script>
 
 
 </head>

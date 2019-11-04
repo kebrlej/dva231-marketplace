@@ -1,10 +1,7 @@
+// myDropzone.on("addedfile", function (file) {
+//     var x = 10;
+// });
 
-var dropzone = Dropzone.options.myAwesomeDropzone =  {
-    autoProcessQueue: false,
-    accept: function(file,done){
-        var x =10;
-    }
-};
 
 function newProductCallback(data, textStatus) {
 
@@ -31,7 +28,7 @@ function loadImage(input) {
                 data: file.target.result
             };
 
-            putInDomStorageArray("productImages",image);
+            putInDomStorageArray("productImages", image);
 
             var x = 10;
         };
@@ -55,4 +52,4 @@ function newProduct() {
         userId: getFromStorage("userId"),
         productImages: getFromStorage("productImages")
     };
-}
+};
