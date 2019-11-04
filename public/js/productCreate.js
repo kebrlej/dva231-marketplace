@@ -32,14 +32,9 @@ function extracted(position_with_location) {
 }
 
 function newProduct(){
-
     var position_with_location;
-
     var location = jQuery("#publishlocation");
-
     position_with_location = getPositionWithLocation(location.val());
-
-
 }
 
 
@@ -68,7 +63,7 @@ function getPositionWithLocation(location) {
         var latitude = json.results[0].geometry.location.lat;
         var longitude = + json.results[0].geometry.location.lng;
         return [latitude, longitude]
-    }
+}
 
 
 

@@ -1,10 +1,4 @@
-// myDropzone.on("addedfile", function (file) {
-//     var x = 10;
-// });
-
-
 function newProductCallback(data, textStatus) {
-
     response = JSON.parse(data);
     if (response.success === true) {
         window.location.href = "index.php";
@@ -36,12 +30,13 @@ function loadImage(input) {
 
 }
 
-function newProduct() {
+function createNewProduct() {
     var title = jQuery("#publishtitle");
     var category = jQuery("#publishcategory");
     var price = jQuery("#publishprice");
     var location = jQuery("#publishlocation");
     var description = jQuery("#publishdescription");
+
 
     var data = {
         title: title.val(),
@@ -50,6 +45,36 @@ function newProduct() {
         location: location.val(),
         description: description.val(),
         userId: getFromStorage("userId"),
-        productImages: getFromStorage("productImages")
+        latitude: 1,
+        longtitude: 1,
+        images: getDomStorageArray("productImages")
     };
+    sendPostRequest('api.php/products',
+        data, newProductCallback)
 };
+
+
+// function getPositionWithLocation(location) {
+//     var xmlhttp = new XMLHttpRequest();
+//     var url = "https://maps.googleapis.com/maps/api/geocode/json?address="+ location + "&key=AIzaSyDxN6krn9FupLvyFEdqocm9JIV_IP7rlRs";
+//     xmlhttp.onreadystatechange = function() {
+//         if(this.readyState == 4 && this.status == 200) {
+//             var json = JSON.parse(this.responseText);
+//             // We parse the JSON response
+//
+//             extracted(parseJsonLocation(json));
+//
+//
+//         }
+//
+//     };
+//     xmlhttp.open("GET", url, true);
+//     xmlhttp.send();
+//
+// }
+//
+// function parseJsonLocation(json) {
+//     var latitude = json.results[0].geometry.location.lat;
+//     var longitude = + json.results[0].geometry.location.lng;
+//     return [latitude, longitude]
+// }

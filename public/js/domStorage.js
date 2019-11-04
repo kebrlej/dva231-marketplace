@@ -1,26 +1,28 @@
-
-
 window.marketplaceStorage = [];
 
-function putValueInDomStorage(key, value){
+function putValueInDomStorage(key, value) {
     window.marketplaceStorage[key] = value;
 }
 
-function putInDomStorageArray(arrayName, value){
-    if(window.marketplaceStorage[arrayName] === undefined){
+function putInDomStorageArray(arrayName, value) {
+    if (window.marketplaceStorage[arrayName] === undefined) {
         //create array if it doesnt exist
         window.marketplaceStorage[arrayName] = [];
         window.marketplaceStorage[arrayName].push(value);
-    }else{
+    } else {
         window.marketplaceStorage[arrayName].push(value);
     }
 }
 
-function getDomStorageArray(arrayName){
-    return window.marketplaceStorage[arrayName];
+function getDomStorageArray(arrayName) {
+    if (window.marketplaceStorage[arrayName] === undefined) {
+        return [];
+    } else {
+        return window.marketplaceStorage[arrayName];
+    }
 }
 
-function setDomStorageArray(arrayName, array){
+function setDomStorageArray(arrayName, array) {
     window.marketplaceStorage[arrayName] = array;
 }
 
@@ -41,6 +43,6 @@ function setDomStorageArray(arrayName, array){
 // }
 
 
-function getValueFromDomStorage(key){
+function getValueFromDomStorage(key) {
     return window.marketplaceStorage[key];
 }
