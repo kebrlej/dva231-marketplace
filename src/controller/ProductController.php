@@ -44,7 +44,7 @@ class ProductController extends GenericController
                 }
                 break;
             case HTTP_POST:
-                $this->handleDefaultPOST();
+                $this->handleProductPOST();
                 break;
 //            case HTTP_PUT:
 //                //update user -> data in payload
@@ -55,9 +55,41 @@ class ProductController extends GenericController
         }
     }
 
+    public function handleProductPOST(){
+        $data = $this->requestObject->data;
+
+//        echo json_encode($data);
+        //prepare images
+        $imageDtos = array();
+        foreach($data->images as $image){
+            $imageDto = new PostProductImageDto();
+            $imageDto->loadObjectData($image);
+            array_push($imageDtos,$imageDto);
+        };
+        $preparedData = $this->prepareDataForInsert($data);
+
+        $result = $this->dataAccessObject->insertIntoTable($preparedData);
+
+
+        if($this->dataAccessObject->getAffectedRows() == 1 && $result == 1){
+            //product saved correctly, save also images
+            $productImageDao = new ProductImageDao();
+
+            foreach($imageDtos as $imageDto){
+                $imageValuesArray = (array)$imageDto;
+                $imageValuesArray["product_id"] = $this->dataAccessObject->getLastInsertId();
+                $productImageDao->insertIntoTable($imageValuesArray);
+            }
+            $this->sendResponse(Response::successResponse(null));
+        }else{
+            $this->sendResponse(Response::errorResponse("Insert failed"));
+        }
+    }
+
     public function prepareDataForInsert($data)
     {
         $objectAttributes = (array)$data;
+        unset($objectAttributes['images']);
         $objectAttributes['user_id'] = $objectAttributes['userId'];
         unset($objectAttributes['userId']);
 
@@ -68,11 +100,11 @@ class ProductController extends GenericController
 
     function productCreate()
     {
-        $CreateProductDto = new CreateProductDto();
-        $CreateProductDto->loadObjectData($this->requestObject->data);
+        $createProductDto = new CreateProductDto();
+        $createProductDto->loadObjectData($this->requestObject->data);
 
         try{
-            $productDto = $this->dataAccessObject->insertIntoTable((array)(prepareDataForInsert($CreateProductDto)));
+            $productDto = $this->dataAccessObject->insertIntoTable((array)(prepareDataForInsert($createProductDto)));
             $this->sendResponse(Response::successResponse($productDto));
         }catch(Exception $e){
             $this->sendResponse(Response::errorResponse($e->getMessage()));

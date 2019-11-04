@@ -1,5 +1,3 @@
-<div class="background"></div>
-
 <?php
 if (SessionManagement::isLoggedIn()) {
     echo '
@@ -34,24 +32,23 @@ if (SessionManagement::isLoggedIn()) {
 <textarea class="form-control" rows="5" id="publishdescription" placeholder="Description"></textarea>
 
 <br><br>
-<label for="publishimages" class="glyphicon glyphicon-camera"></label>
-<label>Pictures:</label>
+<label for="my-awesome-dropzone" class="glyphicon glyphicon-camera"></label>
+
 <form action="/file-upload"
       class="dropzone"
       id="my-awesome-dropzone"></form>
-<!--
-       <input type="file" name="productImage" placeholder="Product image" id="productImage" onchange="loadImage(this)">
-       <img src="" id="imagePreview" width="100" length="100">
--->
 <br><br>
 <button id="btn-login" name="publish" onClick="createNewProduct()">Publish</button>
 </div>
-
-
 ';
 } else {
 echo '
-<div id="login-box" style="color:#eee;">Please log in in order to publish a new post.<br><br>
+<div id="login-box" style="color:#eee;">Please log in in order to publish a new post.
+    <div class="tooltip" style="color:#eee;">Why?
+        <span class="tooltiptext">In order to hinder spam as well as allowing you to edit your post.</span>
+    </div>
+
+    <br><br>
     <a href="index.php?page=login">
         <button id="btn-login" name="login" ;
         ">Log in</button></a>

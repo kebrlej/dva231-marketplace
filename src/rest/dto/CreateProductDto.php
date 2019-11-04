@@ -28,7 +28,8 @@ class CreateProductDto extends AbstractDto
             "latitude" => DataType::PRIMITIVE,
             "userId" => DataType::PRIMITIVE,
             "county" => DataType::PRIMITIVE,
-            "city" => DataType::PRIMITIVE
+            "city" => DataType::PRIMITIVE,
+            "images" =>DataType::OBJECT_ARRAY
         ));
     }
 

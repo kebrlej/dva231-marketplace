@@ -48,6 +48,10 @@ class Connection
     public function getAffectedRows(){
         return $this->connection->affected_rows;
     }
+
+    public function getLastInsertId(){
+        return $this->connection->insert_id;
+    }
     /**
      * @param $result
      * @return bool

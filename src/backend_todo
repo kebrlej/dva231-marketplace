@@ -1,3 +1,5 @@
+After post publish redirect to the POST
+
 before create user, check if user with this username or password already
 exists. Do the check in controller and return special exception and handle it
 properly

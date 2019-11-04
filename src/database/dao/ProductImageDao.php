@@ -8,6 +8,8 @@ class ProductImageDao extends AbstractDao
         parent::__construct("product_image");
     }
 
+
+
     public function constructDTOFromSingleResult($result)
     {
         // TODO: Implement constructDTOFromSingleResult() method.

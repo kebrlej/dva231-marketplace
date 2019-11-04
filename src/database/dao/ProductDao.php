@@ -25,6 +25,7 @@ class ProductDao extends AbstractDao
             $result['county'],
             $result['city']
         );
+        // todo load product images here
     }
 
 }
