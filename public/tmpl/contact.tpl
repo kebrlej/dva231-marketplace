@@ -16,7 +16,7 @@
 <b>Andres Ramos Segui</b><br>Co-owner and developer<br>ari19001@student.mdh.se<br><br>
 </td>
 <td>
-<b>Juan Soberanis</b><br>Co-owner and developer<br>@student.mdh.se<br><br>
+<b>Juan Soberanis</b><br>Co-owner and developer<br>jss19004@student.mdh.se<br><br>
 </td>
 </tr>
 </table>
