@@ -6,9 +6,12 @@ class CreateProductDto extends AbstractDto
     public $title;
     public $price;
     public $location;
+    public $latitude;
+    public $longtitude;
     public $description;
     public $category;
     public $userId;
+
 
     public function getRequiredFields()
     {
@@ -18,7 +21,10 @@ class CreateProductDto extends AbstractDto
             "location" => DataType::PRIMITIVE,
             "description" => DataType::PRIMITIVE,
             "category" => DataType::PRIMITIVE,
-            "userId" => DataType::PRIMITIVE
+            "userId" => DataType::PRIMITIVE,
+            "longtitude" => DataType::PRIMITIVE,
+            "latitude" => DataType::PRIMITIVE,
+            "userId" => DataType::PRIMITIVE,
         ));
     }
 

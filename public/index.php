@@ -31,8 +31,8 @@ if (isset($_GET['page'])) {
             $page = 'login';
             $phpfile = true;
             break;
-        case 'newpost' :
-            $page = 'newpost';
+        case 'newproduct' :
+            $page = 'newproduct';
             $phpfile = true;
             break;
         case 'usersettings' :
@@ -61,19 +61,23 @@ if (isset($_GET['page'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<!--    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>-->
     <link href="css/mainstyle.css" rel="stylesheet" type="text/css"/>
 
 
+    <script src="<?= JS_PATH ?>lib/jquery-3.3.1.js"></script>
+    <script src="<?= JS_PATH ?>lib/dropzone.js"></script>
 
-    <script src="<?= JS_PATH ?>jquery-3.3.1.js"></script>
+
     <script src="<?= JS_PATH ?>localStorage.js"></script>
+    <script src="<?= JS_PATH ?>domStorage.js"></script>
     <script src="<?= JS_PATH ?>requestService.js"></script>
     <script src="<?= JS_PATH ?>productTemplateBuilder.js"></script>
     <script src="<?= JS_PATH ?>productService.js"></script>
     <script src="<?= JS_PATH ?>login.js"></script>
     <script src="<?= JS_PATH ?>registerFormValidation.js"></script>
     <script src="<?= JS_PATH ?>register.js"></script>
+    <script src="<?= JS_PATH ?>createProduct.js"></script>
     <script src="<?= JS_PATH ?>productCreate.js"></script>
 
 
@@ -93,11 +97,11 @@ if (isset($_GET['page'])) {
             </ul>
             <ul class="nav navbar-nav navbar-right" id="logout">
                 <li><a href="index.php">Search</a></li>
-                <li><a href="index.php?page=newpost">New Post</a></li>
+                <li><a href="index.php?page=newproduct">Sell product</a></li>
                 <?php
                 if (SessionManagement::isLoggedIn()) {
                     echo '<li><div class="dropdown">
-                <button id="userbutton" class="header-dropdown" data-toggle="dropdown" value="text">'.$_SESSION['username'].'
+                <button id="userbutton" class="header-dropdown" data-toggle="dropdown" value="text">' . $_SESSION['username'] . '
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                     <li><a href="index.php?page=usersettings">User settings</a></li>
@@ -119,7 +123,7 @@ if (isset($_GET['page'])) {
     <?php
     //if ($phpfile) {
     //    require_once SCRIPT_PATH . $page . '.php';
-        //require_once '../script/index.php';
+    //require_once '../script/index.php';
     //}
     require_once TMPL_PATH . $page . '.tpl';
     //require_once 'tmpl/'.$page.'.tpl';
@@ -132,7 +136,7 @@ if (isset($_GET['page'])) {
     </div>
 </footer>
 
-<script src="<?= JS_PATH ?>bootstrap.js"></script>
+<script src="<?= JS_PATH ?>lib/bootstrap.js"></script>
 
 </body>
 </html>
