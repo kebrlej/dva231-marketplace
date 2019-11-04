@@ -14,6 +14,8 @@ class GetProductDto
     public $category;
     public $latitude;
     public $longtitude;
+    public $county;
+    public $city;
 
     //foreign key properties
     public $userId;
@@ -34,7 +36,7 @@ class GetProductDto
      * @param $images
      * @param null $comments
      */
-    public function __construct($id, $title, $price, $location, $postDate, $state, $description, $category, $userId, $latitude, $longtitude, $images = null, $comments = null)
+    public function __construct($id, $title, $price, $location, $postDate, $state, $description, $category, $userId, $latitude, $longtitude, $county, $city, $images = null, $comments = null)
     {
         $this->id = $id;
         $this->title = $title;
@@ -46,6 +48,8 @@ class GetProductDto
         $this->category = $category;
         $this->latitude = $latitude;
         $this->longtitude = $longtitude;
+        $this->county = $county;
+        $this->city = $city;
 
         $this->userId = $userId;
         $this->images = $images;

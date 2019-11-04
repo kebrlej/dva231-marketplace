@@ -1,4 +1,3 @@
-<div class="background"></div>
 
 <?php
 if (SessionManagement::isLoggedIn()) {

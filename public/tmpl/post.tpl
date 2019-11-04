@@ -119,5 +119,5 @@
 <button id="btn-comment" style="margin-bottom:100px;">Comment</button>
 
 <script>
-    window.onload = getSingleProduct();   
+    window.onload = getSingleProduct
 </script>
