@@ -24,7 +24,7 @@ function extracted(position_with_location) {
         description: description.val(),
         userId: getFromStorage("userId"),
         latitude: position_with_location[0],
-        longitude: position_with_location[1]
+        longtitude: position_with_location[1]
     };
 
     sendPostRequest('api.php/products',

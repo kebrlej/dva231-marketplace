@@ -22,6 +22,7 @@ class CreateProductDto extends AbstractDto
             "description" => DataType::PRIMITIVE,
             "category" => DataType::PRIMITIVE,
             "userId" => DataType::PRIMITIVE,
+            "longtitude" => DataType::PRIMITIVE,
             "latitude" => DataType::PRIMITIVE,
             "userId" => DataType::PRIMITIVE,
         ));
