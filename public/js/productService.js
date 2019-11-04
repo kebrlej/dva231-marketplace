@@ -1,5 +1,4 @@
 function getProductsCallback(data, textStatus) {
-
     response = JSON.parse(data);
     if (response.success === true) {
         displayAllProducts(response.data);
@@ -23,7 +22,8 @@ function getSingleProductCallback(data, textStatus) {
 }
 
 function getSingleProduct() {
-    sendGetRequest("api.php/products", getSingleProductCallback);
+    var productId = getFromStorage("productId");
+    sendGetRequest("api.php/products?id=" + productId, getSingleProductCallback);
 }
 
 function displayAllProducts(products) {
@@ -33,65 +33,52 @@ function displayAllProducts(products) {
 
     function buildCard(obj) {
         var objImage = null;
-        if(obj.images !== undefined && obj.images.length > 0){
-            objImage = "<img src='"+obj.images[0].data+"' alt='"+obj.images.name+"'>";
-        }else{
+        if (obj.images !== undefined && obj.images.length > 0) {
+            objImage = "<img src='" + obj.images[0].data + "' alt='" + obj.images.name + "'>";
+        } else {
             objImage = "<img>";
         }
-        return '<div class="productBox" onclick="viewProduct('+ obj.id +')">'+objImage+'<h2>' + obj.title + '</h2><h3>' + obj.price + ' kr</h3><h3>' + obj.category + '</h3><h3>' + obj.location + '</h3><br><h4>' + obj.date + '</h4><h4>' + obj.comments + ' comments</h4><p>' + obj.description + '</p></div>';
+        return '<div class="productBox" onclick="viewProduct(' + obj.id + ')">' + objImage + '<h2>' + obj.title + '</h2><h3>' + obj.price + ' kr</h3><h3>' + obj.category + '</h3><h3>' + obj.location + '</h3><br><h4>' + obj.date + '</h4><h4>' + obj.comments + ' comments</h4><p>' + obj.description + '</p></div>';
     }
 
-    if (searchterm != null){
+    if (searchterm != null) {
         for (var i = 0; i < objarr.length; ++i) {
-            if (objarr[i].title.includes(searchterm) || objarr[i].description.includes(searchterm)){
+            if (objarr[i].title.includes(searchterm) || objarr[i].description.includes(searchterm)) {
                 document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildCard(objarr[i]);
             }
         }
-    }
-    else{
+    } else {
         document.getElementById("search").value = "test";
         for (var i = 0; i < objarr.length; ++i) {
-            document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildCard(objarr[i]);    
+            document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildCard(objarr[i]);
         }
     }
     if (objarr.length == 0) document.getElementById("dummyTextToLoadTheProducts").innerHTML = "No results found.";
 
 }
 
-function onSearchChange(){
+function onSearchChange() {
     saveToStorage("searchterm", document.getElementById('search').value);
     window.location.href = "index.php?page=result";
 }
 
-function displaySingleProduct(products) {
-    var objarr = products;
-    var pid = getFromStorage("productId");
+function displaySingleProduct(product){
+    // $("#postTitle").val(product.title);
+    document.getElementById("postTitle").innerHTML = product.title;
+    document.getElementById("postPrice").innerHTML = product.price + " kr";
+    document.getElementById("postLocation").innerHTML = product.location;
+    document.getElementById("postDescription").innerHTML = product.description;
+    document.getElementById("postDate").innerHTML = product.postDate;
 
-    for (var i = 0; i < objarr.length; ++i) {
-        if (objarr[i].id == pid)
-        {
-            var product = objarr[i];
-            // product.county;
-            // product.location;
-            // product.city;
-            //call google api
-            document.getElementById("postTitle").innerHTML = objarr[i].title;
-            document.getElementById("postPrice").innerHTML = objarr[i].price + " kr";
-            document.getElementById("postLocation").innerHTML = objarr[i].location;
-            document.getElementById("postDescription").innerHTML = objarr[i].description;
-            document.getElementById("postDate").innerHTML = objarr[i].postDate;
-
-        }
-    }
 }
 
-function googleApiCallback(){
+function googleApiCallback() {
     // check found the location
     // jQuery.
 }
 
 
-function viewProduct(id){
+function viewProduct(id) {
     saveToStorage("productId", id);
     window.location.href = "index.php?page=post";
 }
