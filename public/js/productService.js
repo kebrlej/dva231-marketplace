@@ -63,6 +63,11 @@ function displaySingleProduct(products) {
     for (var i = 0; i < objarr.length; ++i) {
         if (objarr[i].id == pid)
         {
+            var product = objarr[i];
+            // product.county;
+            // product.location;
+            // product.city;
+            //call google api
             document.getElementById("postTitle").innerHTML = objarr[i].title;
             document.getElementById("postPrice").innerHTML = objarr[i].price + " kr";
             document.getElementById("postLocation").innerHTML = objarr[i].location;
@@ -72,6 +77,12 @@ function displaySingleProduct(products) {
         }
     }
 }
+
+function googleApiCallback(){
+    // check found the location
+    // jQuery.
+}
+
 
 function viewProduct(id){
     saveToStorage("productId", id);
