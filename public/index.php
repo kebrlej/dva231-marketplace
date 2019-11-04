@@ -39,6 +39,10 @@ if (isset($_GET['page'])) {
             $page = 'usersettings';
             $phpfile = true;
             break;
+        case 'contact' :
+            $page = 'contact';
+            $phpfile = true;
+            break;
         default :
             $page = 'home';
     }
@@ -123,8 +127,8 @@ if (isset($_GET['page'])) {
 </section>
 
 <footer class="footer">
-    <div>[Footer]
-        <a href="index.php"> [Link]</a>
+    <div>© 2019 |
+        <a href="index.php?page=contact"> Contact Us</a>
     </div>
 </footer>
 

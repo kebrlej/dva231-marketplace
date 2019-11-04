@@ -13,5 +13,9 @@
         <br/>
         <button id="btn-login" name="login" onclick="loginUser()">Log in</button>
         <button id="btn-all" name="register" onclick="location.href = 'index.php?page=register';">Register</button>
+        <br><br>
+        <div class="tooltip-bottom" style="color:#eee;">Trouble logging in?
+        <span class="tooltiptext">Please contact us through the link below.</span>
+        </div>
 
 </div>

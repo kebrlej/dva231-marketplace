@@ -40,7 +40,12 @@ if (SessionManagement::isLoggedIn()) {
         </div>
     ';
 } else {
-    echo '<div id="login-box" style="color:#eee;">Please log in in order to publish a new post.<br><br> 
+    echo '<div id="login-box" style="color:#eee;">Please log in in order to publish a new post.
+        <div class="tooltip" style="color:#eee;">Why?
+        <span class="tooltiptext">In order to hinder spam as well as allowing you to edit your post.</span>
+        </div>
+
+<br><br>
     <a href="index.php?page=login"><button id="btn-login" name="login";">Log in</button></a>
     <a href="index.php?page=register"><button id="btn-all" name="register";">Register</button></a>
     </div>';

@@ -72,7 +72,10 @@
                 <h4 id="postLocation">Location</h4>
             </td>
             <td style="text-align:right">
-                <h4>Poster's name</h4>
+            <div class="tooltip-bottom" style="color:#333;"><h4>Poster's name</h4>
+        <span class="tooltiptext">Poster's email</span>
+        </div>
+                
             </td>
         </tr>
         <tr>

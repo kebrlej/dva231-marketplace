@@ -40,7 +40,7 @@ body {
   border-radius: 10px;
 }
 
-
+/* REMOVE */
 #search, label[for="search"] {
   display:inline;
   vertical-align: middle;
@@ -48,17 +48,20 @@ body {
   /* position: absolute; */
 }
 
+/* REMOVE */
 #search {
   width: calc(100% - 40px);
   padding: 10px;
   border: none;
 }
 
+/* REMOVE */
 label[for="search"] {
   width: 40px;
   line-height: 40px;
 }
 
+/* REMOVE */
 #btn-search {
   padding: 6px 20px;
   border: none;
@@ -80,57 +83,67 @@ label[for="search"] {
   border-radius: 10px;
 }
 
+/* REMOVE */
 #username, label[for="username"] {
   display:inline;
   vertical-align: middle;
 }
 
+/* REMOVE */
 #username {
   width: calc(100% - 40px);
   padding: 10px;
   border: none;
 }
 
+/* REMOVE */
 label[for="username"] {
   width: 40px;
   line-height: 40px;
   margin-left:5px;
 }
 
+/* REMOVE */
 #password, label[for="password"] {
   display:inline;
   vertical-align: middle;
 }
 
+/* REMOVE */
 #password {
   width: calc(100% - 40px);
   padding: 10px;
   border: none;
 }
 
+/* REMOVE */
 label[for="password"] {
   width: 40px;
   line-height: 40px;
   margin-left:5px;
 }
 
+/* REMOVE */
 #email, label[for="email"] {
   display:inline;
   vertical-align: middle;
 }
 
+/* REMOVE */
 #email {
   width: calc(100% - 40px);
   padding: 10px;
   border: none;
 }
 
+/* REMOVE */
 label[for="email"] {
   width: 40px;
   line-height: 40px;
   margin-left:5px;
 }
 
+/* REMOVE */
 #btn-login {
   padding: 6px 20px;
   border: none;
@@ -153,6 +166,7 @@ label[for="email"] {
   border-radius: 10px;
 }
 
+/* REMOVE */
 #register, label[for="register"] {
   display:inline;
   vertical-align: middle;
@@ -160,6 +174,7 @@ label[for="email"] {
   /* position: absolute; */
 }
 
+/* REMOVE */
 #register {
   width: calc(100% - 40px);
   padding: 10px;
@@ -172,12 +187,14 @@ label[for="email"] {
     border: none;
 }
 
+/* REMOVE */
 label[for="register"] {
   width: 40px;
   line-height: 40px;
   margin-left:5px;
 }
 
+/* REMOVE */
 #btn-register {
   padding: 6px 20px;
   border: none;
@@ -187,6 +204,7 @@ label[for="register"] {
   margin: auto;
 }
 
+/* REMOVE */
 #btn-all {
   padding: 6px 20px;
   border: none;
@@ -195,6 +213,7 @@ label[for="register"] {
   color: #fff;
 }
 
+/* REMOVE */
 #btn-comment {
   padding: 6px 20px;
   border: none;
@@ -378,12 +397,14 @@ transition: .1s ease;
   margin-top: -5px;
 }
 
+/* REMOVE */
 /*Title input in New Post*/
 #publishtitle, label[for="publishtitle"] {
   display:inline;
   vertical-align: middle;
 }
 
+/* REMOVE */
 #publishtitle {
   width: 90%;
   padding: 10px;
@@ -391,18 +412,20 @@ transition: .1s ease;
   margin-left:10px;
 }
 
+/* REMOVE */
 label[for="publishtitle"] {
   width: 40px;
   line-height: 40px;
   margin-left:5px;
 }
 
-/*Price input in New Post*/
+/*Price input in New Post*//* REMOVE */
 #publishprice, label[for="publishprice"] {
   display:inline;
   vertical-align: middle;
 }
 
+/* REMOVE */
 #publishprice {
   width: 15%;
   padding: 10px;
@@ -410,18 +433,20 @@ label[for="publishtitle"] {
   margin-left:10px;
 }
 
+/* REMOVE */
 label[for="publishprice"] {
   width: 40px;
   line-height: 40px;
   margin-left:5px;
 }
 
-/*Location input in New Post*/
+/*Location input in New Post*//* REMOVE */
 #publishlocation, label[for="publishlocation"] {
   display:inline;
   vertical-align: middle;
 }
 
+/* REMOVE */
 #publishlocation {
   width: 30%;
   padding: 10px;
@@ -429,6 +454,7 @@ label[for="publishprice"] {
   margin-left:10px;
 }
 
+/* REMOVE */
 label[for="publishlocation"] {
   width: 40px;
   line-height: 40px;
@@ -519,3 +545,60 @@ label[for="formLabel"] {
   color: #fff;
 }
 /*    ^   Gray button    ^   */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted white;
+  opacity: 1;
+  font-size: 14px;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 220px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip-bottom {
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+  font-size: 14px;
+}
+
+.tooltip-bottom .tooltiptext {
+  visibility: hidden;
+  width: 180px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+
+  top: 100%;
+  left: 50%;
+  margin-left: -70px;
+}
+
+.tooltip-bottom:hover .tooltiptext {
+  visibility: visible;
+}
