@@ -33,10 +33,12 @@ class GetProductDto
      * @param $description
      * @param $category
      * @param $userId
-     * @param $images
-     * @param null $comments
+     * @param $latitude
+     * @param $longtitude
+     * @param $county
+     * @param $city
      */
-    public function __construct($id, $title, $price, $location, $postDate, $state, $description, $category, $userId, $latitude, $longtitude, $county, $city, $images = null, $comments = null)
+    public function __construct($id, $title, $price, $location, $postDate, $state, $description, $category, $userId, $latitude, $longtitude, $county, $city)
     {
         $this->id = $id;
         $this->title = $title;
@@ -52,8 +54,6 @@ class GetProductDto
         $this->city = $city;
 
         $this->userId = $userId;
-        $this->images = $images;
-        $this->comments = $comments;
     }
 
 }

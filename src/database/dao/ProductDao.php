@@ -10,7 +10,7 @@ class ProductDao extends AbstractDao
 
     public function constructDTOFromSingleResult($result)
     {
-        return new GetProductDto(
+        $productDto = new GetProductDto(
             $result['id'],
             $result['title'],
             $result['price'],
@@ -25,7 +25,14 @@ class ProductDao extends AbstractDao
             $result['county'],
             $result['city']
         );
+        $productDto->comments = [];
+
+        $productImageDao = new ProductImageDao();
+        $productDto->images = $productImageDao->selectMultipleWhereConditions(array('product_id' => $productDto->id));
+
         // todo load product images here
+
+        return $productDto;
     }
 
 }
