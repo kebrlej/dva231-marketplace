@@ -234,15 +234,15 @@ label[for="register"] {
 }
 
 .footer {
-  background-color: #f1f1f1;
+  background-color: rgb(34, 34, 34);
   position: fixed;
   left: 0px;
   bottom: 0px;
   width: 100%;
-  height: 50px;
+  height: 70px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+
+
 }
 
 .productBox {
@@ -602,4 +602,147 @@ label[for="formLabel"] {
 .tooltip-bottom:hover .tooltiptext {
   visibility: visible;
 }
+
+@-webkit-keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(1.334em) translateZ(0);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -moz-transform: translateX(1.334em) translateZ(0);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(1.334em) translateZ(0);
+        -moz-transform: translateX(1.334em) translateZ(0);
+        -ms-transform: translateX(1.334em) translateZ(0);
+        -o-transform: translateX(1.334em) translateZ(0);
+        transform: translateX(1.334em) translateZ(0);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* General styles */
+
+
+
+/* ============================ */
+/* SOCIAL ICONS                 */
+/* ============================ */
+.social-icon {
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition-property: background-color;
+    -moz-transition-property: background-color;
+    transition-property: background-color;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-timing-function: ease;
+    transition-timing-function: ease;
+    background-color: #AAAAAA;
+    text-align: center;
+    display: inline-block;
+    width: 40px;
+    height: 38px;
+    padding: 9px 0px;
+    color: white;
+    margin: 6px;
+
+    /* Color each button differently */
+}
+
+.fa{
+    color:white;
+}
+
+.social-icon:nth-child(1) {
+    /* Animation */
+    -webkit-animation: fadeInRight 0.6s 0.25s forwards;
+    animation: fadeInRight 0.6s 0.25s forwards;
+    opacity: 0;
+    /* Color */
+
+}
+.social-icon:nth-child(1):hover, .social-icon:nth-child(1):active, .social-icon:nth-child(1):focus {
+    opacity: 1;
+    background-color: rgb(70, 85, 90);
+
+}
+.social-icon:nth-child(2) {
+    /* Animation */
+    -webkit-animation: fadeInRight 0.6s 0.5s forwards;
+    animation: fadeInRight 0.6s 0.5s forwards;
+    opacity: 0;
+    /* Color */
+}
+.social-icon:nth-child(2):hover, .social-icon:nth-child(2):active, .social-icon:nth-child(2):focus {
+    opacity: 1;
+    background-color: rgb(82, 100, 100);
+}
+.social-icon:nth-child(3) {
+    /* Animation */
+    -webkit-animation: fadeInRight 0.6s 0.75s forwards;
+    animation: fadeInRight 0.6s 0.75s forwards;
+    opacity: 0;
+    /* Color */
+}
+.social-icon:nth-child(3):hover, .social-icon:nth-child(3):active, .social-icon:nth-child(3):focus {
+    opacity: 1;
+    background-color: rgb(97, 107, 97);
+}
+.social-icon:nth-child(4) {
+    /* Animation */
+    -webkit-animation: fadeInRight 0.6s 1s forwards;
+    animation: fadeInRight 0.6s 1s forwards;
+    opacity: 0;
+    /* Color */
+}
+.social-icon:nth-child(4):hover, .social-icon:nth-child(4):active, .social-icon:nth-child(4):focus {
+    opacity: 1;
+    background-color: rgb(100, 108, 96);
+}
+.social-icon:nth-child(5) {
+    /* Animation */
+    -webkit-animation: fadeInRight 0.6s 1.25s forwards;
+    animation: fadeInRight 0.6s 1.25s forwards;
+    opacity: 0;
+    /* Color */
+}
+.social-icon:nth-child(5):hover, .social-icon:nth-child(5):active, .social-icon:nth-child(5):focus {
+    opacity: 1;
+    background-color: rgb(92, 102, 73);
+}
+.social-icon:nth-child(6) {
+    /* Animation */
+    -webkit-animation: fadeInRight 0.6s 1.5s forwards;
+    animation: fadeInRight 0.6s 1.5s forwards;
+    opacity: 0;
+    /* Color */
+}
+
+.social-icon img {
+    width: 20px;
+}
+
 

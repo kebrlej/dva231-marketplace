@@ -127,9 +127,42 @@ if (isset($_GET['page'])) {
 </section>
 
 <footer class="footer">
-    <div>© 2019 |
-        <a href="index.php?page=contact"> Contact Us</a>
+    <div class="container">
+    <div class="row text-center">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <div class="social col-sm-12">
+
+            <a class="social-icon" data-tooltip="Send us an email!">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+            </a>
+
+            <a class="social-icon" data-tooltip="Twitter" href="https://twitter.com">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+
+            <a class="social-icon" data-tooltip="Facebook" href="https://www.facebook.com/colorlib">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+
+            <a class="social-icon" data-tooltip="YouTube" href="https://www.youtube.com/">
+                <i class="fa fa-youtube" aria-hidden="true"></i>
+            </a>
+            <a class="social-icon" data-tooltip="YouTube" href="https://instagram.com">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+
+        </div>
     </div>
+
+        <div style="color:white" class="row text-center">© 2019 |
+            <a  href="index.php?page=contact"> Contact Us</a>
+        </div>
+    </div>
+
+
 </footer>
 
 <script src="<?= JS_PATH ?>bootstrap.js"></script>
