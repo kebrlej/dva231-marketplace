@@ -1,7 +1,7 @@
 <?php
 
 
-class ProductDao extends GenericDao
+class ProductDao extends AbstractDao
 {
     public function __construct()
     {
@@ -10,11 +10,29 @@ class ProductDao extends GenericDao
 
     public function constructDTOFromSingleResult($result)
     {
-        // TODO: Implement constructDTOFromSingleResult() method.
+        $productDto = new GetProductDto(
+            $result['id'],
+            $result['title'],
+            $result['price'],
+            $result['location'],
+            $result['post_date'],
+            $result['state'],
+            $result['description'],
+            $result['category'],
+            $result['user_id'],
+            $result['latitude'],
+            $result['longtitude'],
+            $result['county'],
+            $result['city']
+        );
+        $productDto->comments = [];
+
+        $productImageDao = new ProductImageDao();
+        $productDto->images = $productImageDao->selectMultipleWhereConditions(array('product_id' => $productDto->id));
+
+        // todo load product images here
+
+        return $productDto;
     }
 
-    public function constructDTOArrayFromMultipleResults($resultArray)
-    {
-        // TODO: Implement constructDTOArrayFromMultipleResults() method.
-    }
 }

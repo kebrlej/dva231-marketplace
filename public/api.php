@@ -39,7 +39,7 @@ $request = constructRequestObject();
 //TODO try catch for exceptions
 switch ($request->resourceName) {
     case '/users':
-        (new UserController($request))->resourceCRUD();
+        (new UserController($request))->defaultRequestRouter();
         break;
     case '/users/login':
         (new UserController($request))->loginUser();
@@ -47,8 +47,17 @@ switch ($request->resourceName) {
     case '/users/logout':
         (new UserController($request))->logoutUser();
         break;
+    case '/users/register':
+        (new UserController($request))->registerUser();
+        break;
     case "/products":
-        (new ProductController($request))->resourceCRUD();
+        (new ProductController($request))->defaultRequestRouter();
+        break;
+    case '/createproduct':
+        (new ProductController($request))->productCreate();
+        break;
+    case "/comments":
+        (new CommentController($request))->defaultRequestRouter();
         break;
     default:
         throw new Exception("Resource does not exist");//TODO Return 404 - resource doesnt exist

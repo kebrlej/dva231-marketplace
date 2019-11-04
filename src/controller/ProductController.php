@@ -6,54 +6,108 @@ class ProductController extends GenericController
 
     public function __construct($requestObject)
     {
-        parent::__construct($requestObject);
+        parent::__construct($requestObject, new ProductDao());
         $this->allowedRequestMethods = array(
-            '/products' => array(HTTP_GET)
+            '/products' => array(HTTP_GET, HTTP_POST, HTTP_PUT, HTTP_DELETE)
         );
 
         if ($this->isRequestMethodAllowed() == false) {
             //TODO throw 405 method not allowed
             throw new Exception("405 - method not allowed");
         }
-
     }
 
-    public function getFakeProducts()
+
+    private function loadProductComments($productId)
     {
-        $product = new GetProductDto();
-        $product->id = 1;
-        $product->title = "Test product";
-        $product->price = 300;
-        $product->location = "Vasteras";
-        $product->postDate = "today";
-        $product->state = "new";
-        $product->description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed odio morbi quis commodo odio. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Nunc sed blandit libero volutpat sed. Et malesuada fames ac turpis egestas sed tempus. Mauris nunc congue nisi vitae suscipit tellus mauris a. Morbi enim nunc faucibus a pellentesque sit amet porttitor eget. Non nisi est sit amet facilisis magna. Rhoncus urna neque viverra justo nec ultrices. Ultricies leo integer malesuada nunc vel risus commodo viverra maecenas. Et netus et malesuada fames ac turpis egestas. At in tellus integer feugiat scelerisque varius morbi enim nunc. Morbi tincidunt ornare massa eget egestas purus. Pulvinar mattis nunc sed blandit libero volutpat. Nisi lacus sed viverra tellus in hac habitasse.";
-        $product->category = "Sport";
-
-        $productArray = array($product,$product,$product);
-
-        $this->sendResponse(Response::successResponse($productArray));
+        $commentDao = new CommentDao();
+        $commentRows = $commentDao->selectMultipleWhereConditions(array('product_id' => $productId));
+//        echo json_encode($commentRows);
+        $commentDtos = $commentDao->constructDTOArrayFromResults($commentRows);
+        return $commentDtos;
     }
 
-
-    public function resourceCRUD()
+    public function defaultRequestRouter()
     {
         switch ($this->requestObject->getRequestMethod()) {
             case HTTP_GET:
-                $this->getFakeProducts();
+                if (isset($_GET['id'])) {
+                    //get single entity
+                    $dbRow = $this->dataAccessObject->getById($_GET['id']);
+                    $productDto = $this->dataAccessObject->constructDTOFromSingleResult($dbRow);
+
+                    $productDto->comments = $this->loadProductComments($dbRow['id']);
+
+                    $this->sendResponse(Response::successResponse($productDto));
+                } else {
+                    $this->handleDefaultGET();
+                }
                 break;
-//            case HTTP_POST:
-//                //create new user -> data in payload
-//                break;
+            case HTTP_POST:
+                $this->handleProductPOST();
+                break;
 //            case HTTP_PUT:
 //                //update user -> data in payload
 //                break;
             case HTTP_DELETE:
-                //delete user
-                $this->processDELETERequest();
+                $this->handleDefaultDELETE();
                 break;
         }
+    }
 
-        // TODO: Implement resourceCRUD() method.
+    public function handleProductPOST(){
+        $data = $this->requestObject->data;
+
+//        echo json_encode($data);
+        //prepare images
+        $imageDtos = array();
+        foreach($data->images as $image){
+            $imageDto = new PostProductImageDto();
+            $imageDto->loadObjectData($image);
+            array_push($imageDtos,$imageDto);
+        };
+        $preparedData = $this->prepareDataForInsert($data);
+
+        $result = $this->dataAccessObject->insertIntoTable($preparedData);
+
+
+        if($this->dataAccessObject->getAffectedRows() == 1 && $result == 1){
+            //product saved correctly, save also images
+            $productImageDao = new ProductImageDao();
+
+            foreach($imageDtos as $imageDto){
+                $imageValuesArray = (array)$imageDto;
+                $imageValuesArray["product_id"] = $this->dataAccessObject->getLastInsertId();
+                $productImageDao->insertIntoTable($imageValuesArray);
+            }
+            $this->sendResponse(Response::successResponse(null));
+        }else{
+            $this->sendResponse(Response::errorResponse("Insert failed"));
+        }
+    }
+
+    public function prepareDataForInsert($data)
+    {
+        $objectAttributes = (array)$data;
+        unset($objectAttributes['images']);
+        $objectAttributes['user_id'] = $objectAttributes['userId'];
+        unset($objectAttributes['userId']);
+
+        $objectAttributes['state'] = "VALID";
+
+        return $objectAttributes;
+    }
+
+    function productCreate()
+    {
+        $createProductDto = new CreateProductDto();
+        $createProductDto->loadObjectData($this->requestObject->data);
+
+        try{
+            $productDto = $this->dataAccessObject->insertIntoTable((array)(prepareDataForInsert($createProductDto)));
+            $this->sendResponse(Response::successResponse($productDto));
+        }catch(Exception $e){
+            $this->sendResponse(Response::errorResponse($e->getMessage()));
+        }
     }
 }

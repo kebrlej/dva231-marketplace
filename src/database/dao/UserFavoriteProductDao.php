@@ -1,7 +1,7 @@
 <?php
 
 
-class UserFavoriteProductDao extends GenericDao
+class UserFavoriteProductDao extends AbstractDao
 {
     public function __construct()
     {
@@ -13,7 +13,7 @@ class UserFavoriteProductDao extends GenericDao
         // TODO: Implement constructDTOFromSingleResult() method.
     }
 
-    public function constructDTOArrayFromMultipleResults($resultArray)
+    public function constructDTOArrayFromResults($resultArray)
     {
         // TODO: Implement constructDTOArrayFromMultipleResults() method.
     }

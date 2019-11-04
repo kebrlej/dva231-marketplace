@@ -22,6 +22,7 @@ class Request
         if ($this->requestMethod === HTTP_POST || $this->requestMethod === HTTP_PUT) {
             $decodedJson = json_decode($payload, false);
             if ($decodedJson === NULL) {
+                //TODO catch this exception and return proper error code
                 throw new Exception("Missing request body");
             } else {
                 $this->data = $decodedJson;

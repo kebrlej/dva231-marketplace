@@ -1,6 +1,6 @@
 <?php
 
-require_once '../src/config.develop.php';
+require_once '../src/develop.config.php';
 
 /**
  * Class Connection provides database connection and query
@@ -17,7 +17,7 @@ class Connection
      */
     public function __construct()
     {
-        $config = getConfig();
+        $config = provideConfig();
         $this->connection = new mysqli($config['host'], $config['username'], $config['password'], $config["schema"]);
         if ($this->connection->connect_errno) {
             die("Could not connect: " . mysqli_connect_error());
@@ -31,7 +31,7 @@ class Connection
      * @return bool|mysqli_result according to the type of the query (see query function docs)
      * @throws Exception
      */
-    public function selectSqlQuery($sqlQuery)
+    public function executeSqlQuery($sqlQuery)
     {
         $result = $this->connection->query($sqlQuery);
         if ($this->isQueryExecutionError($result)) {
@@ -47,6 +47,10 @@ class Connection
 
     public function getAffectedRows(){
         return $this->connection->affected_rows;
+    }
+
+    public function getLastInsertId(){
+        return $this->connection->insert_id;
     }
     /**
      * @param $result

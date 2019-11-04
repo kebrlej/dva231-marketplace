@@ -6,7 +6,7 @@
  */
 interface IPropertyDescription
 {
-    public function getDataTypes();
+    public function getRequiredFields();
 
     public function getClassTypes();
 }

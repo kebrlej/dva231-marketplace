@@ -1,34 +1,23 @@
 <div class="background"></div>
-<div id="register-box">
-    <form method="POST" action="#">
+<div id="login-box">
+{*    onSubmit="return formValidation();"*}
+    <form name='registration' >
         <div id="register-group">
-            <label for="register" class="glyphicon glyphicon-user"></label>
-            <input type="text" name="firstname" placeholder="First name" id="register">
+            <label for="email" class="glyphicon glyphicon-envelope"></label>
+            <input type="text" name="email" placeholder="Email" id="email">
         </div>
         <br>
         <div id="register-group">
             <label for="register" class="glyphicon glyphicon-user"></label>
-            <input type="text" name="lastname" placeholder="Last name" id="register">
-        </div>
-        <br>
-        <div id="register-group">
-            <label for="register" class="glyphicon glyphicon-envelope"></label>
-            <input type="text" name="email" placeholder="Email" id="register">
-        </div>
-        <br>
-
-
-        <div id="register-group">
-            <label for="register" class="glyphicon glyphicon-user"></label>
-            <input type="text" name="username" placeholder="Username" id="register">
+            <input type="text" name="username" placeholder="Username" id="username">
         </div>
         <br>
         <div id="register-group">
             <label for="register" class="glyphicon glyphicon-asterisk"></label>
-            <input type="password" name="password" placeholder="Password" id="register">
+            <input type="password" name="password" placeholder="Password" id="password">
         </div>
 
         <br/>
-        <button id="btn-register" name="register">Register</button>
+        <button id="btn-register" name="register" onclick="registerUser()">Register</button>
     </form>
 </div>

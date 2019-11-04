@@ -1,16 +1,16 @@
 <?php
 
 
-class UserLoginDto extends AbstractDto
+class PostProductImageDto extends AbstractDto
 {
-    public $username;
-    public $password;
+    public $name;
+    public $data;
 
     public function getRequiredFields()
     {
         return $this->validateDataTypes(array(
-            "username" => DataType::PRIMITIVE,
-            "password" => DataType::PRIMITIVE
+            "name" => DataType::PRIMITIVE,
+            "data" => DataType::PRIMITIVE
         ));
     }
 
