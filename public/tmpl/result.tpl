@@ -1,9 +1,9 @@
 <div class="background"></div>
 <div style="text-align: center; align-items: center; margin-bottom:50px;">
-    <form method="POST" action="index.php?page=result">
+
         <div id="input-group" style="margin-bottom:5px;">
             <label for="search" class="glyphicon glyphicon-search"></label>
-            <input type="text" name="search" placeholder="Search for an item" id="search">
+            <input type="text" name="search" placeholder="Search for an item" id="search" onchange="onSearchChange()">
         </div>
 
         <div class="btn-group dropdown">
@@ -84,9 +84,8 @@
             </ul>
         </div>
 
-        <button id="btn-search" name="search">Search</button>
+        <button id="btn-search" name="search" onclick="onSearchChange()">Search</button>
 
-    </form>
 </div>
 <div id="historyBox" class="historyBox">
     <h4 style="font-size:18px;">Recently viewed</h4>
@@ -100,5 +99,4 @@
 
 <script>
     window.onload = getProducts;
-
 </script>

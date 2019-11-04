@@ -28,16 +28,32 @@ function getSingleProduct() {
 
 function displayAllProducts(products) {
     var objarr = products;
+    var searchterm = getFromStorage("searchterm");
+    removeFromStorage("searchterm");
 
     function buildCard(obj) {
         return '<div class="productBox" onclick="viewProduct('+ obj.id +')"><img><h2>' + obj.title + '</h2><h3>' + obj.price + ' kr</h3><h3>' + obj.category + '</h3><h3>' + obj.location + '</h3><br><h4>' + obj.date + '</h4><h4>' + obj.comments + ' comments</h4><p>' + obj.description + '</p></div>';
     }
 
-    for (var i = 0; i < objarr.length; ++i) {
-        document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildCard(objarr[i]);
+    if (searchterm != null){
+        for (var i = 0; i < objarr.length; ++i) {
+            if (objarr[i].title.includes(searchterm) || objarr[i].description.includes(searchterm)){
+                document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildCard(objarr[i]);
+            }
+        }
+    }
+    else{
+        for (var i = 0; i < objarr.length; ++i) {
+            document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildCard(objarr[i]);    
+        }
     }
     if (objarr.length == 0) document.getElementById("dummyTextToLoadTheProducts").innerHTML = "No results found.";
 
+}
+
+function onSearchChange(){
+    saveToStorage("searchterm", document.getElementById('search').value);
+    window.location.href = "index.php?page=result";
 }
 
 function displaySingleProduct(products) {
