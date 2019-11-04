@@ -8,12 +8,9 @@
         <a href="#comments">Comments</a> | <a href="#" id="followOrDelete">Follow</a>
     </p>
 
-
-
-
     <div class="w3-content w3-display-container" style="max-width:800px;">
-        <img class="mySlides" src="img/img1.jpg" style="width:100%; max-height:540px;">
-        <img class="mySlides" src="img/img2.jpg" style="width:100%; max-height:540px;">
+        <img class="image-slides" src="img/img1.jpg">
+        <img class="image-slides" src="img/img2.jpg">
         <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
              style="width:100%">
             <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
@@ -38,7 +35,7 @@
 
         function showDivs(n) {
             var i;
-            var x = document.getElementsByClassName("mySlides");
+            var x = document.getElementsByClassName("image-slides");
             var dots = document.getElementsByClassName("demo");
             if (n > x.length) {slideIndex = 1}
                 if (n < 1) {slideIndex = x.length}
@@ -91,7 +88,6 @@
         </tr>
     </table>
 </div>
-
 
 
 <div id="comments" class="fullAd" style="padding:10px;">

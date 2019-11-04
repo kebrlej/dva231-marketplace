@@ -759,3 +759,9 @@ label[for="formLabel"] {
     /*text-align: center;*/
 }
 
+
+.image-slides{
+    width:100%;
+    max-height:540px;
+    display: block;
+}
