@@ -9,8 +9,7 @@
     </p>
 
 
-    <div class="w3-container">
-    </div>
+
 
     <div class="w3-content w3-display-container" style="max-width:800px;">
         <img class="mySlides" src="img/img1.jpg" style="width:100%; max-height:540px;">
@@ -86,11 +85,15 @@
         </tr>
         <tr>
             <td colspan=2>
+                <!-- TODO PUT MAP HERE -->
                 <img src="img/img3.png" width=80% style=" display: block; margin-left: auto; margin-right: auto;">
             </td>
         </tr>
     </table>
 </div>
+
+
+
 <div id="comments" class="fullAd" style="padding:10px;">
     <b style="margin-left:10px;">Filip: </b>This is a comment. <a style="float:right;">Reply</a>
 </div>
