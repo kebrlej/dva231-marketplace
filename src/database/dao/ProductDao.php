@@ -19,7 +19,10 @@ class ProductDao extends AbstractDao
             $result['state'],
             $result['description'],
             $result['category'],
-            $result['user_id']
+            $result['user_id'],
+            $result['latitude'],
+            $result['longtitude']
+
         );
     }
 
