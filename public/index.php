@@ -83,7 +83,6 @@ if (isset($_GET['page'])) {
     <script src="<?= JS_PATH ?>registerFormValidation.js"></script>
     <script src="<?= JS_PATH ?>register.js"></script>
     <script src="<?= JS_PATH ?>createProduct.js"></script>
-<!--    <script src="--><?//= JS_PATH ?><!--productCreate.js"></script>-->
     <script src="<?= JS_PATH ?>dropzoneSettings.js"></script>
 
 
