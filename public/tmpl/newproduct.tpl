@@ -10,16 +10,13 @@ if (SessionManagement::isLoggedIn()) {
 
 <br><br>
 <label for="categorydropdrown" class="glyphicon glyphicon-folder-open" style="margin-left:4px"></label>
-<div class="dropdown">
-    <button id="categorydropdrown" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" value="text">
-        Category
-        <span class="caret"></span></button>
-    <ul class="dropdown-menu" style="margin-top: -10px;">
-        <li><a href="#">Placeholder 1</a></li>
-        <li><a href="#">Placeholder 2</a></li>
-        <li><a onclick="">Placeholder 3</a>
-    </ul>
-</div>
+<div class="btn-group dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" id="categorydropdown">Category
+                <span class="caret"></span></button>
+            <div class="dropdown-menu">
+                <li><a onclick="document.getElementById('.categorydropdown.').textContent = '.Vehicles.';">Vehicles</a></li>
+            </div>
+        </div>
 
 
 <label for="publishprice" class="glyphicon glyphicon-tag"></label>

@@ -3,40 +3,40 @@
 
         <div id="input-group" style="margin-bottom:5px;">
             <label for="search" class="glyphicon glyphicon-search"></label>
-            <input type="text" name="search" placeholder="Search for an item" id="search" onchange="onSearchChange()">
+            <input type="text" name="search" placeholder="Search for an item" id="search">
         </div>
 
         <div class="btn-group dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Category
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" id="categoryDropdown">Category
                 <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-                <li><a href="#">Vehicles</a></li>
-                <li><a href="#">Garden & outdoor</a></li>
-                <li><a href="#">Furniture</a></li>
-                <li><a href="#">Appliences</a></li>
-                <li><a href="#">Tools</a></li>
-                <li><a href="#">Clothes & shoes</a></li>
-                <li><a href="#">Accessories & watches</a></li>
-                <li><a href="#">Toys</a></li>
-                <li><a href="#">Computers & peripherals</a></li>
-                <li><a href="#">Audio & visuals</a></li>
-                <li><a href="#">Telephones</a></li>
-                <li><a href="#">Experiences & activities</a></li>
-                <li><a href="#">Books & litterature</a></li>
-                <li><a href="#">Bikes</a></li>
-                <li><a href="#">Animals</a></li>
-                <li><a href="#">Collector items</a></li>
-                <li><a href="#">Hunting & fishing</a></li>
-                <li><a href="#">Instruments</a></li>
-                <li><a href="#">Sport</a></li>
-            </ul>
+            <div class="dropdown-menu">
+                <li><a onclick="onDropdrownSelection('Vehicles')">Vehicles</a></li>
+                <li><a onclick="onDropdrownSelection('Garden & outdoor')">Garden & outdoor</a></li>
+                <li><a onclick="onDropdrownSelection('Furniture')">Furniture</a></li>
+                <li><a onclick="onDropdrownSelection('Appliences')">Appliences</a></li>
+                <li><a onclick="onDropdrownSelection('Tools')">Tools</a></li>
+                <li><a onclick="onDropdrownSelection('Clothes & shoes')">Clothes & shoes</a></li>
+                <li><a onclick="onDropdrownSelection('Accessories & watches')">Accessories & watches</a></li>
+                <li><a onclick="onDropdrownSelection('Toys')">Toys</a></li>
+                <li><a onclick="onDropdrownSelection('Computers & peripherals')">Computers & peripherals</a></li>
+                <li><a onclick="onDropdrownSelection('Audio & visuals')">Audio & visuals</a></li>
+                <li><a onclick="onDropdrownSelection('Telephones')">Telephones</a></li>
+                <li><a onclick="onDropdrownSelection('Experiences & activities')">Experiences & activities</a></li>
+                <li><a onclick="onDropdrownSelection('Books & litterature')">Books & litterature</a></li>
+                <li><a onclick="onDropdrownSelection('Bikes')">Bikes</a></li>
+                <li><a onclick="onDropdrownSelection('Animals')">Animals</a></li>
+                <li><a onclick="onDropdrownSelection('Collector items')">Collector items</a></li>
+                <li><a onclick="onDropdrownSelection('Hunting & fishing')">Hunting & fishing</a></li>
+                <li><a onclick="onDropdrownSelection('Instruments')">Instruments</a></li>
+                <li><a onclick="onDropdrownSelection('Sport')">Sport</a></li>
+            </div>
         </div>
 
         <div class="btn-group dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Price range
                 <span class="caret"></span></button>
             <ul class="dropdown-menu">
-                <li><a href="#">0-499 kr</a></li>
+                <li><a onclick="onDropdrownSelectyion('Vehicles')">0-499 kr</a></li>
                 <li><a href="#">500-999 kr</a></li>
                 <li><a href="#">1000-4999 kr</a></li>
                 <li><a href="#">5000+ kr</a></li>
@@ -99,4 +99,9 @@
 
 <script>
     window.onload = getProducts;
+
+    function onDropdrownSelection(category){
+        document.getElementById('categoryDropdown').textContent = category;
+        saveToStorage("searchcategory", category);
+    }
 </script>
