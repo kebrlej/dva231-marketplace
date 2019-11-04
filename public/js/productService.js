@@ -43,6 +43,7 @@ function displayAllProducts(products) {
         }
     }
     else{
+        document.getElementById("search").value = "test";
         for (var i = 0; i < objarr.length; ++i) {
             document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildCard(objarr[i]);    
         }

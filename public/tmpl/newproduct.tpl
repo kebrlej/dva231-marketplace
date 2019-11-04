@@ -44,7 +44,7 @@ if (SessionManagement::isLoggedIn()) {
        <img src="" id="imagePreview" width="100" length="100">
 -->
 <br><br>
-<button id="btn-login" name="publish" onClick="newProduct()" ;">Publish</button>
+<button id="btn-login" name="publish" onClick="createNewProduct()">Publish</button>
 </div>
 
 
