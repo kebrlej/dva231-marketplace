@@ -32,7 +32,13 @@ function displayAllProducts(products) {
     removeFromStorage("searchterm");
 
     function buildCard(obj) {
-        return '<div class="productBox" onclick="viewProduct('+ obj.id +')"><img><h2>' + obj.title + '</h2><h3>' + obj.price + ' kr</h3><h3>' + obj.category + '</h3><h3>' + obj.location + '</h3><br><h4>' + obj.date + '</h4><h4>' + obj.comments + ' comments</h4><p>' + obj.description + '</p></div>';
+        var objImage = null;
+        if(obj.images !== undefined && obj.images.length > 0){
+            objImage = "<img src='"+obj.images[0].data+"' alt='"+obj.images.name+"'>";
+        }else{
+            objImage = "<img>";
+        }
+        return '<div class="productBox" onclick="viewProduct('+ obj.id +')">'+objImage+'<h2>' + obj.title + '</h2><h3>' + obj.price + ' kr</h3><h3>' + obj.category + '</h3><h3>' + obj.location + '</h3><br><h4>' + obj.date + '</h4><h4>' + obj.comments + ' comments</h4><p>' + obj.description + '</p></div>';
     }
 
     if (searchterm != null){
