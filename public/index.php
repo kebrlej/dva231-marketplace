@@ -102,8 +102,8 @@ if (isset($_GET['page'])) {
     <div class="container" >
         <div class="navbar-header">
             <a href="index.php" class="navbar-brand">
-                <img src="img/logo2.png" width=23%
-                     style=" display: block; margin-left: auto; margin-right: auto; margin-top:-10px;">
+                <img src="img/logo2.png" width=35%
+                     style=" display: block; margin-left: auto; margin-right: auto; margin-top:-5px;">
             </a>
         </div>
         <div class="collapse navbar-collapse">

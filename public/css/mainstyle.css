@@ -1,5 +1,5 @@
 body {
-	padding-top: 70px;
+	padding-top: 60px;
   padding-bottom: 100px;
   height: 100%;
   background-color:#AAA;
@@ -21,11 +21,22 @@ body {
   background-size: 100% 100%;
 }
 
+.nav{
+     font-size: 19px;
+
+ }
+
+.navbar-nav>li>a {
+    line-height: 50px;
+    font-weight: bold;
+}
+
 .header-dropdown{
   background-color: rgb(150, 50, 75, 0);
   border:none;
   color:#AAA;
-  margin-top: 14px;
+  margin-top: 25px;
+    font-weight: bold;
 }
 
 #form-box {
@@ -763,7 +774,7 @@ label[for="formLabel"] {
 }
 
 #pageContentContainer{
-    min-height: 800px;
+    min-height: 955px;
 }
 #map {
     width : 80%;

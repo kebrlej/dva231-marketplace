@@ -1,8 +1,26 @@
-After post publish redirect to the POST
+After post publishing new post redirect to it
 
 before create user, check if user with this username or password already
 exists. Do the check in controller and return special exception and handle it
-properly
+properly.
+
+Change password. Forgotten password. 2FA
+
+After successful comment adding, return the newly created comment to
+the website. And then display it.
+
+Form validations. 
+
+
+
+
+
+
+
+
+
+
+
 
 When request body attributes not set correctly, catch exception and
 return fail response. Now it throws exception.
@@ -12,11 +30,6 @@ Fix get user by id when it doesnt exist to fail. Same for products. Systematic m
 Default product state when created. Default user role when created.
 
 Fix when no id specified for GET/DELETE.
-
-After successful comment adding, return the newly created comment to
-the website.
-
-
 
 Authentication propagation???
 

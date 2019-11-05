@@ -80,7 +80,9 @@ class UserController extends GenericController
     public function prepareDataForInsert($data)
     {
         //no preparations needed :-)
-        return (array)$data;
+        $array = (array)$data;
+        $array['role']="USER";
+        return $array;
     }
 
     function registerUser()
