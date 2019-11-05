@@ -1,4 +1,3 @@
-
 function displayProductDetails() {
     var productId = getFromLocalStorage("productId");
     sendGetRequest("api.php/products?id=" + productId, getSingleProductCallback);
@@ -13,9 +12,9 @@ function getSingleProductCallback(data, textStatus) {
     }
 }
 
-function displaySingleProduct(product) {
-    if (product.images !== undefined) {
-        var imageSlider = document.getElementById("image-slider");
+function loadProductImages(product) {
+    var imageSlider = document.getElementById("image-slider");
+    if (product.images !== undefined && product.images !== null && product.images.length > 0) {
         product.images.forEach(function (image) {
             var img = document.createElement("img");
             img.className = "image-slides";
@@ -23,18 +22,22 @@ function displaySingleProduct(product) {
             img.alt = image.name;
             imageSlider.appendChild(img);
         });
+        showDivs(slideIndex);
+    } else {
+        imageSlider.parentElement.removeChild(imageSlider);
     }
+}
+
+function displaySingleProduct(product) {
+    loadProductImages(product);
+
     document.getElementById("postTitle").innerHTML = product.title;
-    document.getElementById("postPrice").innerHTML = " "+product.price + " kr";
-    document.getElementById("postLocation").innerHTML = " "+product.location;
-    document.getElementById("postDescription").innerHTML = " "+product.description;
-    document.getElementById("postDate").innerHTML = " "+product.postDate;
+    document.getElementById("postPrice").innerHTML = " " + product.price + " kr";
+    document.getElementById("postLocation").innerHTML = " " + product.location;
+    document.getElementById("postDescription").innerHTML = " " + product.description;
+    document.getElementById("postDate").innerHTML = " " + product.postDate;
 
     getPositionWithLocation(product.county, product.location);
-
-    var x = 10;
-
-    showDivs(slideIndex);
 }
 
 
@@ -97,42 +100,40 @@ var latitude;
 var longtitude;
 
 function getPositionWithLocation(county, city) {
-     var xmlhttp = new XMLHttpRequest();
-     var url = "https://maps.googleapis.com/maps/api/geocode/json?address="+ county +","+ city + "&key=AIzaSyDxN6krn9FupLvyFEdqocm9JIV_IP7rlRs";
-     xmlhttp.onreadystatechange = function() {
-         if(this.readyState == 4 && this.status == 200) {
+    var xmlhttp = new XMLHttpRequest();
+    var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + county + "," + city + "&key=AIzaSyDxN6krn9FupLvyFEdqocm9JIV_IP7rlRs";
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
 
-             var json = JSON.parse(this.responseText);
-             // We parse the JSON response
-
-
-             var coordinates = parseJsonLocation(json);
-
-             latitude = coordinates[0];
-             longtitude = coordinates[1];
-
-             var script = document.createElement('script');
-             script.src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxN6krn9FupLvyFEdqocm9JIV_IP7rlRs&callback=initMap";
-
-             document.head.appendChild(script);
-
-             var x = 10;
+            var json = JSON.parse(this.responseText);
+            // We parse the JSON response
 
 
-         }
-     };
-     xmlhttp.open("GET", url, true);
-     xmlhttp.send();
+            var coordinates = parseJsonLocation(json);
 
- }
+            latitude = coordinates[0];
+            longtitude = coordinates[1];
 
- function parseJsonLocation(json) {
-     var latitude = json.results[0].geometry.location.lat;
-     var longitude = + json.results[0].geometry.location.lng;
-     return [latitude, longitude]
- }
+            var script = document.createElement('script');
+            script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDxN6krn9FupLvyFEdqocm9JIV_IP7rlRs&callback=initMap";
+
+            document.head.appendChild(script);
+
+            var x = 10;
 
 
+        }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+
+}
+
+function parseJsonLocation(json) {
+    var latitude = json.results[0].geometry.location.lat;
+    var longitude = +json.results[0].geometry.location.lng;
+    return [latitude, longitude]
+}
 
 
 function initMap() {

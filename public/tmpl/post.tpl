@@ -88,11 +88,6 @@
         <tr>
             <td colspan=2>
                         <div id="map">  </div>
-                        <script async defer
-                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxN6krn9FupLvyFEdqocm9JIV_IP7rlRs&callback=initMap">
-                            </script>
-                           <!-- <img src="img/img3.png" width=80% style=" display: block; margin-left: auto; margin-right: auto;"> -->
-                        </td>
         </tr>
     </table>
 </div>

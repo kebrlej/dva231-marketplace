@@ -85,7 +85,6 @@ if (isset($_GET['page'])) {
     <script src="<?= JS_PATH ?>localStorage.js"></script>
     <script src="<?= JS_PATH ?>domStorage.js"></script>
     <script src="<?= JS_PATH ?>requestService.js"></script>
-    <script src="<?= JS_PATH ?>productTemplateBuilder.js"></script>
     <script src="<?= JS_PATH ?>productService.js"></script>
     <script src="<?= JS_PATH ?>commonProductsFunctions.js"></script>
     <script src="<?= JS_PATH ?>searchProducts.js"></script>
