@@ -9,7 +9,7 @@ if (SessionManagement::isLoggedIn()) {
 <input type="text" name="publishtitle" placeholder="Title" id="publishtitle">
 
 <br><br>
-<label for="categorydropdrown" class="glyphicon glyphicon-folder-open" style="margin-left:4px"></label>
+<label for="categorydropdrown" class="glyphicon glyphicon-folder-open" style="margin-left:4px; padding-right:10px"></label>
 <div class="btn-group dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" id="categorydropdown">Category
                 <span class="caret"></span></button>
@@ -35,7 +35,7 @@ if (SessionManagement::isLoggedIn()) {
                 <li><a onclick="onDropdownSelection(\'Sport\')">Sport</a></li>
             </div>
         </div>
-
+<br><br>
 
 <label for="publishprice" class="glyphicon glyphicon-tag"></label>
 <input type="text" name="publishprice" placeholder="Price" id="publishprice"> kr
