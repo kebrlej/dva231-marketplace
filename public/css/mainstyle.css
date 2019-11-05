@@ -334,7 +334,6 @@ transition: .1s ease;
 }
 
 #historyBox{
-  
   width:20%;
   white-space: nowrap;overflow: hidden;text-overflow: ellipsis;
   padding-bottom:20px;

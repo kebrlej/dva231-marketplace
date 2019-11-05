@@ -1,3 +1,8 @@
+function displayProductDetails() {
+    var productId = getFromLocalStorage("productId");
+    sendGetRequest("api.php/products?id=" + productId, getSingleProductCallback);
+}
+
 function getSingleProductCallback(data, textStatus) {
     response = JSON.parse(data);
     if (response.success === true) {
@@ -5,11 +10,6 @@ function getSingleProductCallback(data, textStatus) {
     } else {
         var x = 10;
     }
-}
-
-function getSingleProduct() {
-    var productId = getFromStorage("productId");
-    sendGetRequest("api.php/products?id=" + productId, getSingleProductCallback);
 }
 
 function displaySingleProduct(product) {

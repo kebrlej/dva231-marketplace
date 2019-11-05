@@ -45,7 +45,7 @@ function createNewProduct() {
         price: price.val(),
         location: location.val(),
         description: description.val(),
-        userId: getFromStorage("userId"),
+        userId: getFromLocalStorage("userId"),
         latitude: 1,
         longtitude: 1,
         images: getDomStorageArray("productImages")

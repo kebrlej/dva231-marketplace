@@ -21,10 +21,10 @@ function buildProductCard(product) {
 
 function displayAllProducts(products) {
     var objarr = products;
-    var searchterm = getFromStorage("searchterm");
-    removeFromStorage("searchterm");
-    var category = getFromStorage("searchcategory");
-    removeFromStorage("searchcategory");
+    var searchterm = getFromLocalStorage("searchterm");
+    removeFromLocalStorage("searchterm");
+    var category = getFromLocalStorage("searchcategory");
+    removeFromLocalStorage("searchcategory");
 
     if (searchterm != null){
         document.getElementById("search").value = searchterm;
@@ -39,7 +39,7 @@ function displayAllProducts(products) {
         }
     }
     else{
-        
+
         for (var i = 0; i < objarr.length; ++i) {
             document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildProductCard(objarr[i]);
         }
@@ -48,11 +48,11 @@ function displayAllProducts(products) {
 }
 
 function onSearchChange() {
-    saveToStorage("searchterm", document.getElementById('search').value);
+    saveToLocalStorage("searchterm", document.getElementById('search').value);
     window.location.href = "index.php?page=result";
 }
 
 function viewProduct(id) {
-    saveToStorage("productId", id);
+    saveToLocalStorage("productId", id);
     window.location.href = "index.php?page=post";
 }
