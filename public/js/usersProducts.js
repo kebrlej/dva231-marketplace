@@ -19,7 +19,10 @@ function displayUsersProducts(products) {
         document.getElementById("dummyTextToLoadTheProducts2").innerHTML = "No results found.";
     } else {
         usersProducts.forEach(function(product){
-            document.getElementById("dummyTextToLoadTheProducts2").innerHTML += buildProductCard(product);
+            if(product.state === 'VALID') {
+                document.getElementById("dummyTextToLoadTheProducts2").innerHTML += buildProductCard(product);
+            }
+
         });
     }
 }
