@@ -3,6 +3,6 @@
 <p id="dummyTextToLoadTheProducts"></p>
 
 <script>
-    window.onload = getProducts;
+    window.onload = searchProducts;
 
 </script>

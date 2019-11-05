@@ -87,7 +87,9 @@ if (isset($_GET['page'])) {
     <script src="<?= JS_PATH ?>requestService.js"></script>
     <script src="<?= JS_PATH ?>productTemplateBuilder.js"></script>
     <script src="<?= JS_PATH ?>productService.js"></script>
+    <script src="<?= JS_PATH ?>commonProductsFunctions.js"></script>
     <script src="<?= JS_PATH ?>searchProducts.js"></script>
+    <script src="<?= JS_PATH ?>usersProducts.js"></script>
     <script src="<?= JS_PATH ?>login.js"></script>
     <script src="<?= JS_PATH ?>registerFormValidation.js"></script>
     <script src="<?= JS_PATH ?>register.js"></script>
