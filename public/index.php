@@ -47,6 +47,14 @@ if (isset($_GET['page'])) {
             $page='dropzone';
             $phpfile = true;
             break;
+        case 'favorites';
+            $page='favorites';
+            $phpfile = true;
+            break;
+        case 'usersproducts';
+            $page='usersproducts';
+            $phpfile = true;
+            break;
         default :
             $page = 'home';
     }
@@ -112,8 +120,8 @@ if (isset($_GET['page'])) {
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                     <li><a href="index.php?page=usersettings">User settings</a></li>
-                    <li><a href="#">My favorites</a></li>
-                    <li><a href="#">My products</a></li>
+                    <li><a href="index.php?page=favorites">My favorites</a></li>
+                    <li><a href="index.php?page=usersproducts">My products</a></li>
                     <li><a onclick="logoutUser()" style="cursor: pointer;">Logout</a></li>
                 </ul>
                 </div></li>';

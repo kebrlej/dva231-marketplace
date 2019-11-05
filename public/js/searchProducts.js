@@ -9,6 +9,17 @@ function getProducts() {
     });
 }
 
+function getUsersProducts() {
+    sendGetRequest("api.php/products", function getProductsCallback(data, textStatus) {
+        response = JSON.parse(data);
+        if (response.success === true) {
+            displayUsersProducts(response.data);
+        } else {
+            var x = 10;
+        }
+    });
+}
+
 function buildProductCard(product) {
     var objImage = null;
     if (product.images !== undefined && product.images.length > 0) {
@@ -55,4 +66,15 @@ function onSearchChange() {
 function viewProduct(id) {
     saveToLocalStorage("productId", id);
     window.location.href = "index.php?page=post";
+}
+
+function displayUsersProducts(products) {
+    var objarr = products;
+    var currentuserid = getFromLocalStorage("userId");
+    for (var i = 0; i < objarr.length; ++i) {
+        if (objarr[i].userId == currentuserid) {
+            document.getElementById("dummyTextToLoadTheProducts2").innerHTML += buildProductCard(objarr[i]);
+        }
+    }
+    if (objarr.length == 0) document.getElementById("dummyTextToLoadTheProducts2").innerHTML = "No results found.";
 }

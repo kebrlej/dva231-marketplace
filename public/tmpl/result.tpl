@@ -100,7 +100,7 @@
 
 <p id="dummyTextToLoadTheProducts"></p>
 
-<script>
+<script> 
     window.onload = getProducts;
 
     function onDropdrownSelection(category) {
