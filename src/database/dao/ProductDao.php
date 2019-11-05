@@ -39,8 +39,8 @@ class ProductDao extends AbstractDao
 
     public function updateProductState($newState, $productId){
 //        UPDATE product SET state='BLOCKED' WHERE id=1;
-        $updateQuery = "UPDATE ".$this->tableName." SET state='{{$newState}}' WHERE id='{{$productId}}'";
-        echo $updateQuery;
+        $updateQuery = "UPDATE ".$this->tableName." SET state='{$newState}' WHERE id='{$productId}'";
+        return $this->executeSqlQuery($updateQuery);
     }
 
 }

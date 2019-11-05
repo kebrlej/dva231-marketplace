@@ -9,7 +9,7 @@ class ProductController extends GenericController
         parent::__construct($requestObject, new ProductDao());
         $this->allowedRequestMethods = array(
             '/products' => array(HTTP_GET, HTTP_POST, HTTP_PUT, HTTP_DELETE),
-            '/products/changeproductstate'=> array(HTTP_POST)
+            '/products/changeproductstate' => array(HTTP_POST)
         );
 
         if ($this->isRequestMethodAllowed() == false) {
@@ -56,33 +56,34 @@ class ProductController extends GenericController
         }
     }
 
-    public function handleProductPOST(){
+    public function handleProductPOST()
+    {
         $data = $this->requestObject->data;
 
 //        echo json_encode($data);
         //prepare images
         $imageDtos = array();
-        foreach($data->images as $image){
+        foreach ($data->images as $image) {
             $imageDto = new PostProductImageDto();
             $imageDto->loadObjectData($image);
-            array_push($imageDtos,$imageDto);
+            array_push($imageDtos, $imageDto);
         };
         $preparedData = $this->prepareDataForInsert($data);
 
         $result = $this->dataAccessObject->insertIntoTable($preparedData);
 
 
-        if($this->dataAccessObject->getAffectedRows() == 1 && $result == 1){
+        if ($this->dataAccessObject->getAffectedRows() == 1 && $result == 1) {
             //product saved correctly, save also images
             $productImageDao = new ProductImageDao();
 
-            foreach($imageDtos as $imageDto){
+            foreach ($imageDtos as $imageDto) {
                 $imageValuesArray = (array)$imageDto;
                 $imageValuesArray["product_id"] = $this->dataAccessObject->getLastInsertId();
                 $productImageDao->insertIntoTable($imageValuesArray);
             }
             $this->sendResponse(Response::successResponse(null));
-        }else{
+        } else {
             $this->sendResponse(Response::errorResponse("Insert failed"));
         }
     }
@@ -104,10 +105,10 @@ class ProductController extends GenericController
         $createProductDto = new CreateProductDto();
         $createProductDto->loadObjectData($this->requestObject->data);
 
-        try{
+        try {
             $productDto = $this->dataAccessObject->insertIntoTable((array)(prepareDataForInsert($createProductDto)));
             $this->sendResponse(Response::successResponse($productDto));
-        }catch(Exception $e){
+        } catch (Exception $e) {
             $this->sendResponse(Response::errorResponse($e->getMessage()));
         }
     }
@@ -116,11 +117,16 @@ class ProductController extends GenericController
     {
         $newProductStateDto = new NewProductStateDto();
         $newProductStateDto->loadObjectData($this->requestObject->data);
-
-        $this->dataAccessObject->updateProductState($newProductStateDto->state, $newProductStateDto->productId);
-
-
-
-
+        try {
+            $result = $this->dataAccessObject->updateProductState($newProductStateDto->state, $newProductStateDto->productId);
+            if ($result == 0) {
+                $this->sendResponse(Response::errorResponse("No value changed"));
+            } else {
+                //SUCCESS
+                $this->sendResponse(Response::successResponse(null));
+            }
+        } catch (Exception $e) {
+            $this->sendResponse(Response::errorResponse($e->getMessage()));
+        }
     }
 }

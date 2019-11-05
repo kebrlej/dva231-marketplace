@@ -11,36 +11,90 @@ function searchProducts() {
 }
 
 function displayAllProducts(products) {
-    var objarr = products;
-    var searchterm = getFromLocalStorage("searchterm");
-    removeFromLocalStorage("searchterm");
-    var category = getFromLocalStorage("searchcategory");
-    removeFromLocalStorage("searchcategory");
+    products = filterSearchterm(products);
+    products = filterCategory(products);
+    products = filterCounty(products);
+    products = filterCity(products);
 
-    if (searchterm != null) {
-        document.getElementById("search").value = searchterm;
-        for (var i = 0; i < objarr.length; ++i) {
-            if (objarr[i].title.toLowerCase().includes(searchterm.toLowerCase()) || objarr[i].description.toLowerCase().includes(searchterm.toLowerCase())) {
-                if (category != null) {
-                    document.getElementById("categoryDropdown").textContent = category;
-                    if (objarr[i].category == category) {
-                        document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildProductCard(objarr[i]);
-                    }
-                } else {
-                    document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildProductCard(objarr[i]);
-                }
-            }
-        }
-    } else {
-
-        for (var i = 0; i < objarr.length; ++i) {
-            document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildProductCard(objarr[i]);
-        }
+    for (var i = 0; i < products.length; ++i) {
+        document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildProductCard(products[i]);
     }
-    if (objarr.length == 0) document.getElementById("dummyTextToLoadTheProducts").innerHTML = "No results found.";
 }
 
 function onSearchChange() {
     saveToLocalStorage("searchterm", document.getElementById('search').value);
     window.location.href = "index.php?page=result";
+}
+
+function filterSearchterm(products){
+    var searchtermFilteredObjects = [];
+    var searchterm = getFromLocalStorage("searchterm");
+    removeFromLocalStorage("searchterm");
+
+    if (searchterm != null) {
+        document.getElementById("search").value = searchterm;
+        for (var i = 0; i < products.length; ++i) {
+            if (products[i].title.toLowerCase().includes(searchterm.toLowerCase()) || products[i].description.toLowerCase().includes(searchterm.toLowerCase())) {
+                searchtermFilteredObjects.push(products[i]);
+            }
+        }
+    }
+    else {
+        return products;
+    }
+    return searchtermFilteredObjects;
+}
+
+function filterCategory(products){
+    var categoryFilteredObjects = [];
+    var category = getFromLocalStorage("searchcategory");
+    removeFromLocalStorage("searchcategory");
+
+    if (category != null) {
+        document.getElementById("categoryDropdown").textContent = category;
+        for (var i = 0; i < products.length; ++i) {
+            if (products[i].category == category) {
+                categoryFilteredObjects.push(products[i]);
+            }
+        }
+    } else {
+        return products;
+    }
+    return categoryFilteredObjects;
+}
+
+function filterCounty(products){
+    var countyFilteredObjects = [];
+    var county = getFromLocalStorage("searchcounty");
+    removeFromLocalStorage("searchcounty");
+
+    if (county != null) {
+        document.getElementById("countydropdown").textContent = county;
+        for (var i = 0; i < products.length; ++i) {
+            if (products[i].county == county) {
+                countyFilteredObjects.push(products[i]);
+            }
+        }
+    } else {
+        return products;
+    }
+    return countyFilteredObjects;
+}
+
+function filterCity(products){
+    var cityFilteredObjects = [];
+    var city = getFromLocalStorage("searchcity");
+    removeFromLocalStorage("searchcity");
+
+    if (city != null) {
+        document.getElementById("citydropdown").textContent = city;
+        for (var i = 0; i < products.length; ++i) {
+            if (products[i].location == city) {
+                cityFilteredObjects.push(products[i]);
+            }
+        }
+    } else {
+        return products;
+    }
+    return cityFilteredObjects;
 }

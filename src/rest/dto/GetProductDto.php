@@ -3,7 +3,6 @@
 
 class GetProductDto
 {
-
     public $id;
     public $title;
     public $price;
