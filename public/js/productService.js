@@ -30,7 +30,7 @@ function displaySingleProduct(product) {
     document.getElementById("postDescription").innerHTML = product.description;
     document.getElementById("postDate").innerHTML = product.postDate;
 
-    getPositionWithLocation(product.county);
+    getPositionWithLocation(product.county, product.location);
 
     var x = 10;
 
@@ -96,9 +96,9 @@ function showDivs(n) {
 var latitude;
 var longtitude;
 
-function getPositionWithLocation(location) {
+function getPositionWithLocation(county, city) {
      var xmlhttp = new XMLHttpRequest();
-     var url = "https://maps.googleapis.com/maps/api/geocode/json?address="+ location + "&key=AIzaSyDxN6krn9FupLvyFEdqocm9JIV_IP7rlRs";
+     var url = "https://maps.googleapis.com/maps/api/geocode/json?address="+ county +","+ city + "&key=AIzaSyDxN6krn9FupLvyFEdqocm9JIV_IP7rlRs";
      xmlhttp.onreadystatechange = function() {
          if(this.readyState == 4 && this.status == 200) {
 

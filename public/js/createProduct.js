@@ -46,7 +46,8 @@ function createNewProduct() {
         title: title.val(),
         category: document.getElementById("categorydropdown").textContent,
         price: price.val(),
-        location: "Vasteras", // Do we use it?
+        location: document.getElementById("citydropdown").textContent,
+        city: "Vasteras",
         county: temp2,
         description: description.val(),
         userId: getFromLocalStorage("userId"),
