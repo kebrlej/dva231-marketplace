@@ -43,7 +43,7 @@ function createNewProduct() {
         title: title.val(),
         category: document.getElementById("categorydropdown").textContent,
         price: price.val(),
-        location: location.val(),
+        location: "Vasteras",
         description: description.val(),
         userId: getFromLocalStorage("userId"),
         latitude: 1,
