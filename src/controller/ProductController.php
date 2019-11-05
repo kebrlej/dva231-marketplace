@@ -9,7 +9,7 @@ class ProductController extends GenericController
         parent::__construct($requestObject, new ProductDao());
         $this->allowedRequestMethods = array(
             '/products' => array(HTTP_GET, HTTP_POST, HTTP_PUT, HTTP_DELETE),
-            '/products/productstate'=> array(HTTP_POST)
+            '/products/changeproductstate'=> array(HTTP_POST)
         );
 
         if ($this->isRequestMethodAllowed() == false) {

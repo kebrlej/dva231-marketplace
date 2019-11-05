@@ -53,7 +53,7 @@ switch ($request->resourceName) {
     case "/products":
         (new ProductController($request))->defaultRequestRouter();
         break;
-    case "/products/productstate":
+    case "/products/changeproductstate":
         (new ProductController($request))->changeProductState();
         break;
     case '/createproduct':
