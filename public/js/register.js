@@ -1,5 +1,4 @@
 function registerUserCallback(data, textStatus) {
-
     response = JSON.parse(data);
 
     if (response.success === true) {

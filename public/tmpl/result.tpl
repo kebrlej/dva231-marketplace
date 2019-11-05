@@ -97,7 +97,7 @@
 <p id="dummyTextToLoadTheProducts"></p>
 
 <script> 
-    window.onload = getProducts;
+    window.onload = searchProducts;
 
     function onDropdrownSelection(category) {
         document.getElementById('categoryDropdown').textContent = category;

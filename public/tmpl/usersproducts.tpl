@@ -3,7 +3,6 @@
 <p id="dummyTextToLoadTheProducts2"></p>
 
 <script>
-    window.onload = getUsersProducts;
-    console.log(getUsersProducts);
-
+    window.onload = getProductsOfUser;
+    console.log(getProductsOfUser);
 </script>
