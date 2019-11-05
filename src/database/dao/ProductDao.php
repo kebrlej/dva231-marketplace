@@ -22,8 +22,7 @@ class ProductDao extends AbstractDao
             $result['user_id'],
             $result['latitude'],
             $result['longtitude'],
-            $result['county'],
-            $result['city']
+            $result['county']
         );
         $productDto->comments = [];
 
@@ -33,6 +32,12 @@ class ProductDao extends AbstractDao
         // todo load product images here
 
         return $productDto;
+    }
+
+    public function updateProductState($newState, $productId){
+//        UPDATE product SET state='BLOCKED' WHERE id=1;
+        $updateQuery = "UPDATE ".$this->tableName." SET state='{{$newState}}' WHERE id='{{$productId}}'";
+        echo $updateQuery;
     }
 
 }
