@@ -1,6 +1,6 @@
 window.marketplaceStorage = [];
 
-function putValueInDomStorage(key, value) {
+function setValueInDomStorage(key, value) {
     window.marketplaceStorage[key] = value;
 }
 

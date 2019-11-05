@@ -3,13 +3,13 @@ function saveToLocalStorage(key, value) {
 }
 
 function getFromLocalStorage(key) {
-    return window.localStorage.getItem(key);
+    var value = window.localStorage.getItem(key);
+    return value;
 }
 
 function removeFromLocalStorage(key) {
     return window.localStorage.removeItem(key);
 }
-
 
 let recentlyVisitedStorageName = "recentlyVisited";
 
@@ -18,19 +18,23 @@ function addRecentlyVisitedProduct(productId, productTitle) {
         id: productId,
         title: productTitle
     };
-
-    if (getFromLocalStorage(recentlyVisitedStorageName) === undefined) {
-        saveToLocalStorage(recentlyVisitedStorageName, []);
+    if (getFromLocalStorage(recentlyVisitedStorageName) == null) {
+        var array = [];
+        array.push(visitedProduct);
+        saveToLocalStorage(recentlyVisitedStorageName, JSON.stringify(array));
     } else {
-        getFromLocalStorage(recentlyVisitedStorageName).push(visitedProduct);
+        var array = JSON.parse(getFromLocalStorage(recentlyVisitedStorageName));
+        array.push(visitedProduct);
+        saveToLocalStorage(recentlyVisitedStorageName, JSON.stringify(array));
     }
 }
 
 function getRecentlyVisitedProducts() {
-    if (getFromLocalStorage(recentlyVisitedStorageName) === undefined) {
+    var recentlyVisited = getFromLocalStorage(recentlyVisitedStorageName);
+    if (recentlyVisited == null) {
         return [];
     } else {
-        return getFromLocalStorage(recentlyVisitedStorageName);
+        return JSON.parse(getFromLocalStorage(recentlyVisitedStorageName));
     }
 }
 

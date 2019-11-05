@@ -91,10 +91,6 @@
 <div id="historyBox" class="historyBox">
     <h4 style="font-size:18px;">Recently viewed</h4>
     <div id="historyBoxLinks">
-        <a>Title of the ad</a>
-        <br>
-        <a>Another example of an ad that is much longer than the first one</a>
-        <br>
     </div>
 </div>
 
