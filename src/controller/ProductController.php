@@ -8,7 +8,8 @@ class ProductController extends GenericController
     {
         parent::__construct($requestObject, new ProductDao());
         $this->allowedRequestMethods = array(
-            '/products' => array(HTTP_GET, HTTP_POST, HTTP_PUT, HTTP_DELETE)
+            '/products' => array(HTTP_GET, HTTP_POST, HTTP_PUT, HTTP_DELETE),
+            '/products/changeproductstate'=> array(HTTP_POST)
         );
 
         if ($this->isRequestMethodAllowed() == false) {
@@ -109,5 +110,17 @@ class ProductController extends GenericController
         }catch(Exception $e){
             $this->sendResponse(Response::errorResponse($e->getMessage()));
         }
+    }
+
+    public function changeProductState()
+    {
+        $newProductStateDto = new NewProductStateDto();
+        $newProductStateDto->loadObjectData($this->requestObject->data);
+
+        $this->dataAccessObject->updateProductState($newProductStateDto->state, $newProductStateDto->productId);
+
+
+
+
     }
 }

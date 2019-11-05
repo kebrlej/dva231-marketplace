@@ -3,7 +3,7 @@
 
 abstract class AbstractDao extends Connection
 {
-    private $tableName;
+    protected $tableName;
 
     public function __construct($tableName)
     {
