@@ -37,10 +37,11 @@ function createNewProduct() {
     var location = jQuery("#publishlocation");
     var description = jQuery("#publishdescription");
 
+    temp = document.getElementById("categorydropdown").textContent;
 
     var data = {
         title: title.val(),
-        category: category.val(),
+        category: document.getElementById("categorydropdown").textContent,
         price: price.val(),
         location: location.val(),
         description: description.val(),

@@ -14,7 +14,25 @@ if (SessionManagement::isLoggedIn()) {
             <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" id="categorydropdown">Category
                 <span class="caret"></span></button>
             <div class="dropdown-menu">
-                [WIP]
+                <li><a onclick="onDropdownSelection(\'Vehicles\')">Vehicles</a></li>
+                <li><a onclick="onDropdownSelection(\'Garden & outdoor\')">Garden & outdoor</a></li>
+                <li><a onclick="onDropdownSelection(\'Furniture\')">Furniture</a></li>
+                <li><a onclick="onDropdownSelection(\'Appliences\')">Appliences</a></li>
+                <li><a onclick="onDropdownSelection(\'Tools\')">Tools</a></li>
+                <li><a onclick="onDropdownSelection(\'Clothes & shoes\')">Clothes & shoes</a></li>
+                <li><a onclick="onDropdownSelection(\'Accessories & watches\')">Accessories & watches</a></li>
+                <li><a onclick="onDropdownSelection(\'Toys\')">Toys</a></li>
+                <li><a onclick="onDropdownSelection(\'Computers & peripherals\')">Computers & peripherals</a></li>
+                <li><a onclick="onDropdownSelection(\'Audio & visuals\')">Audio & visuals</a></li>
+                <li><a onclick="onDropdownSelection(\'Telephones\')">Telephones</a></li>
+                <li><a onclick="onDropdownSelection(\'Experiences & activities\')">Experiences & activities</a></li>
+                <li><a onclick="onDropdownSelection(\'Books & litterature\')">Books & litterature</a></li>
+                <li><a onclick="onDropdownSelection(\'Bikes\')">Bikes</a></li>
+                <li><a onclick="onDropdownSelection(\'Animals\')">Animals</a></li>
+                <li><a onclick="onDropdownSelection(\'Collector items\')">Collector items</a></li>
+                <li><a onclick="onDropdownSelection(\'Hunting & fishing\')">Hunting & fishing</a></li>
+                <li><a onclick="onDropdownSelection(\'Instruments\')">Instruments</a></li>
+                <li><a onclick="onDropdownSelection(\'Sport\')">Sport</a></li>
             </div>
         </div>
 
@@ -58,3 +76,9 @@ echo '
 </div>';
 }
 ?>
+
+<script>
+function onDropdownSelection(category){
+    document.getElementById("categorydropdown").textContent = category;
+}
+</script>
