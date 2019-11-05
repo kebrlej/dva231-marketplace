@@ -5,12 +5,13 @@ function buildProductCard(product) {
     } else {
         objImage = "<img>";
     }
-    return '<div class="productBox" onclick="viewProduct(' + product.id + ')">' + objImage + '<h2>' + product.title + '</h2><h3>' + product.price + ' kr</h3><h3>' + product.category + '</h3><h3>' + product.location + '</h3><br><h4>' + product.date + '</h4><h4>' + product.comments + ' comments</h4><p>' + product.description + '</p></div>';
+    return '<div class="productBox" onclick="viewProduct(' + product.id + ',' + product.userId +')">' + objImage + '<h2>' + product.title + '</h2><h3>' + product.price + ' kr</h3><h3>' + product.category + '</h3><h3>' + product.location + '</h3><br><h4>' + product.date + '</h4><h4>' + product.comments + ' comments</h4><p>' + product.description + '</p></div>';
 }
 
 
-function viewProduct(id) {
+function viewProduct(id, userId) {
     saveToLocalStorage("productId", id);
+    saveToLocalStorage("productUserId", userId);
     var products = getValueFromDomStorage("products");
     var foundProduct = products.filter(function (product) {
         return product.id == id;

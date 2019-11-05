@@ -5,7 +5,7 @@
 <div id="fullAd" class="fullAd">
     <!-- <img src="css/img1.jpg" width="60%" style=" display: block; margin-left: auto; margin-right: auto;"> -->
     <p style="text-align:right;margin-right:50px;">
-        <a href="#comments">Comments</a> | <a href="#" id="followOrDelete">Follow</a>
+        <a href="#comments">Comments</a> | <a id="followOrDelete">Follow</a> 
     </p>
 
     <div id="image-slider" class="w3-content w3-display-container" style="max-width:800px;">
@@ -102,4 +102,13 @@
 
 <script>
     window.onload = displayProductDetails
+
+    var elem = document.getElementById("followOrDelete");
+    if (getFromLocalStorage("userId") == getFromLocalStorage("productUserId")){
+        elem.innerHTML = "Delete";
+        elem.onclick= DeleteProduct(); //not implemented yet
+    } else{
+        elem.innerHTML = "Follow";
+        elem.onclick= FollowProduct(); //not implemented yet
+    }
 </script>
