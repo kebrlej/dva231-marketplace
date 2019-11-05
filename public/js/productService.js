@@ -13,8 +13,8 @@ function getSingleProductCallback(data, textStatus) {
 }
 
 function displaySingleProduct(product) {
-    if (product.images !== undefined) {
-        var imageSlider = document.getElementById("image-slider");
+    var imageSlider = document.getElementById("image-slider");
+    if (product.images !== undefined && product.images !== null && product.length > 0) {
         product.images.forEach(function (image) {
             var img = document.createElement("img");
             img.className = "image-slides";
@@ -22,6 +22,9 @@ function displaySingleProduct(product) {
             img.alt = image.name;
             imageSlider.appendChild(img);
         });
+        showDivs(slideIndex);
+    } else {
+        imageSlider.parentNode.removeChild(imageSlider);
     }
     document.getElementById("postTitle").innerHTML = product.title;
     document.getElementById("postPrice").innerHTML = product.price + " kr";
@@ -29,7 +32,6 @@ function displaySingleProduct(product) {
     document.getElementById("postDescription").innerHTML = product.description;
     document.getElementById("postDate").innerHTML = product.postDate;
 
-    showDivs(slideIndex);
 }
 
 
