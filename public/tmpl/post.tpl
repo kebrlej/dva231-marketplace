@@ -17,9 +17,36 @@
             <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
         </div>
     </div>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12" >
+                <h1 id="postTitle"></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 id="postPrice"></h4>
+            </div>
+            <div class="col-sm-6">
+                <h4 id="postDate"></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 id="postLocation"></h4>
+            </div>
+            <div class="col-sm-6">
+                2 of 2
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p id="postDescription"><br></p>
+            </div>
+        </div>
+    </div>
     <table width=800px; style="margin-right:auto; margin-left:auto">
-        <tr>
+      <!--  <tr>
             <td colspan=2>
                 <h1 id="postTitle"></h1>
             </td>
@@ -48,7 +75,7 @@
                 <p id="postDescription"><br></p>
                 <br>
             </td>
-        </tr>
+        </tr> -->
         <tr>
             <td colspan=2>
                         <div id="map">  </div>

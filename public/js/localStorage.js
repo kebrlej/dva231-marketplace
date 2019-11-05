@@ -20,11 +20,11 @@ function addRecentlyVisitedProduct(productId, productTitle) {
     };
     if (getFromLocalStorage(recentlyVisitedStorageName) == null) {
         var array = [];
-        array.push(visitedProduct);
+        array.unshift(visitedProduct);
         saveToLocalStorage(recentlyVisitedStorageName, JSON.stringify(array));
     } else {
         var array = JSON.parse(getFromLocalStorage(recentlyVisitedStorageName));
-        array.push(visitedProduct);
+        array.unshift(visitedProduct);
         saveToLocalStorage(recentlyVisitedStorageName, JSON.stringify(array));
     }
 }

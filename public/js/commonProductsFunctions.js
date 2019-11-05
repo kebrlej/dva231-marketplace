@@ -11,14 +11,11 @@ function buildProductCard(product) {
 
 function viewProduct(id) {
     saveToLocalStorage("productId", id);
-
     var products = getValueFromDomStorage("products");
-
     var foundProduct = products.filter(function (product) {
         return product.id == id;
     });
 
     addRecentlyVisitedProduct(foundProduct[0].id, foundProduct[0].title);
-
     window.location.href = "index.php?page=post";
 }
