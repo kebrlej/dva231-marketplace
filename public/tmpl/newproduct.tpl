@@ -46,7 +46,7 @@ if (SessionManagement::isLoggedIn()) {
 <div class="btn-group dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" id="countydropdown">County
         <span class="caret"></span></button>
-            <div class="dropdown-menu">
+            <div class="dropdown-menu" id="countyList">
                 <li><a onclick="onCountySelection(\'Blekinge\')">Blekinge</a></li>
                 <li><a onclick="onCountySelection(\'Dalarna\')">Dalarna</a></li>
                 <li><a onclick="onCountySelection(\'Gotland\')">Gotland</a></li>
@@ -76,8 +76,8 @@ if (SessionManagement::isLoggedIn()) {
 <div class="btn-group dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" id="citydropdown">City
         <span class="caret"></span></button>
-            <div class="dropdown-menu">
-                <li><a onclick="">[TODO]</a></li>
+            <div class="dropdown-menu" id="cityList">
+                
             </div>
 </div>
 
@@ -115,6 +115,32 @@ echo '
 ?>
 
 <script>
+    var cityInfo = {
+            Blekinge: ["Karlshamn", "Karlskrona", "Olofström", "Ronneby", "Sölvesborg"],
+            Dalarna: ["Avesta", "Borlänge", "Falun", "Gagnef", "Hedemora", "Leksand", "Ludvika", "Malung-Sälen", "Mora", "Orsa", "Rättvik", "Smedjebacken", "Säter", "Vansbro", "Älvdalen"],
+            Gotland: ["Gotland"],
+            Gävleborg: ["Bollnär", "Gävle", "Hofors", "Hudviksvall", "Ljusdal", "Nordanstig", "Ockelbo", "Ovanåker", "Sandviken", "Söderhamn"],
+            Göteborg: ["Göteborgs stad", "Härryda", "Kungsälv", "Lysekil", "Munkedal", "Mölndal", "Orust", "Partille", "Sotenäs", "Stenungsund", "Strömstad", "Tanum", "Tjörn", "Uddevalla", "Öckerö"],
+            Halland: ["Falkenberg", "Halmstad", "Hylte", "Kungsbacka", "Laholm", "Varberg"],
+            Jämtland: ["Berg", "Bräcke", "Härjedalen", "Krokom", "Ragunda", "Strömstad", "Åre", "Östersund"],
+            Jönköping: ["Aneby", "Eksjö", "Gislaved", "Gnosjö", "Habo", "Jönköping", "Mullsjö", "Nässjö", "Sävsjö", "Tranås", "Vaggeryd", "Vetlanda", "Värnamo"],
+            Kalmar: ["Borgholm", "Emmaboda", "Hultsfred", "Högsby", "Kalmar", "Mösterås", "Mörbylånga", "Nybro", "Oskarshamn", "Torsås", "Vimmerby", "Västervik"],
+            Kronoberg: ["Alvesta", "Lessebo", "Ljungby", "Markaryd", "Tingsryd", "Uppvidinge", "Växjö", "Älmhult"],
+            Norrbotten: ["Arjeplog", "Arvidsjaur", "Boden", "Gällivare", "Haparanda", "Jokkmokk", "Kalix", "Kiruna", "Luleå", "Pajala", "Piteå", "Älvsbyn", "Överkalix", "Övertorneå"],
+            Skaraborg: ["Essunga", "Falköping", "Grästorp", "Gullspång", "Götene", "Hjo", "Karlsborg", "Lidköping", "Marisestad", "Skara", "Skönde", "Tibro", "Tidaholm", "Töreboda", "Vara"],
+            Skåne: ["Bjuv", "Bromölla", "Burlöv", "Båstad", "Eslöv", "Helsingborg", "Hässleholm", "Höganäs", "Hörby", "Höör", "Klippan", "Kristianstad", "Kävlinge", "Landskrona", "Lomma", "Lund", "Malmö", "Osby", "Perstorp", "Simrishamn", "Sjöbo", "Skurup", "Staffanstorp", "Svalöv", "Svedala", "Tomelilla", "Trelleborg", "Vellinge", "Ystad", "Åstorp", "Ängelholm", "Örkelljunga", "Östra Göinge"],
+            Stockholm: ["Botkyrka", "Danderyd", "Ekerö", "Haninge", "Huddinge", "Järfälla", "Lidingö", "Nacka", "Norrtälje", "Nykvarn", "Nynäshamn", "Salem", "Sigtuna", "Sollentuna", "Solna", "Stockholm", "Sundbyberg", "Södertälje", "Tyresö", "Täby", "Upplands-Bro", "Upplands Väsby", "Vallentuna", "Vaxholm", "Värmdö", "Österåker"],
+            Södermanland: ["Eskilstuna", "Flen", "Gnesta", "Katrineholm", "Nyköping", "Oxelösund", "Strängnäs", "Trosa", "Vingåker"],
+            Uppsala: ["Enköping", "Heby", "Håbo", "Knivsta", "Tierp", "Uppsala", "Älvkarleby", "Östhammar"],
+            Värmland: ["Arvika", "Eda", "Filipstad", "Forshaga", "Grums", "Hagfors", "Hammarö", "Karlstad", "Kil", "Kristinehamn", "Munkfors", "Storfors", "Sunne", "Säffle", "Torsby", "Årjäng"],
+            Västerbotten: ["Bjurholm", "Dorotea", "Lycksele", "Malå", "Nordmaling", "Norsjö", "Robertsfors", "Skellefteå", "Sorsele", "Storuman", "Umeå", "Vilhelmina", "Vindeln", "Vännäs", "Åsele"],
+            Västernorrland: ["Härnösand", "Kramfors", "Sollefteå", "Sundsvall", "Timrå", "Ånge", "Örnsköldsvik"],
+            Västmanland: ["Arboga", "Fagersta", "Hallstahammar", "Kungsör", "Köping", "Norberg", "Sala", "Skinnskatteberg", "Surahammar", "Västerås"],
+            Älvsborg: ["Ale", "Alingsås", "Bengtfors", "Bollebygd", "Borås", "Dals-Ed", "Färgelanda", "Herrljunga", "Lerum", "Lilla Edet", "Mark", "Mellerud", "Svenljunga", "Tranemo", "Trollhättan", "Ulricehamn", "Vårgårda", "Vänersborg", "Åmål"],
+            Örebro: ["Askersund", "Degerfors", "Hallsberg", "Hällefors", "Karlskoga", "Kumla", "Laxå", "Lekeberg", "Lindesberg", "Ljusnarsberg", "Nora", "Örebro"],
+            Östergötland: ["Boxholm", "Finspång", "Kinda", "Linköping", "Mjölby", "Motala", "Norrköping", "Söderköping", "Vadstena", "Valdemarsvik", "Ydre", "Åtvidaberg", "Ödeshög"]
+            }
+
     window.onload = document.getElementById("citydropdown").disabled = true;
 
     function onCategorySelection(category){
@@ -122,6 +148,45 @@ echo '
     }
     function onCountySelection(county){
         document.getElementById("countydropdown").textContent = county;
-        document.getElementById("citydropdown").disabled = false;
+        var countryDrop = document.getElementById("countydropdown").textContent;
+        var cityDrop = document.getElementById("citydropdown");
+        cityDrop.disabled = false;
+
+        $('#cityList').empty()
+
+        switch(county){
+        case "Blekinge": cityArr = cityInfo.Blekinge; break; 
+        case "Dalarna": cityArr = cityInfo.Dalarna;break;
+        case "Gotland": cityArr = cityInfo.Gotland;break;
+        case "Gävleborg": cityArr = cityInfo.Gävleborg;break;
+        case "Göteborg": cityArr = cityInfo.Göteborg;break;
+        case "Halland": cityArr = cityInfo.Halland;break;
+        case "Jämtland": cityArr = cityInfo.Jämtland;break;
+        case "Jönköping": cityArr = cityInfo.Jönköping;break;
+        case "Kalmar": cityArr = cityInfo.Kalmar;break;
+        case "Kronoberg": cityArr = cityInfo.Kronoberg;break;
+        case "Norrbotten": cityArr = cityInfo.Norrbotten;break;
+        case "Skaraborg": cityArr = cityInfo.Skaraborg;break;
+        case "Skåne": cityArr = cityInfo.Skåne;break;
+        case "Stockholm": cityArr = cityInfo.Stockholm;break;
+        case "Södermanland": cityArr = cityInfo.Södermanland;break;
+        case "Uppsala": cityArr = cityInfo.Uppsala;break;
+        case "Värmland": cityArr = cityInfo.Värmland;break;
+        case "Västerbotten": cityArr = cityInfo.Västerbotten;break;
+        case "Västernorrland": cityArr = cityInfo.Västernorrland;break;
+        case "Västmanland": cityArr = cityInfo.Västmanland;break;
+        case "Älvsborg": cityArr = cityInfo.Älvsborg;break;
+        case "Örebro": cityArr = cityInfo.Örebro;break;
+        case "Östergötland": cityArr = cityInfo.Östergötland;break;
+        default:
+            break;
+        }
+
+        for (var i = 0; i < cityArr.length; ++i){
+            $("#cityList").append( '<li><a onclick="onCitySelection(\'' + cityArr[i] + '\')">' + cityArr[i] + '</a></li>'); 
+        }
     }
+    function onCitySelection(city){
+        document.getElementById("citydropdown").textContent = city;
+        }
 </script>

@@ -3,7 +3,7 @@ function registerUserCallback(data, textStatus) {
 
     if (response.success === true) {
         //redirect
-        loginUser();
+        //loginUser();
         window.location.href = "index.php";
     } else {
         //display warning
