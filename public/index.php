@@ -97,9 +97,9 @@ if (isset($_GET['page'])) {
 
 
 </head>
-<body>
+<body id="pageContentContainer">
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
+    <div class="container" >
         <div class="navbar-header">
             <a href="index.php" class="navbar-brand">
                 <img src="img/logo2.png" width=23%
