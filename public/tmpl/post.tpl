@@ -17,30 +17,34 @@
             <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
         </div>
     </div>
+    <br>
     <div class="container">
         <div class="row">
             <div class="col-sm-12" >
-                <h1 id="postTitle"></h1>
+                <h1 style="font-weight: 900;" id="postTitle"></h1>
+                <hr style="height:1px;border:none;color:#333;background-color:#333; width: 800px;">
             </div>
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <h4 id="postPrice"></h4>
+                <label class="glyphicon glyphicon-tag" id="postPrice" style="font-size: 25px"></label>
             </div>
             <div class="col-sm-6">
-                <h4 id="postDate"></h4>
+                <h4 class="glyphicon glyphicon-calendar" id="postDate" ></h4>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <h4 id="postLocation"></h4>
+                <label id="postLocation" class="glyphicon glyphicon-home" style="font-size: 25px"></label>
             </div>
             <div class="col-sm-6">
-                2 of 2
+                <label  class="glyphicon glyphicon-user" style="font-size: 25px"></label>
+
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
+                <hr style="height:1px;border:none;color:#333;background-color:#333; width: 800px;">
                 <p id="postDescription"><br></p>
             </div>
         </div>

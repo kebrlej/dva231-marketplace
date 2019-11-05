@@ -25,10 +25,10 @@ function displaySingleProduct(product) {
         });
     }
     document.getElementById("postTitle").innerHTML = product.title;
-    document.getElementById("postPrice").innerHTML = product.price + " kr";
-    document.getElementById("postLocation").innerHTML = product.location;
-    document.getElementById("postDescription").innerHTML = product.description;
-    document.getElementById("postDate").innerHTML = product.postDate;
+    document.getElementById("postPrice").innerHTML = " "+product.price + " kr";
+    document.getElementById("postLocation").innerHTML = " "+product.location;
+    document.getElementById("postDescription").innerHTML = " "+product.description;
+    document.getElementById("postDate").innerHTML = " "+product.postDate;
 
     getPositionWithLocation(product.county);
 
