@@ -3,7 +3,6 @@
 
 class GetProductDto
 {
-
     public $id;
     public $title;
     public $price;
@@ -20,7 +19,7 @@ class GetProductDto
     public $userId;
     public $images; // array of images
     public $comments; // array of comments
-
+    public $user; // users object
     /**
      * GetProductDto constructor.
      * @param $id

@@ -29,15 +29,18 @@ class ProductDao extends AbstractDao
         $productImageDao = new ProductImageDao();
         $productDto->images = $productImageDao->selectMultipleWhereConditions(array('product_id' => $productDto->id));
 
-        // todo load product images here
+        //load product creater
+        $userDao = new UserDao();
+        $productDto->user= $userDao->getById($productDto->userId);
 
+        //todo load product comments here
         return $productDto;
     }
 
     public function updateProductState($newState, $productId){
 //        UPDATE product SET state='BLOCKED' WHERE id=1;
-        $updateQuery = "UPDATE ".$this->tableName." SET state='{{$newState}}' WHERE id='{{$productId}}'";
-        echo $updateQuery;
+        $updateQuery = "UPDATE ".$this->tableName." SET state='{$newState}' WHERE id='{$productId}'";
+        return $this->executeSqlQuery($updateQuery);
     }
 
 }
