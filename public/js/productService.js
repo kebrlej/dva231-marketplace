@@ -36,6 +36,8 @@ function displaySingleProduct(product) {
     document.getElementById("postLocation").innerHTML = " " + product.location;
     document.getElementById("postDescription").innerHTML = " " + product.description;
     document.getElementById("postDate").innerHTML = " " + product.postDate;
+    document.getElementById("postUser").innerHTML = " " + product.user.username;
+    document.getElementById("postEmail").innerHTML = " " + product.user.email;
 
     getPositionWithLocation(product.county, product.location);
 }
