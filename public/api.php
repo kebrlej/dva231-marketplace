@@ -62,6 +62,9 @@ switch ($request->resourceName) {
     case "/comments":
         (new CommentController($request))->defaultRequestRouter();
         break;
+        case "/userfavoriteproducts":
+        (new UserFavoriteProductController($request))->defaultRequestRouter();
+        break;
     default:
         throw new Exception("Resource does not exist");//TODO Return 404 - resource doesnt exist
 }
