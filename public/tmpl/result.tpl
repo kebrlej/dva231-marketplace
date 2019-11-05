@@ -34,13 +34,13 @@
     </div>
 
     <div class="btn-group dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Price range
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" id="priceDropdown">Price range
             <span class="caret"></span></button>
         <ul class="dropdown-menu">
-            <li><a onclick="onDropdrownSelectyion('Vehicles')">0-499 kr</a></li>
-            <li><a href="#">500-999 kr</a></li>
-            <li><a href="#">1000-4999 kr</a></li>
-            <li><a href="#">5000+ kr</a></li>
+            <li><a onclick="onPriceSelection(0,499)">0-499 kr</a></li>
+            <li><a onclick="onPriceSelection(500,999)">500-999 kr</a></li>
+            <li><a onclick="onPriceSelection(1000,4999)">1000-4999 kr</a></li>
+            <li><a onclick="onPriceSelection(5000,Number.MAX_SAFE_INTEGER)">5000+ kr</a></li>
         </ul>
     </div>
 
@@ -189,4 +189,12 @@
         document.getElementById("citydropdown").textContent = city;
         saveToLocalStorage("searchcity", city);
         }
+
+    function onPriceSelection(min,max){
+        if (min != 5000) document.getElementById("priceDropdown").textContent = min+ " - " + max + "kr";
+        else document.getElementById("priceDropdown").textContent = min+ "+ " + "kr";
+        saveToLocalStorage("priceMin", min);
+        saveToLocalStorage("priceMax", max);
+        
+    }
 </script>

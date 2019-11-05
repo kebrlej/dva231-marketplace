@@ -15,6 +15,7 @@ function displayAllProducts(products) {
     products = filterCategory(products);
     products = filterCounty(products);
     products = filterCity(products);
+    products = filterPrice(products);
 
     for (var i = 0; i < products.length; ++i) {
         document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildProductCard(products[i]);
@@ -97,4 +98,34 @@ function filterCity(products){
         return products;
     }
     return cityFilteredObjects;
+}
+
+function filterPrice(products){
+    var priceFilteredObjects = [];
+    var min = getFromLocalStorage("priceMin");
+    var max = getFromLocalStorage("priceMax");
+    removeFromLocalStorage("priceMin");
+    removeFromLocalStorage("priceMax");
+
+    if (min != null) {
+        if (min != 5000){   //0-4999
+            document.getElementById("priceDropdown").textContent = min + " - " + max + " kr";
+            for (var i = 0; i < products.length; ++i) {
+                if (parseInt(products[i].price) > min && parseInt(products[i].price) < max) {
+                    priceFilteredObjects.push(products[i]);
+                }
+            }
+        }else{  //5000+
+            document.getElementById("priceDropdown").textContent = min + "+ kr";
+            for (var i = 0; i < products.length; ++i) {
+                if (parseInt(products[i].price) > min) {
+                    priceFilteredObjects.push(products[i]);
+                }
+            }
+        }
+    } else {
+        //no specific
+        return products;
+    }
+    return priceFilteredObjects;
 }
