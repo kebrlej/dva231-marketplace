@@ -8,9 +8,7 @@
         <a href="#comments">Comments</a> | <a href="#" id="followOrDelete">Follow</a>
     </p>
 
-    <div class="w3-content w3-display-container" style="max-width:800px;">
-        <img class="image-slides" src="img/img1.jpg">
-        <img class="image-slides" src="img/img2.jpg">
+    <div id="image-slider" class="w3-content w3-display-container" style="max-width:800px;">
         <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
              style="width:100%">
             <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
@@ -20,35 +18,6 @@
         </div>
     </div>
 
-    <script>
-
-        var slideIndex = 1;
-        showDivs(slideIndex);
-
-        function plusDivs(n) {
-            showDivs(slideIndex += n);
-        }
-
-        function currentDiv(n) {
-            showDivs(slideIndex = n);
-        }
-
-        function showDivs(n) {
-            var i;
-            var x = document.getElementsByClassName("image-slides");
-            var dots = document.getElementsByClassName("demo");
-            if (n > x.length) {slideIndex = 1}
-                if (n < 1) {slideIndex = x.length}
-                    for (i = 0; i < x.length; i++) {
-                        x[i].style.display = "none";
-                    }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" w3-white", "");
-            }
-            x[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " w3-white";
-        }
-    </script>
     <table width=800px; style="margin-right:auto; margin-left:auto">
         <tr>
             <td colspan=2>
