@@ -12,5 +12,5 @@
         <input type="text" name="changeUsername" placeholder="Change password" id="changeUsername" class="formLabel">
 
         <br><br>
-        <button id="btn-login" name="publish" onClick="newProduct()";>Apply</button>
+        <button id="btn-login" name="publish" onClick="alert('not implemented');">Publish</button>
         </div>

@@ -14,7 +14,7 @@ if (SessionManagement::isLoggedIn()) {
             <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" id="categorydropdown">Category
                 <span class="caret"></span></button>
             <div class="dropdown-menu">
-                <li><a onclick="document.getElementById('.categorydropdown.').textContent = '.Vehicles.';">Vehicles</a></li>
+                [WIP]
             </div>
         </div>
 
