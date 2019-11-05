@@ -765,3 +765,10 @@ label[for="formLabel"] {
 #pageContentContainer{
     min-height: 800px;
 }
+#map {
+    width : 80%;
+    height: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
