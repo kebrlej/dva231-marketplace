@@ -30,7 +30,7 @@
                 <label class="glyphicon glyphicon-tag" id="postPrice" style="font-size: 25px"></label>
             </div>
             <div class="col-sm-6">
-                <h4 class="glyphicon glyphicon-calendar" id="postDate" ></h4>
+                <label class="glyphicon glyphicon-calendar" id="postDate" style="font-size: 25px;"></label>
             </div>
         </div>
         <div class="row">
@@ -41,7 +41,6 @@
                 <label  id="postUser" class="glyphicon glyphicon-user" style="font-size: 25px"></label>
             </div>
         </div>
-        <br>
         <div class="row">
             <div class="col-sm-12">
                 <label class="glyphicon glyphicon-envelope" id="postEmail" style="font-size: 25px"></label>
