@@ -1,3 +1,4 @@
+
 function displayProductDetails() {
     var productId = getFromLocalStorage("productId");
     sendGetRequest("api.php/products?id=" + productId, getSingleProductCallback);
@@ -13,8 +14,8 @@ function getSingleProductCallback(data, textStatus) {
 }
 
 function displaySingleProduct(product) {
-    var imageSlider = document.getElementById("image-slider");
-    if (product.images !== undefined && product.images !== null && product.length > 0) {
+    if (product.images !== undefined) {
+        var imageSlider = document.getElementById("image-slider");
         product.images.forEach(function (image) {
             var img = document.createElement("img");
             img.className = "image-slides";
@@ -22,9 +23,6 @@ function displaySingleProduct(product) {
             img.alt = image.name;
             imageSlider.appendChild(img);
         });
-        showDivs(slideIndex);
-    } else {
-        imageSlider.parentNode.removeChild(imageSlider);
     }
     document.getElementById("postTitle").innerHTML = product.title;
     document.getElementById("postPrice").innerHTML = product.price + " kr";
@@ -32,6 +30,11 @@ function displaySingleProduct(product) {
     document.getElementById("postDescription").innerHTML = product.description;
     document.getElementById("postDate").innerHTML = product.postDate;
 
+    getPositionWithLocation(product.county);
+
+    var x = 10;
+
+    showDivs(slideIndex);
 }
 
 
@@ -90,10 +93,51 @@ function showDivs(n) {
 //     }
 // }
 
+var latitude;
+var longtitude;
+
+function getPositionWithLocation(location) {
+     var xmlhttp = new XMLHttpRequest();
+     var url = "https://maps.googleapis.com/maps/api/geocode/json?address="+ location + "&key=AIzaSyDxN6krn9FupLvyFEdqocm9JIV_IP7rlRs";
+     xmlhttp.onreadystatechange = function() {
+         if(this.readyState == 4 && this.status == 200) {
+
+             var json = JSON.parse(this.responseText);
+             // We parse the JSON response
+
+
+             var coordinates = parseJsonLocation(json);
+
+             latitude = coordinates[0];
+             longtitude = coordinates[1];
+
+             var script = document.createElement('script');
+             script.src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxN6krn9FupLvyFEdqocm9JIV_IP7rlRs&callback=initMap";
+
+             document.head.appendChild(script);
+
+             var x = 10;
+
+
+         }
+     };
+     xmlhttp.open("GET", url, true);
+     xmlhttp.send();
+
+ }
+
+ function parseJsonLocation(json) {
+     var latitude = json.results[0].geometry.location.lat;
+     var longitude = + json.results[0].geometry.location.lng;
+     return [latitude, longitude]
+ }
+
+
+
 
 function initMap() {
     // check found the location
-    var init_pos = {lat: 59.616482, lng: 16.551359};
+    var init_pos = {lat: latitude, lng: longtitude};
     // The map, centered at Uluru
     var map = new google.maps.Map(
         document.getElementById('map'), {

@@ -38,20 +38,27 @@ function createNewProduct() {
     var description = jQuery("#publishdescription");
 
     temp = document.getElementById("categorydropdown").textContent;
+    temp2= document.getElementById("countydropdown").textContent;
+
+
 
     var data = {
         title: title.val(),
         category: document.getElementById("categorydropdown").textContent,
         price: price.val(),
-        location: document.getElementById("citydropdown").textContent,
+        location: "Vasteras", // Do we use it?
+        county: temp2,
         description: description.val(),
         userId: getFromLocalStorage("userId"),
         latitude: 1,
         longtitude: 1,
-        images: getDomStorageArray("productImages")
+        images: getDomStorageArray("productImages"),
+
     };
     sendPostRequest('api.php/products',
         data, newProductCallback)
+
+    // TODO : capture de city
 };
 
 
