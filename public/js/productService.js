@@ -35,20 +35,20 @@ function displaySingleProduct(product) {
     document.getElementById("postPrice").innerHTML = " " + product.price + " kr";
     document.getElementById("postLocation").innerHTML = " " + product.location;
     document.getElementById("postDescription").innerHTML = " " + product.description;
-    document.getElementById("postDate").innerHTML = " " + product.postDate.substring(0,10);
+    document.getElementById("postDate").innerHTML = " " + product.postDate.substring(0, 10);
     document.getElementById("postUser").innerHTML = " " + product.user.username;
     document.getElementById("postEmail").innerHTML = " " + product.user.email;
 
-
-    var elem = document.getElementById("followOrDelete");
-    if (getFromLocalStorage("userId") == getFromLocalStorage("productUserId")){
+    var elem = document.getElementById("follow-delete-button");
+    if (getFromLocalStorage("userId") === product.userId || isUserAdmin()) {
         elem.innerHTML = "Delete";
-        elem.onclick= function(){
+        elem.onclick = function () {
             changeProductState(product.id, "SOLD");
-        } //not implemented yet
-    } else{
+        }
+    } else {
+        //TODO implement follow
         elem.innerHTML = "Follow";
-        elem.onclick= FollowProduct(); //not implemented yet
+        // elem.onclick = FollowProduct(); //not implemented yet
     }
     getPositionWithLocation(product.county, product.location);
 }

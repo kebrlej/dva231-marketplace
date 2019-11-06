@@ -44,15 +44,15 @@ if (isset($_GET['page'])) {
             $phpfile = true;
             break;
         case 'dropzone';
-            $page='dropzone';
+            $page = 'dropzone';
             $phpfile = true;
             break;
         case 'favorites';
-            $page='favorites';
+            $page = 'favorites';
             $phpfile = true;
             break;
         case 'usersproducts';
-            $page='usersproducts';
+            $page = 'usersproducts';
             $phpfile = true;
             break;
         default :
@@ -62,8 +62,6 @@ if (isset($_GET['page'])) {
     $page = 'home';
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,8 +71,8 @@ if (isset($_GET['page'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/w3.css" type="text/css">
-<!--    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>-->
-<!--    <link href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.css' type='text/css' rel='stylesheet'>-->
+    <!--    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>-->
+    <!--    <link href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.css' type='text/css' rel='stylesheet'>-->
     <link href="css/dropzone.css" rel="stylesheet" type="text/css"/>
     <link href="css/mainstyle.css" rel="stylesheet" type="text/css"/>
 
@@ -96,10 +94,17 @@ if (isset($_GET['page'])) {
     <script src="<?= JS_PATH ?>dropzoneSettings.js"></script>
     <script src="<?= JS_PATH ?>historyBox.js"></script>
     <script src="<?= JS_PATH ?>changeProductState.js"></script>
+    <?php
+    if (SessionManagement::isAdmin()) {
+        echo "<script> saveToLocalStorage('role','admin')</script>";
+    } else {
+        echo "<script> saveToLocalStorage('role','user')</script>";
+    }
+    ?>
 </head>
 <body id="pageContentContainer">
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container" >
+    <div class="container">
         <div class="navbar-header">
             <a href="index.php" class="navbar-brand">
                 <img src="img/logo2.png" width=35%
@@ -147,37 +152,38 @@ if (isset($_GET['page'])) {
 
 <footer class="footer">
     <div class="container">
-    <div class="row text-center">
-        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+        <div class="row text-center">
+            <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+                  type="text/css">
 
-        <div class="social col-sm-12">
+            <div class="social col-sm-12">
 
-            <a class="social-icon" data-tooltip="Send us an email!">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-            </a>
+                <a class="social-icon" data-tooltip="Send us an email!">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </a>
 
-            <a class="social-icon" data-tooltip="Twitter" href="https://twitter.com">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-            </a>
+                <a class="social-icon" data-tooltip="Twitter" href="https://twitter.com">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
 
-            <a class="social-icon" data-tooltip="Facebook" href="https://www.facebook.com/colorlib">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-            </a>
+                <a class="social-icon" data-tooltip="Facebook" href="https://www.facebook.com/colorlib">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
 
-            <a class="social-icon" data-tooltip="YouTube" href="https://www.youtube.com/">
-                <i class="fa fa-youtube" aria-hidden="true"></i>
-            </a>
-            <a class="social-icon" data-tooltip="YouTube" href="https://instagram.com">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-            </a>
+                <a class="social-icon" data-tooltip="YouTube" href="https://www.youtube.com/">
+                    <i class="fa fa-youtube" aria-hidden="true"></i>
+                </a>
+                <a class="social-icon" data-tooltip="YouTube" href="https://instagram.com">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
 
+            </div>
         </div>
-    </div>
 
         <div style="color:white" class="row text-center">© 2019 |
-            <a  href="index.php?page=contact"> Contact Us</a>
+            <a href="index.php?page=contact"> Contact Us</a>
         </div>
     </div>
 

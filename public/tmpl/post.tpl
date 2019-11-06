@@ -5,7 +5,7 @@
 <div id="fullAd" class="fullAd">
     <!-- <img src="css/img1.jpg" width="60%" style=" display: block; margin-left: auto; margin-right: auto;"> -->
     <p style="text-align:right;margin-right:50px;">
-        <a href="#comments">Comments</a> | <a onclick="favoriteProduct()" id="followButton">Follow</a>  | <a onclick="deleteProduct()" id="deleteButton">Delete</a>
+        <a href="#comments">Comments</a> | <a id="follow-delete-button">Delete product</a>
     </p>
 
     <div id="image-slider" class="w3-content w3-display-container" style="max-width:800px;">
