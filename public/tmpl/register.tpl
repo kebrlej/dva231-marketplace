@@ -1,6 +1,5 @@
 <div class="background"></div>
 <div id="login-box">
-{*    onSubmit="return formValidation();"*}
     <form name='registration' >
         <div id="register-group">
             <label for="email" class="glyphicon glyphicon-envelope"></label>
