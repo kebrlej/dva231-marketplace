@@ -5,7 +5,7 @@ function buildProductCard(product) {
     } else {
         objImage = "<img>";
     }
-    return '<div><span><div class="productBox" onclick="viewProduct('
+    return '<div class="productBox" onclick="viewProduct('
         + product.id + ',' + product.userId +')">' 
         + objImage
         + '<h2>'
@@ -22,7 +22,7 @@ function buildProductCard(product) {
         + product.comments
         + ' comments</h4><p>'
         + product.description
-        + '</p> </div></span> <span> <button type="button" onclick="changeProductState(\'' + product.id + '\', \'' + "SOLD" + '\');" style="margin-top: 75px;margin-left: 10px;margin-bottom: 75px;">Delete Offer!</button></span></div>';
+        + '</p> </div>';
 }
 //product.id,\''+ "SOLD"+ '\'
 
