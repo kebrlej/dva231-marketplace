@@ -91,7 +91,7 @@ class UserController extends GenericController
         $userRegisterDto->loadObjectData($this->requestObject->data);
 
         try{
-            $userDto = $this->dataAccessObject->insertIntoTable((array)$userRegisterDto);
+            $userDto = $this->dataAccessObject->insertIntoTable($this->prepareDataForInsert($userRegisterDto));
             $this->sendResponse(Response::successResponse($userDto));
         }catch(Exception $e){
             $this->sendResponse(Response::errorResponse($e->getMessage()));

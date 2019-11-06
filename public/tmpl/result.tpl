@@ -82,16 +82,6 @@
             </div>
     </div>
 
-    <div class="btn-group dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Age
-            <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-            <li><a href="#">Today</a></li>
-            <li><a href="#">This week</a></li>
-            <li><a href="#">This month</a></li>
-            <li><a href="#">All time</a></li>
-        </ul>
-    </div>
 
     <button id="btn-search" name="search" onclick="onSearchChange()">Search</button>
 

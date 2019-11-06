@@ -1,202 +1,202 @@
 body {
-	padding-top: 60px;
-  padding-bottom: 100px;
-  height: 100%;
-  background-color:#AAA;
-  font-family: Verdana;
+    padding-top: 60px;
+    padding-bottom: 100px;
+    height: 100%;
+    background-color: #AAA;
+    font-family: Verdana;
     position: relative;
 }
 
 .background {
-	
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  min-width: 674px;
-  left: 0;
-  bottom: 0;
-  z-index: -1;
-  background-image: url(../img/bg.png);
-  background-size: 100% 100%;
+
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    min-width: 674px;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    background-image: url(../img/bg.png);
+    background-size: 100% 100%;
 }
 
-.nav{
-     font-size: 19px;
+.nav {
+    font-size: 19px;
 
- }
+}
 
-p{
+p {
     color: black !important;
 }
 
-.navbar-nav>li>a {
+.navbar-nav > li > a {
     line-height: 50px;
     font-weight: bold;
 }
 
-.header-dropdown{
-  background-color: rgb(150, 50, 75, 0);
-  border:none;
-  color:#AAA;
-  margin-top: 25px;
+.header-dropdown {
+    background-color: rgb(150, 50, 75, 0);
+    border: none;
+    color: #AAA;
+    margin-top: 25px;
     font-weight: bold;
 }
 
 #form-box {
-  text-align: center;
-  margin-top: 20rem;
+    text-align: center;
+    margin-top: 20rem;
 }
 
 #input-group {
-  width: 70%;
-  margin: 0 auto;
-  background-color: #fff;
-  border-radius: 10px;
+    width: 70%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
 }
 
 /* REMOVE */
 #search, label[for="search"] {
-  display:inline;
-  vertical-align: middle;
-  
-  /* position: absolute; */
+    display: inline;
+    vertical-align: middle;
+
+    /* position: absolute; */
 }
 
 /* REMOVE */
 #search {
-  width: calc(100% - 40px);
-  padding: 10px;
-  border: none;
+    width: calc(100% - 40px);
+    padding: 10px;
+    border: none;
 }
 
 /* REMOVE */
 label[for="search"] {
-  width: 40px;
-  line-height: 40px;
+    width: 40px;
+    line-height: 40px;
 }
 
 /* REMOVE */
 #btn-search {
-  padding: 6px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: rgb(150, 50, 75);
-  color: #fff;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(150, 50, 75);
+    color: #fff;
 }
 
 #login-box {
-  text-align: center;
-  margin-top: 20rem;
+    text-align: center;
+    margin-top: 20rem;
 }
 
 #login-group {
-	
-  width: 40%;
-  margin: 0 auto;
-  background-color: #fff;
-  border-radius: 10px;
+
+    width: 40%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
 }
 
 /* REMOVE */
 #username, label[for="username"] {
-  display:inline;
-  vertical-align: middle;
+    display: inline;
+    vertical-align: middle;
 }
 
 /* REMOVE */
 #username {
-  width: calc(100% - 40px);
-  padding: 10px;
-  border: none;
+    width: calc(100% - 40px);
+    padding: 10px;
+    border: none;
 }
 
 /* REMOVE */
 label[for="username"] {
-  width: 40px;
-  line-height: 40px;
-  margin-left:5px;
+    width: 40px;
+    line-height: 40px;
+    margin-left: 5px;
 }
 
 /* REMOVE */
 #password, label[for="password"] {
-  display:inline;
-  vertical-align: middle;
+    display: inline;
+    vertical-align: middle;
 }
 
 /* REMOVE */
 #password {
-  width: calc(100% - 40px);
-  padding: 10px;
-  border: none;
+    width: calc(100% - 40px);
+    padding: 10px;
+    border: none;
 }
 
 /* REMOVE */
 label[for="password"] {
-  width: 40px;
-  line-height: 40px;
-  margin-left:5px;
+    width: 40px;
+    line-height: 40px;
+    margin-left: 5px;
 }
 
 /* REMOVE */
 #email, label[for="email"] {
-  display:inline;
-  vertical-align: middle;
+    display: inline;
+    vertical-align: middle;
 }
 
 /* REMOVE */
 #email {
-  width: calc(100% - 40px);
-  padding: 10px;
-  border: none;
+    width: calc(100% - 40px);
+    padding: 10px;
+    border: none;
 }
 
 /* REMOVE */
 label[for="email"] {
-  width: 40px;
-  line-height: 40px;
-  margin-left:5px;
+    width: 40px;
+    line-height: 40px;
+    margin-left: 5px;
 }
 
 /* REMOVE */
 #btn-login {
-  padding: 6px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: rgb(150, 50, 75);
-  color: #fff;
-  margin: auto;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(150, 50, 75);
+    color: #fff;
+    margin: auto;
 }
 
 #register-box {
-  text-align: center;
-  margin-top: 10rem;
+    text-align: center;
+    margin-top: 10rem;
 }
 
 #register-group {
-	
-  width: 40%;
-  margin: 0 auto;
-  background-color: #fff;
-  border-radius: 10px;
+
+    width: 40%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
 }
 
 /* REMOVE */
 #register, label[for="register"] {
-  display:inline;
-  vertical-align: middle;
-  
-  /* position: absolute; */
+    display: inline;
+    vertical-align: middle;
+
+    /* position: absolute; */
 }
 
 /* REMOVE */
 #register {
-  width: calc(100% - 40px);
-  padding: 10px;
-  border: none;
+    width: calc(100% - 40px);
+    padding: 10px;
+    border: none;
 }
 
-#usersettings{
+#usersettings {
     width: calc(100% - 40px);
     padding: 10px;
     border: none;
@@ -204,414 +204,422 @@ label[for="email"] {
 
 /* REMOVE */
 label[for="register"] {
-  width: 40px;
-  line-height: 40px;
-  margin-left:5px;
+    width: 40px;
+    line-height: 40px;
+    margin-left: 5px;
 }
 
 /* REMOVE */
 #btn-register {
-  padding: 6px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: rgb(150, 50, 75);
-  color: #fff;
-  margin: auto;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(150, 50, 75);
+    color: #fff;
+    margin: auto;
 }
 
 /* REMOVE */
 #btn-all {
-  padding: 6px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #333;
-  color: #fff;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
 }
 
 /* REMOVE */
 #btn-comment {
-  padding: 6px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #333;
-  color: #fff;
-  margin-left:10%;
-  margin-top:5px;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    margin-left: 10%;
+    margin-top: 5px;
 }
 
 .box {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .cstyle {
-	height: 35rem;
-	border: solid 1px black;
+    height: 35rem;
+    border: solid 1px black;
 }
 
 .footer {
-  background-color: rgb(34, 34, 34);
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  height: 70px;
-  display: flex;
+    background-color: rgb(34, 34, 34);
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 70px;
+    display: flex;
 }
 
 .productBox {
-  display: block;
-	height: 180px;
-  width:80%;
-	overflow: hidden;
-	border-style:solid;
-	border-color:#666666;
-	border-width:2px;
-	border-radius:5px;
-	padding:10px;
-	background-color:rgba(255,255,255,0.9);
-	transition: .2s ease;
-	margin-left:auto;
-	margin-right:auto;
-  float:left;
-  cursor: pointer;
+    display: block;
+    height: 180px;
+    width: 80%;
+    overflow: hidden;
+    border-style: solid;
+    border-color: #666666;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: .2s ease;
+    margin-left: auto;
+    margin-right: auto;
+    float: left;
+    cursor: pointer;
 }
 
 .productBox:hover {
-  background-color:rgba(255,255,255,0.95);
-transition: .1s ease;
+    background-color: rgba(255, 255, 255, 0.95);
+    transition: .1s ease;
 }
 
-.productBox h2{ /*Title*/
-	color:#333;
-	text-align: left;
-	font-size:18px;
-	margin: auto;
-	margin-bottom:5px;
-	margin-left:12px;
-}
- 
-.productBox h3{ /*Category, price and location*/
-	color:#333;
-	text-align: left;
-	font-size:16px;
-	margin: auto;
-  margin-left:14px;
-  margin-top: 5px;
+.productBox h2 { /*Title*/
+    color: #333;
+    text-align: left;
+    font-size: 18px;
+    margin: auto;
+    margin-bottom: 5px;
+    margin-left: 12px;
 }
 
-.productBox h4{ /*Date and comments*/
-	color:#777;
-	text-align: left;
-	font-size:16px;
-	margin: auto;
-  margin-left:14px;
-  margin-top:5px;
+.productBox h3 { /*Category, price and location*/
+    color: #333;
+    text-align: left;
+    font-size: 16px;
+    margin: auto;
+    margin-left: 14px;
+    margin-top: 5px;
 }
 
-.productBox p{ /*Desc*/
-	color:#777;
-	text-align: left;
-	font-size:14px;
-	margin-left:20px;
-	overflow: hidden;
+.productBox h4 { /*Date and comments*/
+    color: #777;
+    text-align: left;
+    font-size: 16px;
+    margin: auto;
+    margin-left: 14px;
+    margin-top: 5px;
+}
+
+.productBox p { /*Desc*/
+    color: #777;
+    text-align: left;
+    font-size: 14px;
+    margin-left: 20px;
+    overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 7;
     -webkit-box-orient: vertical;
-  float:right;
-  width: 50%;
-  margin-top: -14.5%;
+    float: right;
+    width: 50%;
+    margin-top: -14.5%;
 }
 
-.productBox img{
-  float:left;
-  width:250px;
-  height:156px;
-  margin-right: 10px;
+.productBox img {
+    float: left;
+    width: 250px;
+    height: 156px;
+    margin-right: 10px;
 }
 
 .historyBox {
-  display: block;
-	width:500px;
-	overflow: hidden;
-	border-style:solid;
-	border-color:#666666;
-	border-width:2px;
-	border-radius:5px;
-	padding:10px;
-	background-color:rgba(255,255,255,0.9);
-	transition: .2s ease;
-	margin-left:auto;
-	margin-right:auto;
-	float:right;
-	margin-bottom:20px;
+    display: block;
+    width: 500px;
+    overflow: hidden;
+    border-style: solid;
+    border-color: #666666;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: .2s ease;
+    margin-left: auto;
+    margin-right: auto;
+    float: right;
+    margin-bottom: 20px;
 }
 
-#historyBox{
-  width:20%;
-  white-space: nowrap;overflow: hidden;text-overflow: ellipsis;
-  padding-bottom:20px;
-  
+#historyBox {
+    width: 20%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 20px;
+
 }
 
 .imgResp {
-  width: 100px;
+    width: 100px;
 }
 
 
 @media only screen and (max-width: 540px) {
-  #adBox {
-      overflow: scroll;
-      padding: 0;
-  }
-  .imgResp {
-    width: 40px;
-  }
-  #tdMargin {
-    padding-left: 1em;
-  }
-  
+    #adBox {
+        overflow: scroll;
+        padding: 0;
+    }
+
+    .imgResp {
+        width: 40px;
+    }
+
+    #tdMargin {
+        padding-left: 1em;
+    }
+
 }
 
 .fullAd {
-  display: block;
-	width:80%;
-	overflow: hidden;
-	border-style:solid;
-	border-color:#666666;
-	border-width:2px;
-	border-radius:5px;
-	padding:10px;
-	padding-top:20px;
-	background-color:rgba(255,255,255,0.9);
-	transition: .4s ease;
-	margin-left:auto;
-	margin-right:auto;
+    display: block;
+    width: 80%;
+    overflow: hidden;
+    border-style: solid;
+    border-color: #666666;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 10px;
+    padding-top: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: .4s ease;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #publishForm {
-  display: block;
-	width:50%;
-	overflow: hidden;
-	border-style:solid;
-	border-color:#666666;
-	border-width:2px;
-	border-radius:5px;
-	padding:10px;
-	padding-top:20px;
-	background-color:rgba(255,255,255,0.9);
-	transition: .4s ease;
-	margin-left:auto;
-	margin-right:auto;
+    display: block;
+    width: 50%;
+    overflow: hidden;
+    border-style: solid;
+    border-color: #666666;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 10px;
+    padding-top: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: .4s ease;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#publishForm h1{
-  font-size:24px;
-  margin-top: -5px;
+#publishForm h1 {
+    font-size: 24px;
+    margin-top: -5px;
 }
 
 /* REMOVE */
 /*Title input in New Post*/
 #publishtitle, label[for="publishtitle"] {
-  display:inline;
-  vertical-align: middle;
+    display: inline;
+    vertical-align: middle;
 }
 
 /* REMOVE */
 #publishtitle {
-  width: 90%;
-  padding: 10px;
-  border: none;
-  margin-left:10px;
+    width: 90%;
+    padding: 10px;
+    border: none;
+    margin-left: 10px;
 }
 
 /* REMOVE */
 label[for="publishtitle"] {
-  width: 40px;
-  line-height: 40px;
-  margin-left:5px;
+    width: 40px;
+    line-height: 40px;
+    margin-left: 5px;
 }
 
 /*Price input in New Post*//* REMOVE */
 #publishprice, label[for="publishprice"] {
-  display:inline;
-  vertical-align: middle;
+    display: inline;
+    vertical-align: middle;
 }
 
 /* REMOVE */
 #publishprice {
-  width: 15%;
-  padding: 10px;
-  border: none;
-  margin-left:10px;
+    width: 15%;
+    padding: 10px;
+    border: none;
+    margin-left: 10px;
 }
 
 /* REMOVE */
 label[for="publishprice"] {
-  width: 40px;
-  line-height: 40px;
-  margin-left:5px;
+    width: 40px;
+    line-height: 40px;
+    margin-left: 5px;
 }
 
 /*Location input in New Post*//* REMOVE */
 #publishlocation, label[for="publishlocation"] {
-  display:inline;
-  vertical-align: middle;
+    display: inline;
+    vertical-align: middle;
 }
 
 /* REMOVE */
 #publishlocation {
-  width: 30%;
-  padding: 10px;
-  border: none;
-  margin-left:10px;
+    width: 30%;
+    padding: 10px;
+    border: none;
+    margin-left: 10px;
 }
 
 /* REMOVE */
 label[for="publishlocation"] {
-  width: 40px;
-  line-height: 40px;
-  margin-left:5px;
+    width: 40px;
+    line-height: 40px;
+    margin-left: 5px;
 }
 
 /*Description input in New Post*/
 #publishdescription, label[for="publishdescription"] {
-  display:inline;
-  vertical-align: middle;
+    display: inline;
+    vertical-align: middle;
 }
 
 #publishdescription {
-  width: 90%;
-  max-width: 90%;
-  padding: 10px;
-  border: none;
-  margin-left:10px;
+    width: 90%;
+    max-width: 90%;
+    padding: 10px;
+    border: none;
+    margin-left: 10px;
 }
 
 label[for="publishdescription"] {
 
-  line-height: 40px;
-  margin-left:5px;
+    line-height: 40px;
+    margin-left: 5px;
 }
 
-#categorydropdrown{
-  margin-left:35px;
-  margin-top: -40px;
-  background-color: #fff;
-  color:#777;
+#categorydropdrown {
+    margin-left: 35px;
+    margin-top: -40px;
+    background-color: #fff;
+    color: #777;
 }
 
 /*    v   Labels without a background form    v   */
 .freeLabel, label[for="freeLabel"] {
-  display:inline;
-  vertical-align: middle;
+    display: inline;
+    vertical-align: middle;
 }
 
 .freeLabel {
-  width: calc(100% - 40px);
-  padding: 10px;
-  border: none;
+    width: calc(100% - 40px);
+    padding: 10px;
+    border: none;
 }
 
 label[for="freeLabel"] {
-  width: 40px;
-  line-height: 40px;
+    width: 40px;
+    line-height: 40px;
 }
+
 /*    ^   Labels without a background form    ^   */
 
 /*    v   Labels with a background form    v   */
 .formLabel, label[for="formLabel"] {
-  display:inline;
-  vertical-align: middle;
+    display: inline;
+    vertical-align: middle;
 }
 
 .formLabel {
-  width: 90%;
-  padding: 10px;
-  border: none;
-  margin-left:10px;
+    width: 90%;
+    padding: 10px;
+    border: none;
+    margin-left: 10px;
 }
 
 label[for="formLabel"] {
-  width: 40px;
-  line-height: 40px;
-  margin-left:5px;
+    width: 40px;
+    line-height: 40px;
+    margin-left: 5px;
 }
+
 /*    ^   Labels with a background form    ^   */
 
 /*    v   Red button    v   */
 .btn-red {
-  padding: 6px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: rgb(150, 50, 75);
-  color: #fff;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(150, 50, 75);
+    color: #fff;
 }
+
 /*    ^   Red button    ^   */
 
 /*    v   Gray button    v   */
 #btn-gray {
-  padding: 6px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #333;
-  color: #fff;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
 }
+
 /*    ^   Gray button    ^   */
 
 .tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted white;
-  opacity: 1;
-  font-size: 14px;
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted white;
+    opacity: 1;
+    font-size: 14px;
 }
 
 .tooltip .tooltiptext {
-  visibility: hidden;
-  width: 220px;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-  top: -5px;
-  left: 105%;
+    visibility: hidden;
+    width: 220px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
 }
 
 .tooltip:hover .tooltiptext {
-  visibility: visible;
+    visibility: visible;
 }
 
 .tooltip-bottom {
-  position: relative;
-  display: inline-block;
-  opacity: 1;
-  font-size: 14px;
+    position: relative;
+    display: inline-block;
+    opacity: 1;
+    font-size: 14px;
 }
 
 .tooltip-bottom .tooltiptext {
-  visibility: hidden;
-  width: 180px;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
+    visibility: hidden;
+    width: 180px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
 
-  top: 100%;
-  left: 50%;
-  margin-left: -70px;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+
+    top: 100%;
+    left: 50%;
+    margin-left: -70px;
 }
 
 .tooltip-bottom:hover .tooltiptext {
-  visibility: visible;
+    visibility: visible;
 }
 
 @-webkit-keyframes fadeInRight {
@@ -623,6 +631,7 @@ label[for="formLabel"] {
         opacity: 1;
     }
 }
+
 @-moz-keyframes fadeInRight {
     0% {
         opacity: 0;
@@ -632,6 +641,7 @@ label[for="formLabel"] {
         opacity: 1;
     }
 }
+
 @keyframes fadeInRight {
     0% {
         opacity: 0;
@@ -645,8 +655,8 @@ label[for="formLabel"] {
         opacity: 1;
     }
 }
-/* General styles */
 
+/* General styles */
 
 
 /* ============================ */
@@ -683,8 +693,8 @@ label[for="formLabel"] {
     /* Color each button differently */
 }
 
-.fa{
-    color:white;
+.fa {
+    color: white;
 }
 
 .social-icon:nth-child(1) {
@@ -695,11 +705,13 @@ label[for="formLabel"] {
     /* Color */
 
 }
+
 .social-icon:nth-child(1):hover, .social-icon:nth-child(1):active, .social-icon:nth-child(1):focus {
     opacity: 1;
     background-color: rgb(70, 85, 90);
 
 }
+
 .social-icon:nth-child(2) {
     /* Animation */
     -webkit-animation: fadeInRight 0.6s 0.5s forwards;
@@ -707,10 +719,12 @@ label[for="formLabel"] {
     opacity: 0;
     /* Color */
 }
+
 .social-icon:nth-child(2):hover, .social-icon:nth-child(2):active, .social-icon:nth-child(2):focus {
     opacity: 1;
     background-color: rgb(82, 100, 100);
 }
+
 .social-icon:nth-child(3) {
     /* Animation */
     -webkit-animation: fadeInRight 0.6s 0.75s forwards;
@@ -718,10 +732,12 @@ label[for="formLabel"] {
     opacity: 0;
     /* Color */
 }
+
 .social-icon:nth-child(3):hover, .social-icon:nth-child(3):active, .social-icon:nth-child(3):focus {
     opacity: 1;
     background-color: rgb(97, 107, 97);
 }
+
 .social-icon:nth-child(4) {
     /* Animation */
     -webkit-animation: fadeInRight 0.6s 1s forwards;
@@ -729,10 +745,12 @@ label[for="formLabel"] {
     opacity: 0;
     /* Color */
 }
+
 .social-icon:nth-child(4):hover, .social-icon:nth-child(4):active, .social-icon:nth-child(4):focus {
     opacity: 1;
     background-color: rgb(100, 108, 96);
 }
+
 .social-icon:nth-child(5) {
     /* Animation */
     -webkit-animation: fadeInRight 0.6s 1.25s forwards;
@@ -740,10 +758,12 @@ label[for="formLabel"] {
     opacity: 0;
     /* Color */
 }
+
 .social-icon:nth-child(5):hover, .social-icon:nth-child(5):active, .social-icon:nth-child(5):focus {
     opacity: 1;
     background-color: rgb(92, 102, 73);
 }
+
 .social-icon:nth-child(6) {
     /* Animation */
     -webkit-animation: fadeInRight 0.6s 1.5s forwards;
@@ -771,17 +791,18 @@ label[for="formLabel"] {
 }
 
 
-.image-slides{
-    width:100%;
-    max-height:540px;
+.image-slides {
+    width: 100%;
+    max-height: 540px;
     display: block;
 }
 
-#pageContentContainer{
+#pageContentContainer {
     min-height: 955px;
 }
+
 #map {
-    width : 80%;
+    width: 80%;
     height: 400px;
     display: block;
     margin-left: auto;
