@@ -62,7 +62,7 @@ switch ($request->resourceName) {
     case "/comments":
         (new CommentController($request))->defaultRequestRouter();
         break;
-        case "/userfavoriteproducts":
+    case "/userfavoriteproducts":
         (new UserFavoriteProductController($request))->defaultRequestRouter();
         break;
     default:

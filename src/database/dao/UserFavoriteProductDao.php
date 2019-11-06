@@ -10,11 +10,8 @@ class UserFavoriteProductDao extends AbstractDao
 
     public function constructDTOFromSingleResult($result)
     {
-        // TODO: Implement constructDTOFromSingleResult() method.
+        $userFavoriteProductDto = new UserFavoriteProductDto($result["id"], $result["user_id"], $result["product_id"]);
+        return $userFavoriteProductDto;
     }
 
-    public function constructDTOArrayFromResults($resultArray)
-    {
-        // TODO: Implement constructDTOArrayFromMultipleResults() method.
-    }
 }
