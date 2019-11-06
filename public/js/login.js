@@ -1,5 +1,4 @@
 function loginUserCallback(data, textStatus) {
-
     response = JSON.parse(data);
 
     if (response.success === true) {
@@ -14,8 +13,7 @@ function loginUserCallback(data, textStatus) {
 }
 
 function logoutUserCallback(data, textStatus) {
-
-    var x = 10;
+    window.localStorage.clear();
     window.location.href = "index.php";
 }
 

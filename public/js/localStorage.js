@@ -7,6 +7,15 @@ function getFromLocalStorage(key) {
     return value;
 }
 
+function isUserAdmin() {
+    var role = window.localStorage.getItem('role');
+    if (role == null || role !== "admin") {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 function removeFromLocalStorage(key) {
     return window.localStorage.removeItem(key);
 }

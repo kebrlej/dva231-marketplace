@@ -29,7 +29,7 @@ class SessionManagement
 
     public static function isAdmin()
     {
-        return $_SESSION['role'] === 'ADMIN';
+        return isset($_SESSION['role']) && $_SESSION['role'] === 'ADMIN';
     }
 
     public static function isUser()
