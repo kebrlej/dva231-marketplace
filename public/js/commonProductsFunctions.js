@@ -10,13 +10,13 @@ function buildProductCard(product) {
         + objImage
         + '<label style="font-size: 20px;">'
         + product.title
-        + '</label><br><br><label style="font-size: 15px;" class="glyphicon glyphicon-tag">'
+        + '</label><br><br><label style="font-size:18px;" class="glyphicon glyphicon-tag">'
         +" "+ product.price
-        + ' kr</label><br><label style="font-size: 15px;" class="glyphicon glyphicon-th">'
+        + ' kr</label><br><label style="font-size:18px;" class="glyphicon glyphicon-th">'
         +" "+ product.category
-        + '</label><br><label style="font-size: 15px;" class="glyphicon glyphicon-home">'
+        + '</label><br><label style="font-size:18px;" class="glyphicon glyphicon-home">'
         +" "+ product.location
-        + '</label><br><label style="font-size: 15px;" class="glyphicon glyphicon-calendar">'
+        + '</label><br><label style="font-size:18px;" class="glyphicon glyphicon-calendar">'
         + " "+ product.postDate.substring(0,10)
         + '</label><br><br><br><p>' +" "+ product.description + '</p> ' +
         '' +

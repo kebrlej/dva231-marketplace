@@ -26,6 +26,10 @@ body {
 
  }
 
+p{
+    color: black !important;
+}
+
 .navbar-nav>li>a {
     line-height: 50px;
     font-weight: bold;
