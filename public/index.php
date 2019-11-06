@@ -126,7 +126,7 @@ if (isset($_GET['page'])) {
                 <button id="userbutton" class="header-dropdown" data-toggle="dropdown" value="text">' . $_SESSION['username'] . '
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li><a href="index.php?page=usersettings">User settings</a></li>
+                    <!--<li><a href="index.php?page=usersettings">User settings</a></li>-->
                     <li><a href="index.php?page=favorites">My favorites</a></li>
                     <li><a href="index.php?page=usersproducts">My products</a></li>
                     <li><a onclick="logoutUser()" style="cursor: pointer;">Logout</a></li>
