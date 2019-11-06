@@ -1,16 +1,22 @@
 PRESENATION:
-Test everything again.
-Prepare nice examples to show off.
-Prepare scenario.
+Juan - Test everything again.
+Juan - Prepare nice examples to show off.
+Everyboy - Prepare scenario.
 
 TODO:
-comments with admin functionality
-Sort by age and price
-Fonts fucked up in some places
-If register user fails, display a message on the register page
-Validation of register user.
-Password hashing.
-Change password.
+Jan - comments with admin functionality and not logged in user not able to add comments only to see them.
+
+Jan - Sort by age and price
+
+Filip - Fonts fucked up in some places
+
+Filip - If register user fails, display a message on the register page
+
+Jan/Filip - Validation of register user.
+
+Jan - Password hashing.
+
+Jan - Change password functionality
 
 QUESTIONS:
 After post publishing new post redirect to post detail?
