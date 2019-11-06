@@ -1,62 +1,17 @@
-After post publishing new post redirect to it
+PRESENATION:
+Test everything again.
+Prepare nice examples to show off.
+Prepare scenario.
 
-before create user, check if user with this username or password already
-exists. Do the check in controller and return special exception and handle it
-properly.
+TODO:
+comments with admin functionality
+Sort by age and price
+Fonts fucked up in some places
+If register user fails, display a message on the register page
+Validation of register user.
+Password hashing.
+Change password.
 
-Change password. Forgotten password. 2FA
-
-After successful comment adding, return the newly created comment to
-the website. And then display it.
-
-Form validations. 
-
-
-
-
-
-
-
-
-
-
-
-
-When request body attributes not set correctly, catch exception and
-return fail response. Now it throws exception.
-
-Fix get user by id when it doesnt exist to fail. Same for products. Systematic mistake
-
-Default product state when created. Default user role when created.
-
-Fix when no id specified for GET/DELETE.
-
-Authentication propagation???
-
-
-RESPONSE
-- error handling and exceptions (204 - no content)
-
-EXCEPTIONS
-SQL/conversion
-
-CONTROLLERS
-- proper exception handling
-- generic access functions in BaseController
-    - create query
-    - delete query
-    - support for where queries
-
-DATABASE
-- update
-
-
-REST API
-- security - protecting resources according to user role
-- access rights for resources
-- .htaccess
-
-
-
-
-NICE TO HAVE:
+QUESTIONS:
+After post publishing new post redirect to post detail?
+Category filter resets other filters?
