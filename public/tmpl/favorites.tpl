@@ -3,6 +3,5 @@
 <p id="dummyTextToLoadTheProducts"></p>
 
 <script>
-    window.onload = searchProducts;
-
+    window.onload = displayFavoriteProducts;
 </script>

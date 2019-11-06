@@ -19,9 +19,9 @@ function displayAllProducts(products) {
     products = filterState(products);
 
     for (var i = 0; i < products.length; ++i) {
-
         if (products[i].state === "VALID"){
-            document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildProductCard(products[i]);
+            addProductOverviewToCurrentPage(products[i]);
+            // document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildProductCard(products[i]);
         }
 
     }

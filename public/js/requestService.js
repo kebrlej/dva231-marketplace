@@ -15,3 +15,14 @@ function sendPostRequest(url, data, callback) {
     }
     jQuery.post(url, JSON.stringify(data), callback);
 }
+
+function sendDeleteRequest(url, callbackFunction) {
+    jQuery.ajaxSetup({
+        timeout: 2000 // in milliseconds
+    });
+    $.ajax({
+        url: url,
+        type: 'DELETE',
+        success: callbackFunction
+    });
+}

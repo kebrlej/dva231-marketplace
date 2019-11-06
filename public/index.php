@@ -83,7 +83,7 @@ if (isset($_GET['page'])) {
     <script src="<?= JS_PATH ?>localStorage.js"></script>
     <script src="<?= JS_PATH ?>domStorage.js"></script>
     <script src="<?= JS_PATH ?>requestService.js"></script>
-    <script src="<?= JS_PATH ?>productService.js"></script>
+    <script src="<?= JS_PATH ?>productDetails.js"></script>
     <script src="<?= JS_PATH ?>commonProductsFunctions.js"></script>
     <script src="<?= JS_PATH ?>searchProducts.js"></script>
     <script src="<?= JS_PATH ?>usersProducts.js"></script>
@@ -94,6 +94,7 @@ if (isset($_GET['page'])) {
     <script src="<?= JS_PATH ?>dropzoneSettings.js"></script>
     <script src="<?= JS_PATH ?>historyBox.js"></script>
     <script src="<?= JS_PATH ?>changeProductState.js"></script>
+    <script src="<?= JS_PATH ?>userFavoriteProducts.js"></script>
     <?php
     if (SessionManagement::isAdmin()) {
         echo "<script> saveToLocalStorage('role','admin')</script>";

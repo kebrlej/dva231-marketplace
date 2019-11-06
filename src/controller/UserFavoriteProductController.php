@@ -34,9 +34,6 @@ class UserFavoriteProductController extends GenericController
                 $this->handleDefaultPOST();
 
                 break;
-//            case HTTP_PUT:
-//                //update user -> data in payload
-//                break;
             case HTTP_DELETE:
                 $this->handleDefaultDELETE();
                 break;

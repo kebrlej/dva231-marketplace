@@ -47,3 +47,34 @@ function getRecentlyVisitedProducts() {
     }
 }
 
+function setUserFavoriteProductsInLocalStorage(favoritesArray){
+    var favoriteProductsIds = [];
+    saveToLocalStorage("userFavorites", JSON.stringify(favoritesArray));
+}
+
+function getUserFavoriteProductsFromLocalStorage(){
+    return JSON.parse(getFromLocalStorage("userFavorites"));
+}
+
+function isProductUsersFavorite(productId){
+    var favoriteProducts = JSON.parse(getFromLocalStorage("userFavorites"));
+    var isUsersFavorite = false;
+    favoriteProducts.forEach(function(favoriteProduct){
+        if(favoriteProduct.productId == productId){
+            isUsersFavorite = true;
+        }
+    });
+    return isUsersFavorite;
+}
+
+function getFavoriteProductObjectIdByProductId(productId){
+    var favoriteProducts = JSON.parse(getFromLocalStorage("userFavorites"));
+    var favoriteProductObjectId = null;
+    favoriteProducts.forEach(function(favoriteProduct){
+        if(favoriteProduct.productId == productId){
+            favoriteProductObjectId = favoriteProduct.id;
+        }
+    });
+    return favoriteProductObjectId;
+}
+

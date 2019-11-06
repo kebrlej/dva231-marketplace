@@ -24,6 +24,10 @@ function buildProductCard(product) {
 }
 //product.id,\''+ "SOLD"+ '\'
 
+function addProductOverviewToCurrentPage(product){
+    document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildProductCard(product);
+}
+
 function viewProduct(id, userId) {
     saveToLocalStorage("productId", id);
     saveToLocalStorage("productUserId", userId);

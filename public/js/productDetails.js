@@ -28,6 +28,23 @@ function loadProductImages(product) {
     }
 }
 
+function setElementAsRemoveFavorites(element, id){
+    element.innerHTML = "Remove from favorites";
+    element.onclick = function(){
+        deleteProductFromUserFavorites(id);
+        setElementAsAddToFavorites(element,id);
+    };
+}
+
+function setElementAsAddToFavorites(element,id){
+    element.innerHTML = "Add to favorites";
+    element.onclick = function () {
+        addProductToUserFavorites(id);
+        setElementAsRemoveFavorites(element,id);
+    };
+}
+
+
 function displaySingleProduct(product) {
     loadProductImages(product);
 
@@ -45,10 +62,10 @@ function displaySingleProduct(product) {
         elem.onclick = function () {
             changeProductState(product.id, "SOLD");
         }
+    } else if (isProductUsersFavorite(product.id)) {
+        setElementAsRemoveFavorites(elem, product.id)
     } else {
-        //TODO implement follow
-        elem.innerHTML = "Follow";
-        // elem.onclick = FollowProduct(); //not implemented yet
+        setElementAsAddToFavorites(elem,product.id);
     }
     getPositionWithLocation(product.county, product.location);
 }

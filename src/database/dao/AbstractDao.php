@@ -109,7 +109,6 @@ abstract class AbstractDao extends Connection
         $columnsString = "(" . implode(",", $columns) . ")";
         $valuesString = "(" . implode(",", $values) . ")";
         $query = "INSERT INTO " . $this->tableName . " " . $columnsString . " VALUES " . $valuesString;
-        echo $query;
         return $this->executeSqlQuery($query);
     }
 

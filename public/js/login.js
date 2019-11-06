@@ -4,6 +4,7 @@ function loginUserCallback(data, textStatus) {
     if (response.success === true) {
         //redirect
         saveToLocalStorage("userId",response.data.id);
+        loadUserFavoriteProducts();
         window.location.href = "index.php";
     } else {
         //display warning
