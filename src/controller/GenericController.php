@@ -15,6 +15,7 @@ abstract class GenericController
     }
 
     public abstract function defaultRequestRouter();
+
     public abstract function prepareDataForInsert($data);
 
     public function handleDefaultGET(): void
@@ -25,6 +26,10 @@ abstract class GenericController
             $dbRow = $this->dataAccessObject->getById($_GET['id']);
             $objectDto = $this->dataAccessObject->constructDTOFromSingleResult($dbRow);
             $this->sendResponse(Response::successResponse($objectDto));
+        } else if (isset($_GET['productid'])) {
+            $results = $this->dataAccessObject->selectMultipleWhereConditions(array("product_id" => $_GET['productid']));
+            $dtos = $this->dataAccessObject->constructDTOArrayFromResults($results);
+            $this->sendResponse(Response::successResponse($dtos));
         } else {
             //get all entities
             $dbRows = $this->dataAccessObject->getAll();
@@ -32,6 +37,7 @@ abstract class GenericController
             $this->sendResponse(Response::successResponse($dtos));
         }
     }
+
 
     public function handleDefaultPOST()
     {
@@ -41,14 +47,15 @@ abstract class GenericController
 
         $result = $this->dataAccessObject->insertIntoTable($preparedData);
 
-        if($this->dataAccessObject->getAffectedRows() == 1 && $result == 1){
+        if ($this->dataAccessObject->getAffectedRows() == 1 && $result == 1) {
             $this->sendResponse(Response::successResponse(null));
-        }else{
+        } else {
             $this->sendResponse(Response::errorResponse("Insert failed"));
         }
     }
 
-    public function handleDefaultDELETE()
+    public
+    function handleDefaultDELETE()
     {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
@@ -64,14 +71,16 @@ abstract class GenericController
     }
 
 
-    public function sendResponse(Response $response)
+    public
+    function sendResponse(Response $response)
     {
         //TODO set headers, HTTP codes
         echo json_encode($response);
     }
 
 
-    public function isRequestMethodAllowed()
+    public
+    function isRequestMethodAllowed()
     {
         if (array_key_exists($this->requestObject->resourceName, $this->allowedRequestMethods)) {
             $allowedResourceHttpMethods = $this->allowedRequestMethods[$this->requestObject->resourceName];

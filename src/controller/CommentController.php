@@ -13,6 +13,20 @@ class CommentController extends GenericController
         );
     }
 
+    public function handleCommentPost()
+    {
+        $data = $this->requestObject->data;
+        $preparedData = $this->prepareDataForInsert($data);
+        $result = $this->dataAccessObject->insertIntoTable($preparedData);
+        if ($this->dataAccessObject->getAffectedRows() == 1 && $result == 1) {
+            $commentId = $this->dataAccessObject->getLastInsertId();
+            $result = $this->dataAccessObject->getById($commentId);
+            $this->sendResponse(Response::successResponse($this->dataAccessObject->constructDTOFromSingleResult($result)));
+        } else {
+            $this->sendResponse(Response::errorResponse("Insert failed"));
+        }
+    }
+
     public function defaultRequestRouter()
     {
         switch ($this->requestObject->getRequestMethod()) {
@@ -20,7 +34,7 @@ class CommentController extends GenericController
                 $this->handleDefaultGET();
                 break;
             case HTTP_POST:
-                $this->handleDefaultPOST();
+                $this->handleCommentPost();
                 break;
 //            case HTTP_PUT:
 //                //update user -> data in payload
@@ -34,7 +48,7 @@ class CommentController extends GenericController
     public function prepareDataForInsert($data)
     {
         $objectAttributes = (array)$data;
-        $objectAttributes['user_id'] =  $objectAttributes['userId'];
+        $objectAttributes['user_id'] = $objectAttributes['userId'];
         $objectAttributes['product_id'] = $objectAttributes['productId'];
         unset($objectAttributes['userId']);
         unset($objectAttributes['productId']);

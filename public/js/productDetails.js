@@ -7,6 +7,8 @@ function getSingleProductCallback(data, textStatus) {
     response = JSON.parse(data);
     if (response.success === true) {
         displaySingleProduct(response.data);
+
+
     } else {
         var x = 10;
     }
@@ -67,7 +69,11 @@ function displaySingleProduct(product) {
     } else {
         setElementAsAddToFavorites(elem,product.id);
     }
+
+    loadComments(product.id);
+
     getPositionWithLocation(product.county, product.location);
+    window.scrollTo(0,document.body.scrollHeight);
 }
 
 

@@ -95,6 +95,7 @@ if (isset($_GET['page'])) {
     <script src="<?= JS_PATH ?>historyBox.js"></script>
     <script src="<?= JS_PATH ?>changeProductState.js"></script>
     <script src="<?= JS_PATH ?>userFavoriteProducts.js"></script>
+    <script src="<?= JS_PATH ?>comments.js"></script>
     <?php
     if (SessionManagement::isAdmin()) {
         echo "<script> saveToLocalStorage('role','admin')</script>";
