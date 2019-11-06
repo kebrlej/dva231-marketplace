@@ -8,21 +8,19 @@ function buildProductCard(product) {
     return '<div class="productBox" onclick="viewProduct('
         + product.id + ',' + product.userId +')">' 
         + objImage
-        + '<h2>'
+        + '<label style="font-size: 20px;">'
         + product.title
-        + '</h2><br><label class="glyphicon glyphicon-tag">'
+        + '</label><br><br><label style="font-size: 15px;" class="glyphicon glyphicon-tag">'
         +" "+ product.price
-        + ' kr</label><br><label class="glyphicon glyphicon-th">'
+        + ' kr</label><br><label style="font-size: 15px;" class="glyphicon glyphicon-th">'
         +" "+ product.category
-        + '</label><br><label class="glyphicon glyphicon-home">'
+        + '</label><br><label style="font-size: 15px;" class="glyphicon glyphicon-home">'
         +" "+ product.location
-        + '</label><br><h4>'
-        + product.date
-        + '</h4><h4>'
-        + product.comments
-        + ' comments</h4><p class="glyphicon glyphicon-pencil">'
-        +" "+ product.description
-        + '</p> </div>';
+        + '</label><br><label style="font-size: 15px;" class="glyphicon glyphicon-calendar">'
+        + " "+ product.postDate.substring(0,10)
+        + '</label><br><br><br><p>' +" "+ product.description + '</p> ' +
+        '' +
+        '</div>';
 }
 //product.id,\''+ "SOLD"+ '\'
 
