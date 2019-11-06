@@ -3,7 +3,7 @@ function changeProductStateCallback(data, textStatus){
     response = JSON.parse(data);
     if (response.success === true) {
         // TODO do something here
-        window.location.reload(true);
+        window.location.href="index.php?page=result";
     } else {
         alert("Product state not changed!!!!"+response.message);
     }

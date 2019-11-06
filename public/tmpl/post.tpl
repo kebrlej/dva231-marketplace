@@ -103,23 +103,4 @@
 <script>
     window.onload = displayProductDetails
 
-    var followElem = document.getElementById("followButton");
-    var deleteElem = document.getElementById("deleteButton");
-    if (getFromLocalStorage("userId") == getFromLocalStorage("productUserId")){
-        followElem.style.display = "none";
-    } else{
-        deleteElem.style.display = "none";
-    }
-
-    function deleteProduct(){
-        changeProductState(getFromLocalStorage("productId"), "SOLD");
-        window.location.href = "index.php?page=result";
-    }
-
-    function favoriteProduct(){
-        // not implemented yet
-    }
-
-
-    
 </script>

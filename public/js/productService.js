@@ -39,6 +39,17 @@ function displaySingleProduct(product) {
     document.getElementById("postUser").innerHTML = " " + product.user.username;
     document.getElementById("postEmail").innerHTML = " " + product.user.email;
 
+
+    var elem = document.getElementById("followOrDelete");
+    if (getFromLocalStorage("userId") == getFromLocalStorage("productUserId")){
+        elem.innerHTML = "Delete";
+        elem.onclick= function(){
+            changeProductState(product.id, "SOLD");
+        } //not implemented yet
+    } else{
+        elem.innerHTML = "Follow";
+        elem.onclick= FollowProduct(); //not implemented yet
+    }
     getPositionWithLocation(product.county, product.location);
 }
 
