@@ -16,6 +16,7 @@ function displayAllProducts(products) {
     products = filterCounty(products);
     products = filterCity(products);
     products = filterPrice(products);
+    products = filterState(products);
 
     for (var i = 0; i < products.length; ++i) {
         document.getElementById("dummyTextToLoadTheProducts").innerHTML += buildProductCard(products[i]);
@@ -128,4 +129,17 @@ function filterPrice(products){
         return products;
     }
     return priceFilteredObjects;
+}
+
+function filterState(products){
+    var stateFilteredObjects = [];
+
+
+    for (var i = 0; i < products.length; ++i) {
+        if (products[i].state == 'VALID') {
+                stateFilteredObjects.push(products[i]);
+            }
+        }
+    }
+    return cityFilteredObjects;
 }
