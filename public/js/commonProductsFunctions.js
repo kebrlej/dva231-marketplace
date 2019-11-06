@@ -10,18 +10,18 @@ function buildProductCard(product) {
         + objImage
         + '<h2>'
         + product.title
-        + '</h2><h3>'
-        + product.price
-        + ' kr</h3><h3>'
-        + product.category
-        + '</h3><h3>'
-        + product.location
-        + '</h3><br><h4>'
+        + '</h2><br><label class="glyphicon glyphicon-tag">'
+        +" "+ product.price
+        + ' kr</label><br><label class="glyphicon glyphicon-th">'
+        +" "+ product.category
+        + '</label><br><label class="glyphicon glyphicon-home">'
+        +" "+ product.location
+        + '</label><br><h4>'
         + product.date
         + '</h4><h4>'
         + product.comments
-        + ' comments</h4><p>'
-        + product.description
+        + ' comments</h4><p class="glyphicon glyphicon-pencil">'
+        +" "+ product.description
         + '</p> </div>';
 }
 //product.id,\''+ "SOLD"+ '\'
