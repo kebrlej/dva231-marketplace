@@ -138,8 +138,8 @@ function filterState(products){
     for (var i = 0; i < products.length; ++i) {
         if (products[i].state == 'VALID') {
                 stateFilteredObjects.push(products[i]);
-            }
+            
         }
     }
-    return cityFilteredObjects;
+    return stateFilteredObjects;
 }
