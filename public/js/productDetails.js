@@ -60,7 +60,7 @@ function displaySingleProduct(product) {
 
     var elem = document.getElementById("follow-delete-button");
     if (getFromLocalStorage("userId") === product.userId || isUserAdmin()) {
-        elem.innerHTML = "Delete";
+        elem.innerHTML = "Remove product";
         elem.onclick = function () {
             changeProductState(product.id, "SOLD");
         }
@@ -137,7 +137,7 @@ var longtitude;
 
 function getPositionWithLocation(county, city) {
     var xmlhttp = new XMLHttpRequest();
-    var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + county + "," + city + "&key=AIzaSyDxN6krn9FupLvyFEdqocm9JIV_IP7rlRs";
+    var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + county + "," + city + "&key=AIzaSyAEuFevYKSOtU4SDHfAN0d1HCv5WqHPH-c";
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
 
@@ -151,7 +151,7 @@ function getPositionWithLocation(county, city) {
             longtitude = coordinates[1];
 
             var script = document.createElement('script');
-            script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDxN6krn9FupLvyFEdqocm9JIV_IP7rlRs&callback=initMap";
+            script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAEuFevYKSOtU4SDHfAN0d1HCv5WqHPH-c&callback=initMap";
 
             document.head.appendChild(script);
 

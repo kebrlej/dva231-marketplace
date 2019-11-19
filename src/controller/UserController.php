@@ -58,7 +58,7 @@ class UserController extends GenericController
         } else {
             $userDto = $this->dataAccessObject->constructDTOFromSingleResult($result);
             try{
-                SessionManagement::setUserRole( new UserRole($result['role']));
+                SessionManagement::setUserRole( $result['role']);
                 SessionManagement::storeUserDataToSession($userDto);
 
                 $this->sendResponse(Response::successResponse($userDto));

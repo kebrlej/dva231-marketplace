@@ -7,7 +7,7 @@ define('SCRIPT_PATH', '../script/');
 define('CLASS_PATH', '../class/');
 define('INDEX_PATH', '../public/');
 
-require_once CLASS_PATH . 'Session.php';
+//require_once CLASS_PATH . 'Session.php';
 require "../src/includes.php";
 
 //$page = '';
@@ -98,9 +98,9 @@ if (isset($_GET['page'])) {
     <script src="<?= JS_PATH ?>comments.js"></script>
     <?php
     if (SessionManagement::isAdmin()) {
-        echo "<script> saveToLocalStorage('role','admin')</script>";
+        echo "<script> saveToLocalStorage('role','admin');</script>";
     } else {
-        echo "<script> saveToLocalStorage('role','user')</script>";
+        echo "<script> saveToLocalStorage('role','user');</script>";
     }
     ?>
 </head>
